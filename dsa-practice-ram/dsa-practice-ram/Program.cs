@@ -6,8 +6,8 @@ namespace dsa_practice_ram
     {
         static void Main(string[] args)
         {
-             Union obj = new Union();
-            obj.FindUnion();
+            TwoSum twoSum = new TwoSum();
+            twoSum.TwoSumOpimal();
         }
     }
 }
