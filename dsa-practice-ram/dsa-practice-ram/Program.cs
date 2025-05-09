@@ -6,9 +6,8 @@ namespace dsa_practice_ram
     {
         static void Main(string[] args)
         {
-            DNF dNF = new DNF();
-            dNF.DutchNationalFlag();
-            
+            MaxSubArraySum maxSubArraySum = new MaxSubArraySum();
+            maxSubArraySum.KadanesAlgorithmGetMaxSumAnotherApproachSubArray();
         }
     }
 }
