@@ -6,8 +6,9 @@ namespace dsa_practice_ram
     {
         static void Main(string[] args)
         {
-            TwoSum twoSum = new TwoSum();
-            twoSum.TwoSumOpimal();
+            DNF dNF = new DNF();
+            dNF.DutchNationalFlag();
+            
         }
     }
 }

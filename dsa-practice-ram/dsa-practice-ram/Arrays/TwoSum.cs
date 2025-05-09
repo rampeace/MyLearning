@@ -24,7 +24,6 @@ namespace dsa_practice_ram.Arrays
                     if (!pairs.Contains((y, x)) && !pairs.Contains((x, y)))
                         pairs.Add((x, y));
                 }
-
                 seen.Add(x);
             }
 
@@ -37,7 +36,7 @@ namespace dsa_practice_ram.Arrays
         public void TwoSumOpimal()
         {
             int[] array = { 2, 6, 4, 6, 8, 5, 8, 1, 1, 10 };
-            array = array.Order().ToArray();
+            Array.Sort(array);
 
             int target = 14;
 
