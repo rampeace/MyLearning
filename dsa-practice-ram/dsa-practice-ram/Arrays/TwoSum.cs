@@ -11,7 +11,6 @@ namespace dsa_practice_ram.Arrays
         public void FindTwoSum()
         {
             int[] array = { 2, 6, 4, 6, 8, 5, 8, 1, 1, 10 };
-            // sorted: { 1, 1, 2, 4, 5, 6, 8, 8, 10 }
             int target = 14;
             var pairs = new List<(int x, int y)>();
             var seen = new HashSet<int>();
@@ -37,6 +36,7 @@ namespace dsa_practice_ram.Arrays
         public void TwoSumOpimal()
         {
             int[] array = { 2, 6, 4, 6, 8, 5, 8, 1, 1, 10 };
+            // sorted: { 1, 1, 2, 4, 5, 6, 8, 8, 10 }
             Array.Sort(array);
 
             int target = 14;

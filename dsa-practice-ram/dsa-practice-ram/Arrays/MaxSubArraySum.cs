@@ -68,7 +68,7 @@ namespace dsa_practice_ram.Arrays
         public void KadanesAlgorithmGetMaxSumAnotherApproach()
         {
             // Given an array of integers (which may include negative numbers), 
-            // fund the contiguous sub array that has the maxumum sum
+            // find the contiguous sub array that has the maxumum sum
             int[] nums = { 2, -3, 4, -1, -2, 1, 5, -3 };
             int maxSum = int.MinValue;
             int sum = 0;
