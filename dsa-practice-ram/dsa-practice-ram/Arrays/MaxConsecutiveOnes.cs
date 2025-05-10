@@ -22,7 +22,7 @@ namespace dsa_practice_ram.Arrays
                 else
                     count = 0;
 
-                max = Math.Max(max, count);                
+                max = System.Math.Max(max, count);                
             }
 
             Console.WriteLine(max);
