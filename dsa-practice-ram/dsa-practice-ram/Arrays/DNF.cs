@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +26,7 @@ namespace dsa_practice_ram.Arrays
             int mid = 0;
             int high = array.Length - 1;
 
-            while (mid < high)
+            while (mid <= high)
             {
                 int midValue = array[mid];
 
