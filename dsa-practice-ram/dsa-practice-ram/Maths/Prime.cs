@@ -25,7 +25,7 @@ namespace dsa_practice_ram.Maths
             if (number == 2) return true;
             if (number % 2 == 0) return false;
 
-            int boundary = (int)System.Math.Sqrt(number);
+            int boundary = (int)Math.Sqrt(number);
 
             for (int i = 3; i <= boundary; i += 2)
             {

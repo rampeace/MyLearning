@@ -23,13 +23,13 @@ namespace dsa_practice_ram.Arrays
             {
                 if (Math.Abs(nums[left]) > Math.Abs(nums[right]))
                 {
-                    result[index] = (int)System.Math.Pow(nums[left], 2);
+                    result[index] = (int)Math.Pow(nums[left], 2);
                     index--;
                     left++;
                 }
                 else
                 {
-                    result[index] = (int)System.Math.Pow(nums[right], 2);
+                    result[index] = (int)Math.Pow(nums[right], 2);
                     index--;
                     right--;
                 }
