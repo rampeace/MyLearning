@@ -28,5 +28,27 @@ namespace dsa_practice_ram.Maths
             }
             return false;
         }
+        
+        public bool CheckPowerOfTwoUsingLog(int n)
+        {
+           double log = Math.Log(n, 2);
+
+            // check for tolerence epsilon
+            double epsilon = 1e-10;  // e => x 10 to the power of, epsilon is equivalent to 0.0000000001 or 1/10^-10
+            
+           return Math.Abs(log - Math.Round(log)) <= epsilon;
+        }
+
+        public double GetPower(int n, int power)
+        {
+            double log = Math.Log(n, power);
+
+            double epsilon = 1e-10;
+
+            if (Math.Abs(log - Math.Round(log)) <= epsilon)
+                log = Math.Round(log);
+
+            return log;
+        }
     }
 }

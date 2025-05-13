@@ -14,7 +14,7 @@ namespace dsa_practice_ram.Arrays
 
             Array.Sort(input);
 
-            // 1, 2, 2, ,3, 3, 4, 7, 8
+            // 1, 2, 2, 3, 3, 4, 7, 8
             List<int> result = new List<int>();
 
             for (int i = 1; i < input.Length; i++)
