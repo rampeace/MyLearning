@@ -37,6 +37,7 @@ namespace dsa_practice_ram.Arrays
         public void KadanesAlgorithmGetSubArray()
         {
             // You restart the subarray from the current element only when the ongoing total (currentSum) isn’t worth carrying forward.
+            // Return the contiguous subarray of any length that has maximum sum
             int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
 
             int sum = 0;
