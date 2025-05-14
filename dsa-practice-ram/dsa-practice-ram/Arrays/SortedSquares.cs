@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace dsa_practice_ram.Arrays
+﻿namespace dsa_practice_ram.Arrays
 {
     internal class SortedSquares
     {
@@ -34,7 +27,7 @@ namespace dsa_practice_ram.Arrays
                     right--;
                 }
             }
-            Console.WriteLine(string.Join(", ", result));   
+            Console.WriteLine(string.Join(", ", result));
         }
     }
 }

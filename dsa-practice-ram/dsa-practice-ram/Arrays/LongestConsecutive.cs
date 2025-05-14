@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace dsa_practice_ram.Arrays
+﻿namespace dsa_practice_ram.Arrays
 {
     internal class LongestConsecutive
     {
@@ -42,7 +35,7 @@ namespace dsa_practice_ram.Arrays
 
             Console.WriteLine(string.Join(", ", nums[range]));
         }
-        
+
         public void LongestConsecutiveSequenceHashsetApproach()
         {
             int[] nums = { 102, 4, 4, 4, 4, 4, 4, 44, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 100, 1, 101, 3, 2, 1, 1 };

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace dsa_practice_ram.Arrays
+﻿namespace dsa_practice_ram.Arrays
 {
     public class MaxConsecutiveOnes
     {
@@ -22,7 +16,7 @@ namespace dsa_practice_ram.Arrays
                 else
                     count = 0;
 
-                max = System.Math.Max(max, count);                
+                max = System.Math.Max(max, count);
             }
 
             Console.WriteLine(max);

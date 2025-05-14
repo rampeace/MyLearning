@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace dsa_practice_ram.Maths
+﻿namespace dsa_practice_ram.Maths
 {
     internal class ArmstrongNumber
     {
         /*  
          *  153 is an Armstrong number because:  
-            13+53+33=15313+53+33=153  
+            1^3 + 5^3 + 3^3 = 153
 
             9474 is an Armstrong number because:  
-            94+44+74+44=947494+44+74+44=9474  
+            9^4 + 4^4 + 7^4 + 4^4 = 9474  
          */
 
         public void CheckArmstrongNumber(int number)
@@ -25,7 +19,7 @@ namespace dsa_practice_ram.Maths
             while (number > 0)
             {
                 int digit = number % 10;
-                sum += (int)System.Math.Pow(digit, digits); // Fully qualify Math.Pow to resolve ambiguity  
+                sum += (int)Math.Pow(digit, digits);
                 number /= 10;
             }
 

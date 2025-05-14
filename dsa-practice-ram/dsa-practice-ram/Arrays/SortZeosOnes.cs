@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace dsa_practice_ram.Arrays
+﻿namespace dsa_practice_ram.Arrays
 {
     public class SortZeosOnes
     {
-        public void SortZeosOness() 
+        public void SortZeosOness()
         {
             int[] array = { 1, 0, 0, 1, 1, 1, 0, 0, 1 };
             int zerosTotal = 0;

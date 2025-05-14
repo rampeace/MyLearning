@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace dsa_practice_ram.Arrays
 {
     internal class DNF
     {
         /*
          * 
-         * [0...    ][1.....      ][unknown.....       ][2.......      ]
-                      ^             ^                 ^
-	                  low          mid                high
+         * [0...    ][1.....  ][unknown.....][2.......]
+                      ^         ^          ^
+	                  low      mid        high
         
             0 -> 0 - low - 1
             1 -> low - mid - 1
@@ -21,7 +15,7 @@ namespace dsa_practice_ram.Arrays
 
         public void DutchNationalFlag()
         {
-            int[] array = { 2, 1, 0, 1, 1, 2, 0, 0, 2, 1, 1, 1};
+            int[] array = { 2, 1, 0, 1, 1, 2, 0, 0, 2, 1, 1, 1 };
             int low = 0;
             int mid = 0;
             int high = array.Length - 1;

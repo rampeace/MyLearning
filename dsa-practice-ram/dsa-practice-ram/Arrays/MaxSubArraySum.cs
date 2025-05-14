@@ -1,10 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace dsa_practice_ram.Arrays
 {
     internal class MaxSubArraySum
@@ -89,7 +82,7 @@ namespace dsa_practice_ram.Arrays
         public void KadanesAlgorithmGetMaxSumAnotherApproachSubArray()
         {
             // int[] nums = { 2, -3, 4, -1, -2, 1, 5, -3 };
-            int[] nums = { -4, -3, -2, -1 };
+            int[] nums = { -1, -4, -2, -5 };
             int maxSum = int.MinValue;
             int sum = 0;
             Range range = ..1;

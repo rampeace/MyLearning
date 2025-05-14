@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace dsa_practice_ram.Recursion
+﻿namespace dsa_practice_ram.Recursion
 {
     internal class Backtracking
     {
@@ -119,7 +113,7 @@ namespace dsa_practice_ram.Recursion
              * 1, 1 -> BAC            * 
              *  
              * */
-       }
+        }
 
         private void Swap(char[] chars, int i, int j)
         {

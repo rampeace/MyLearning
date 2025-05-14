@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace dsa_practice_ram.Maths
+﻿namespace dsa_practice_ram.Maths
 {
     internal class PowerOfTwo
     {
@@ -24,19 +18,19 @@ namespace dsa_practice_ram.Maths
                 if (power == n)
                     return true;
 
-                power *= 2;  
+                power *= 2;
             }
             return false;
         }
-        
+
         public bool CheckPowerOfTwoUsingLog(int n)
         {
-           double log = Math.Log(n, 2);
+            double log = Math.Log(n, 2);
 
             // check for tolerence epsilon
             double epsilon = 1e-10;  // e => x 10 to the power of, epsilon is equivalent to 0.0000000001 or 1/10^-10
-            
-           return Math.Abs(log - Math.Round(log)) <= epsilon;
+
+            return Math.Abs(log - Math.Round(log)) <= epsilon;
         }
 
         public double GetPower(int n, int power)

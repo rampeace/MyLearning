@@ -1,17 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace dsa_practice_ram.Arrays
 {
     internal class LongestSubArraySum
     {
         public void FindLongestSubArraySum()
         {
-            // Find the longest subarray whose sum is equal to k
-            // This only works if the numbers are all positive 
+            // Find the longest subarray whose sum is less than or equal to k
             int[] array = { 1, 2, 3, 0, 0, 0, 1, 1, 1, 1, 4, 2, 3 };
             const int k = 3;
             int sum = 0;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace dsa_practice_ram.Hashing
 {
@@ -13,7 +8,7 @@ namespace dsa_practice_ram.Hashing
         private const double ThresHold = 0.75;
         public int Count { get; private set; }
 
-        public SimpleDictionary(int bucketSize = 4) 
+        public SimpleDictionary(int bucketSize = 4)
         {
             buckets = Enumerable.Range(0, bucketSize)
                 .Select(_ => new List<KeyValuePair<TKey, TValue>>())
