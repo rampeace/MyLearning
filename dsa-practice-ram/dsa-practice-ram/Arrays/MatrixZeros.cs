@@ -1,4 +1,4 @@
-﻿namespace dsa_practice_ram.Arrays
+namespace dsa_practice_ram.Arrays
 {
     internal class MatrixZeros
     {
@@ -73,7 +73,7 @@
         {
             /* Mark entire row and column as zeros if there is any zero
              * 
-             *   0|0 0 1  => It already serves as its own row marker, too.
+             *   0|0 0 1  => It already serves as its own column marker, too.
              *  ---------
              1 | 1 1 1 1
              0 | 1 0 1 1
