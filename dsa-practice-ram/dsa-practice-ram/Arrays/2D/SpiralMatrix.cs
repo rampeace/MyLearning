@@ -22,6 +22,8 @@ namespace dsa_practice_ram.Arrays._2D
              *          4 | 17  30  29  28  27  10
              *   bottom 5 | 16  15  14  13  12  11
              *     
+             *     Time complexity: O(N X M)
+             *     Space complexity: 0(N X M)
              * */
 
             List<List<int>> spiralMatrix = new List<List<int>>
