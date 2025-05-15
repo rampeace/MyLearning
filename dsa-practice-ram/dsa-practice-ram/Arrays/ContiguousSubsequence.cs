@@ -1,4 +1,4 @@
-﻿namespace dsa_practice_ram.Arrays
+namespace dsa_practice_ram.Arrays
 {
     internal class ContiguousSubsequence
     {
@@ -7,9 +7,9 @@
             int[] array = { 1, 3, 5, 4, 7, 9, 12, 18, 19, 2, 2, 2, 2, 2, 2, 2, 2 };
 
             int windowStart = 0;
-            int maxLength = 0;
+            int maxLength = 1;
 
-            Range range = default;
+            Range range = 0..1;
 
             for (int windowEnd = 1; windowEnd < array.Length; windowEnd++)
             {

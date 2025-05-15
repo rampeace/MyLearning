@@ -37,7 +37,7 @@ namespace dsa_practice_ram.Arrays
                 {
                     mid++;
                 }
-                else if (midValue == 2)
+                else
                 {
                     int temp = array[high];
                     array[high] = array[mid];

@@ -1,4 +1,4 @@
-﻿namespace dsa_practice_ram.Arrays
+namespace dsa_practice_ram.Arrays
 {
     internal class LongestConsecutive
     {
@@ -11,7 +11,7 @@
             Array.Sort(nums);
 
             int maxLength = 1;
-            Range range = default;
+            Range range = 0..1;
 
             int windowStart = 0;
 
