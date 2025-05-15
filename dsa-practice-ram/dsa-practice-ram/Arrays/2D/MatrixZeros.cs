@@ -72,6 +72,7 @@
         public void SetMatrixZerosOptimal()
         {
             /* Mark entire row and column as zeros if there is any zero
+             * Time Complexity: 2 x N x M
              * 
              *   0|0 0 1  => It already serves as its own row marker, too.
              *  ---------
