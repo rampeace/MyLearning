@@ -1,4 +1,4 @@
-namespace dsa_practice_ram.Arrays
+namespace DsaPractice.Arrays
 {
     /*
      *
@@ -160,7 +160,6 @@ namespace dsa_practice_ram.Arrays
             Dictionary<int, List<int>> prefixSumMap = new();
 
             // If a prefix sum ever becomes exactly k, then the subarray from index 0 to current index should be counted."
-            // To account the  beginning of the array, when prefixsum == k
             prefixSumMap[0] = new List<int> { -1 };
             int prefixSum = 0;
             List<Range> subArrays = new();

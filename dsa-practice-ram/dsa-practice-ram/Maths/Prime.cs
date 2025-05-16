@@ -1,4 +1,4 @@
-﻿namespace dsa_practice_ram.Maths
+﻿namespace DsaPractice.Maths
 {
     internal class Prime
     {

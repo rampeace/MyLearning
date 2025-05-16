@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace dsa_practice_ram.Hashing
+namespace DsaPractice.Hashing
 {
     public class SimpleDictionary<TKey, TValue> : IEnumerable<KeyValuePair<TKey, TValue>>
     {

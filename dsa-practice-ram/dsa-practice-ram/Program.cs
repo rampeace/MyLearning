@@ -1,13 +1,13 @@
-﻿using dsa_practice_ram.Arrays;
+﻿using DsaPractice.Arrays;
+using DsaPractice.Arrays._2D;
 
-namespace dsa_practice_ram
+namespace DsaPractice
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            MaxSubArraySum maxSubArraySum = new MaxSubArraySum();
-            maxSubArraySum.KadanesAlgorithmGetMaxSumAnotherApproachSubArray();
+            new MissingNumbers().FindMissingNumbersOptimalInplace();
         }
     }
 }

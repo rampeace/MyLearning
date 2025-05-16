@@ -1,4 +1,4 @@
-﻿namespace dsa_practice_ram.Recursion
+﻿namespace DsaPractice.Recursion
 {
     internal class Backtracking
     {

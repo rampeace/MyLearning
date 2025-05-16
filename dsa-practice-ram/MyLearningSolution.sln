@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dsa-practice-ram", "dsa-practice-ram\dsa-practice-ram.csproj", "{F88058C7-A69E-4F9F-93DD-60101870ADBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DsaPractice", "dsa-practice-ram\DsaPractice.csproj", "{F88058C7-A69E-4F9F-93DD-60101870ADBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpPractice", "CSharpPractice\CSharpPractice.csproj", "{4A1DF08F-3048-4B32-B6AB-5754B79AF94E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F88058C7-A69E-4F9F-93DD-60101870ADBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F88058C7-A69E-4F9F-93DD-60101870ADBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F88058C7-A69E-4F9F-93DD-60101870ADBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A1DF08F-3048-4B32-B6AB-5754B79AF94E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A1DF08F-3048-4B32-B6AB-5754B79AF94E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A1DF08F-3048-4B32-B6AB-5754B79AF94E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A1DF08F-3048-4B32-B6AB-5754B79AF94E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

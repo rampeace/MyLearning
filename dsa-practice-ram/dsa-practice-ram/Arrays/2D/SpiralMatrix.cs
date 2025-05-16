@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dsa_practice_ram.Arrays._2D
+namespace DsaPractice.Arrays._2D
 {
     internal class SpiralMatrix
     {

@@ -1,4 +1,4 @@
-﻿namespace dsa_practice_ram.Linq
+﻿namespace CSharpPractice.Linq
 {
     internal class Leader
     {

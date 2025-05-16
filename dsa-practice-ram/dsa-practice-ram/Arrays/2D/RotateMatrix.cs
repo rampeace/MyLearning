@@ -5,7 +5,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dsa_practice_ram.Arrays
+namespace DsaPractice.Arrays
 {
     internal class RotateMatrix
     {

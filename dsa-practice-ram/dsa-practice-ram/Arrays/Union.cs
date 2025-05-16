@@ -1,4 +1,4 @@
-﻿namespace dsa_practice_ram.Arrays
+﻿namespace DsaPractice.Arrays
 {
     public class Union
     {
