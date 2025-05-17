@@ -1,4 +1,5 @@
-﻿using DsaPractice.Arrays;
+﻿using dsa_practice_ram.Maths;
+using DsaPractice.Arrays;
 using DsaPractice.Arrays._2D;
 
 namespace DsaPractice
@@ -7,7 +8,7 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            new MissingNumbers().FindMissingNumbersOptimalInplace();
+            new AllDivisors().ConvertToAlmostSquareMatrix();
         }
     }
 }
