@@ -1,4 +1,6 @@
-﻿using dsa_practice_ram.Maths;
+﻿using DsaPractice.BinarySearch;
+using DsaPractice.Bit_Manipulation;
+using DsaPractice.Maths;
 using DsaPractice.Arrays;
 using DsaPractice.Arrays._2D;
 
@@ -8,7 +10,6 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            new AllDivisors().ConvertToAlmostSquareMatrix();
         }
     }
 }
