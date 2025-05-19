@@ -136,7 +136,6 @@ namespace DsaPractice.BinarySearch
 
                 if (nums[left] <= nums[mid]) // left is the sorted half
                 {
-
                     if (target < nums[mid] && target >= nums[left])
                         right = mid - 1;
                     else

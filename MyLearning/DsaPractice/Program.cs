@@ -10,7 +10,7 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            new RotatedSortedArray().IsNumberRotated();
+            new KokoEatingBananas().BruteForceApproach();
         }
     }
 }
