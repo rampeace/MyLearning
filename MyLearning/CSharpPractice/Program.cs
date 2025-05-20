@@ -1,5 +1,6 @@
 ﻿using CSharpPractice.DelegatesEvents;
 using CSharpPractice.DesignPatterns;
+using CSharpPractice.Linq;
 using CSharpPractice.Multithreading;
 using System.Formats.Asn1;
 using System.Runtime.CompilerServices;
@@ -10,7 +11,7 @@ namespace CSharpPractice
     {
         static async Task Main(string[] args)
         {
-            
+
         }
     }
 }

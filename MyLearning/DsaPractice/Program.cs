@@ -3,6 +3,8 @@ using DsaPractice.Bit_Manipulation;
 using DsaPractice.Maths;
 using DsaPractice.Arrays;
 using DsaPractice.Arrays._2D;
+using DsaPractice.Trees;
+using System.Net;
 
 namespace DsaPractice
 {
@@ -10,7 +12,9 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            new KokoEatingBananas().BruteForceApproach();
+            new DFS().IterativePreOrderTraversal();
+
+            Console.ReadKey();
         }
     }
 }

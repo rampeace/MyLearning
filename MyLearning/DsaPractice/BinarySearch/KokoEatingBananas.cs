@@ -34,25 +34,39 @@ namespace DsaPractice.BinarySearch
             Console.WriteLine(result);
         }
 
-        //public int BinarySearchApproach(int[] piles, int hours)
-        //{
-        //    /*
-        //     * [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]           
-        //     *  
-        //     */
+        public void BinarySearchApproach()
+        {
+            int[] piles = { 3, 6, 7, 11 };
+            int result = BinarySearchApproach(piles, 8);
+            Console.WriteLine(result);
+        }
 
-        //    int left = 0;
-        //    int right = piles.Length - 1;
+        public int BinarySearchApproach(int[] piles, int hours)
+        {
+            /*
+             * [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]           
+             *                  6 hours
+             */
 
-        //    while(left <= right)
-        //    {
-        //        int mid = left + (right - left) / 2;
+            int left = 1;
+            int right = piles.Max();
+            int result = 0;
 
-        //        int totalHours = piles.Sum(pile => (int)Math.Ceiling((double)pile / mid));
+            while (left <= right)
+            {
+                int mid = left + (right - left) / 2;
 
-        //        if (totalHours <= hours)
-        //            return mid;
-        //    }
-        //}
+                int totalHours = piles.Sum(pile => (int)Math.Ceiling((double)pile / mid));
+
+                if (totalHours <= hours)
+                {
+                    result = mid;
+                    right = mid - 1;
+                }
+                else
+                    left = mid + 1;
+            }
+            return result;
+        }
     }
 }
