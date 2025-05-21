@@ -5,6 +5,7 @@ using DsaPractice.Arrays;
 using DsaPractice.Arrays._2D;
 using DsaPractice.Trees;
 using System.Net;
+using DsaPractice.Strings.Trie;
 
 namespace DsaPractice
 {
@@ -12,7 +13,9 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            new DFS().IterativePreOrderTraversal();
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            new Trie().TestWordsWithPrefix();
 
             Console.ReadKey();
         }

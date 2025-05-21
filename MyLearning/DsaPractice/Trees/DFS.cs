@@ -88,20 +88,20 @@ namespace DsaPractice.Trees
                 D E B C A
              * */
             TreeNode<string> root =
-                new TreeNode<string>("A", 
-                new TreeNode<string>("B", 
-                new TreeNode<string>("D"), 
-                new TreeNode<string>("E")), 
+                new TreeNode<string>("A",
+                new TreeNode<string>("B",
+                new TreeNode<string>("D"),
+                new TreeNode<string>("E")),
                 new TreeNode<string>("C"));
 
             Console.WriteLine("Preorder Traversal: ");
             PreOrderTraversal(root);
             Console.WriteLine();
-          
+
             Console.WriteLine("Inorder Traversal: ");
             InOrderTraversal(root);
             Console.WriteLine();
-         
+
             Console.WriteLine("Postorder Traversal: ");
             PostOrderTraversal(root);
         }
@@ -109,12 +109,14 @@ namespace DsaPractice.Trees
         public void IterativePreOrderTraversal()
         {
             /*
+             * Root -> Left -> Right
+             * 
              *                   A
              *                 /   \
              *                B     C
              *              /  \   /  \
              *             D   E   F   G
-             * A B D E C F G
+             *  A B D E C F G
              * 
              *   Stack:
              *   
@@ -145,10 +147,58 @@ namespace DsaPractice.Trees
                 var current = stack.Pop();
                 Console.Write(current.Value + " ");
 
-                if (current.Left != null)
+                if (current.Right != null)
                     stack.Push(current.Right);
 
+                if (current.Left != null)
+                    stack.Push(current.Left);
+            }
+        }
+
+        public void IterativeInOrderTraversal()
+        {
+            /*
+             *                   A
+             *                 /   \
+             *                B     C
+             *              /  \   /  \
+             *             D   E   F   G
+             * A B D E C F G
+             * 
+             *   Stack:
+             *   
+             *    Pop    Push          Current
+             *     - ->  A B D     ->    root 
+             *     D ->   
+             *     B ->  E D
+             *     D ->  null null
+             *     E ->  null null
+             *     C ->  G F 
+             *     F ->  null null
+             *     G ->  null null
+             */
+
+            TreeNode<string> root =
+                new TreeNode<string>("A",
+                new TreeNode<string>("B",
+                new TreeNode<string>("D"),
+                new TreeNode<string>("E")),
+                new TreeNode<string>("C",
+                new TreeNode<string>("F"),
+                new TreeNode<string>("G")));
+
+            Stack<TreeNode<string>> stack = new();
+            stack.Push(root);
+
+            while (stack.Count > 0)
+            {
+                var current = stack.Pop();
+                Console.Write(current.Value + " ");
+
                 if (current.Right != null)
+                    stack.Push(current.Right);
+
+                if (current.Left != null)
                     stack.Push(current.Left);
             }
         }

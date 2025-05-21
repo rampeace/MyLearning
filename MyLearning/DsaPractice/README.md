@@ -1,10 +1,51 @@
-Tries & Strings: Concatenated words, Longest substring without repeats, Interleaving string  
-✅ Searching & Sorting: Min in rotated sorted array, 132 pattern, Largest divisible subset, Search a 2D matrix  
-✅ Hashing: 4Sum, Rabbits in forest, Min window substring, Count nice pairs  
-✅ Stacks & Queues: IPO, Longest valid parentheses, Sliding window median, Sliding window max  
-✅ Greedy: Maximize the topmost element after K moves  
-✅ DP: Longest common subsequence, Longest consecutive sequence, Max strength of k disjoint subarrays  
-✅ Two Pointers: Boats to save people, 2Sum, Container with most water, Trapping rain water  
-✅ Graphs & Trees: Cheapest flight within K stops, Satisfiability of equality equations, Unique paths, Collect coins in a tree  
+# DSA Practice Problems
+
+A curated list of solved Data Structures & Algorithms problems, organized by topic.
+
+---
 
 
+## Tries & Strings
+- Concatenated Words
+- Longest Substring Without Repeats
+- Interleaving String
+
+## Searching & Sorting
+- Minimum in Rotated Sorted Array
+- 132 Pattern
+- Largest Divisible Subset
+- Search a 2D Matrix
+
+## Hashing
+- 4Sum
+- Rabbits in Forest
+- Minimum Window Substring
+- Count Nice Pairs
+
+## Stacks & Queues
+- IPO
+- Longest Valid Parentheses
+- Sliding Window Median
+- Sliding Window Maximum
+
+## Greedy
+- Maximize the Topmost Element After K Moves
+
+## Dynamic Programming (DP)
+- Longest Common Subsequence
+- Longest Consecutive Sequence
+- Maximum Strength of K Disjoint Subarrays
+
+## Two Pointers
+- Boats to Save People
+- 2Sum
+- Container With Most Water
+- Trapping Rain Water
+
+## Graphs & Trees
+- Cheapest Flight Within K Stops
+- Satisfiability of Equality Equations
+- Unique Paths
+- Collect Coins in a Tree
+
+---
