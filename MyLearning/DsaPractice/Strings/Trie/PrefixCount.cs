@@ -19,7 +19,6 @@ namespace DsaPractice.Strings.Trie
 
         TrieNode _root = new TrieNode();
 
-
         public void Insert(string word)
         {
             TrieNode node = _root;
@@ -80,7 +79,7 @@ namespace DsaPractice.Strings.Trie
             return node.PrefixCount;
         }
 
-        public void FillTrieWithSampleDataAndTest()
+        public void Test()
         {
             Insert("carpool");
             Insert("cat");

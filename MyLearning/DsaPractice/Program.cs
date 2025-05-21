@@ -15,7 +15,7 @@ namespace DsaPractice
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            new PrefixCount().FillTrieWithSampleDataAndTest();
+            new PrefixCount().Test();
             Console.ReadKey();
         }
     }

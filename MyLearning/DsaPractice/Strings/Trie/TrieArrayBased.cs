@@ -95,6 +95,7 @@ namespace DsaPractice.Strings.Trie
                     DFS(node.Children[i], words);
             }
         }
+
         public void TestSearchWords()
         {
             Insert("cat");

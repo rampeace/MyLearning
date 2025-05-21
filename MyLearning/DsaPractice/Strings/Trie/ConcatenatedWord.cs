@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace DsaPractice.Strings.Trie
 {
-    internal class ConcatenatedWord : Trie
+    internal class ConcatenatedWord
     {
-        private bool CanFormContanatedWord(string word, int index, int count)
+        private readonly Trie _trie = new Trie();
+
+        private bool CanFormConcatenatedWord(string word, int index, int count)
         {
-            var node = Root;
+            var node = _trie.Root;
 
             for (int i = index; i < word.Length; i++)
             {
@@ -27,7 +29,7 @@ namespace DsaPractice.Strings.Trie
                     if (i == word.Length - 1)
                         return count >= 1; // Must form with 2+ words
 
-                    if (CanFormContanatedWord(word, i + 1, count + 1))
+                    if (CanFormConcatenatedWord(word, i + 1, count + 1))
                         return true;
                 }
             }
@@ -36,18 +38,18 @@ namespace DsaPractice.Strings.Trie
         }
 
         public List<string> GetContenatedWords(string[] words) =>
-            words.Where(word => CanFormContanatedWord(word, 0, 0)).ToList();
+            words.Where(word => CanFormConcatenatedWord(word, 0, 0)).ToList();
 
-        public override void FillTrieWithSampleDataAndTest()
+        public void Test()
         {
-            string[] strings = { "cat", "cats", "dog", "catsdog", "catdog", "mouse", "catmouse" };
+            string[] words = { "cat", "cats", "dog", "catsdog", "catdog", "mouse", "catmouse" };
 
-            foreach (var item in strings)
+            foreach (var word in words)
             {
-                Insert(item);
+                _trie.Insert(word);
             }
 
-            Console.WriteLine(string.Join(", ", GetContenatedWords(strings)));
+            Console.WriteLine(string.Join(", ", GetContenatedWords(words)));
         }
     }
 }

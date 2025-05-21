@@ -6,25 +6,13 @@ using System.Threading.Tasks;
 
 namespace DsaPractice.Strings.Trie
 {
-    internal class GetWordsWithPrefix : Trie
+    internal class GetWordsWithPrefix
     {
-        public void Insert(string word)
-        {
-            TrieNode node = Root;
+        private readonly Trie _trie = new Trie();
 
-            foreach (var c in word)
-            {
-                if (!node.Children.ContainsKey(c))
-                    node.Children[c] = new TrieNode();
-
-                node = node.Children[c];
-            }
-
-            node.Word = word;
-        }
         public List<string> GetWordsHavingPrefix(string prefix)
         {
-            var node = Root;
+            var node = _trie.Root;
 
             foreach (var c in prefix)
             {
@@ -51,9 +39,10 @@ namespace DsaPractice.Strings.Trie
                 DFS(childNode, result);
             }
         }
-        public override void FillTrieWithSampleDataAndTest()
+
+        public void Test()
         {
-            base.FillTrieWithSampleDataAndTest();
+            _trie.PopuateTrie();
 
             Console.WriteLine(string.Join(", ", GetWordsHavingPrefix("ca")));
             Console.WriteLine(string.Join(", ", GetWordsHavingPrefix("தா")));

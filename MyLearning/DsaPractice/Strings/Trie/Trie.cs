@@ -22,7 +22,7 @@ namespace DsaPractice.Strings.Trie
 
         */
 
-        protected TrieNode Root { get; } = new TrieNode();
+        public TrieNode Root { get; } = new TrieNode();
 
         public void Insert(string word)
         {
@@ -54,19 +54,29 @@ namespace DsaPractice.Strings.Trie
             return node.Word != null;
         }
 
-        public virtual void FillTrieWithSampleDataAndTest()
+        public void PopuateTrie(IEnumerable<string> strings = null)
         {
-            Insert("carpool");
-            Insert("cat");
-            Insert("can");
-            Insert("car");
-            Insert("ca");
-            Insert("ram");
+            if (strings == null)
+            {
+                Insert("carpool");
+                Insert("cat");
+                Insert("can");
+                Insert("car");
+                Insert("ca");
+                Insert("ram");
 
-            Insert("தாய்");
-            Insert("தாமரை");
-            Insert("தாதா");
-            Insert("தாங்கு");
+                Insert("தாய்");
+                Insert("தாமரை");
+                Insert("தாதா");
+                Insert("தாங்கு");
+            }
+            else
+            {
+                foreach (var item in strings)
+                {
+                    Insert(item);
+                }
+            }
         }
     }
 }
