@@ -57,10 +57,10 @@ namespace CSharpPractice.Collections
             _queue.Enqueue(patient, priority);
         }
 
-        public void Dequeue()
+        public Patient Dequeue()
         {
             if (_queue.Count == 0) throw new InvalidOperationException("The queue is empty.");
-            _queue.Dequeue();
+            return _queue.Dequeue();
         }
 
         public int Count() => _queue.Count;

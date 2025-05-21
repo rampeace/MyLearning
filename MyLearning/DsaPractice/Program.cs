@@ -6,6 +6,8 @@ using DsaPractice.Arrays._2D;
 using DsaPractice.Trees;
 using System.Net;
 using DsaPractice.Strings.Trie;
+using DsaPractice.MinHeap;
+using DsaPractice.Strings;
 
 namespace DsaPractice
 {
@@ -15,7 +17,7 @@ namespace DsaPractice
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            new PrefixCount().Test();
+            new LongestSubstring().Test();
             Console.ReadKey();
         }
     }
