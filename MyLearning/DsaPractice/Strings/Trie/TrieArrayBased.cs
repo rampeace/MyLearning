@@ -9,12 +9,6 @@ namespace DsaPractice.Strings.Trie
 {
     internal class TrieArrayBased
     {
-        internal class TrieNode
-        {
-            public TrieNode[] Children = new TrieNode[26]; // supports only a-z
-
-            public string? Word { get; set; }
-        }
 
         /*
              ["cat", "cap", "can"]
@@ -28,6 +22,12 @@ namespace DsaPractice.Strings.Trie
                       t  p  n
 
         */
+        internal class TrieNode
+        {
+            public TrieNode[] Children = new TrieNode[26]; // supports only a-z
+
+            public string? Word { get; set; }
+        }
 
         TrieNode _root = new TrieNode();
 
@@ -63,19 +63,6 @@ namespace DsaPractice.Strings.Trie
 
             return node.Word != null;
         }
-
-        public void TestSearchWords()
-        {
-            Insert("cat");
-            Insert("car");
-            Insert("carpool");
-            Insert("can");
-            Insert("cen");
-
-            Console.WriteLine(Search("carpool"));
-
-            Console.WriteLine(string.Join(", ", GetWordsWithPrefix("ca")));
-        }
         public List<string> GetWordsWithPrefix(string prefix)
         {
             var node = _root;
@@ -107,6 +94,17 @@ namespace DsaPractice.Strings.Trie
                 if (node.Children[i] != null)
                     DFS(node.Children[i], words);
             }
+        }
+        public void TestSearchWords()
+        {
+            Insert("cat");
+            Insert("car");
+            Insert("carpool");
+            Insert("can");
+            Insert("cen");
+
+            Console.WriteLine(Search("carpool"));
+            Console.WriteLine(string.Join(", ", GetWordsWithPrefix("ca")));
         }
     }
 }

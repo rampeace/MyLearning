@@ -11,7 +11,9 @@ namespace CSharpPractice
     {
         static async Task Main(string[] args)
         {
+            new CountWordsWithPrefix().CountWordsWithPrefixUsingLinq();
 
+            Console.ReadKey();
         }
     }
 }

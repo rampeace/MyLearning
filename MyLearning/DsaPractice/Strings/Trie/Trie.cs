@@ -22,11 +22,11 @@ namespace DsaPractice.Strings.Trie
 
         */
 
-        TrieNode _root = new TrieNode();
+        protected TrieNode Root { get; } = new TrieNode();
 
         public void Insert(string word)
         {
-            TrieNode node = _root;
+            TrieNode node = Root;
 
             foreach (var c in word)
             {
@@ -41,7 +41,7 @@ namespace DsaPractice.Strings.Trie
 
         public bool Search(string word)
         {
-            TrieNode node = _root;
+            TrieNode node = Root;
 
             foreach (var c in word)
             {
@@ -54,37 +54,7 @@ namespace DsaPractice.Strings.Trie
             return node.Word != null;
         }
 
-        public List<string> GetWordsWithPrefix(string prefix)
-        {
-            var node = _root;
-
-            foreach (var c in prefix)
-            {
-                if (!node.Children.ContainsKey(c))
-                    return new List<string>();
-
-                node = node.Children[c];
-            }
-
-            List<string> words = new List<string>();
-            DFS(node, words);
-            return words;
-        }
-
-        public void DFS(TrieNode node, List<string> result)
-        {
-            if (node == null) return;
-
-            if (node.Word != null)
-                result.Add(node.Word);
-
-            foreach (var childNode in node.Children.Values)
-            {
-                DFS(childNode, result);
-            }
-        }
-
-        public void TestWordsWithPrefix()
+        public virtual void FillTrieWithSampleDataAndTest()
         {
             Insert("carpool");
             Insert("cat");
@@ -97,9 +67,6 @@ namespace DsaPractice.Strings.Trie
             Insert("தாமரை");
             Insert("தாதா");
             Insert("தாங்கு");
-
-            Console.WriteLine(string.Join(", ", GetWordsWithPrefix("ca")));
-            Console.WriteLine(string.Join(", ", GetWordsWithPrefix("தா")));
         }
     }
 }
