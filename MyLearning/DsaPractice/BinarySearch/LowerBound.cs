@@ -59,7 +59,7 @@ namespace DsaPractice.BinarySearch
             return result;
         }
 
-        public void SearchInsertPosition()
+        public int SearchInsertPosition(int[] nums, int target)
         {
             /*
                * Given a sorted array of distinct integers and a target value, return the index if the target is found.
@@ -68,7 +68,25 @@ namespace DsaPractice.BinarySearch
                 https://leetcode.com/problems/search-insert-position/description/
                */
 
-            //GetLowerBound();
+            int left = 0;
+            int right = nums.Length - 1;
+
+            while(left <= right)
+            {
+                int mid = left + (right - left) / 2;
+
+                if (nums[mid] == target)
+                {
+                    return mid;
+                }
+                else if (nums[mid] > target)
+                {
+                    right = mid - 1;
+                }
+                else
+                    left = mid + 1;
+            }
+            return left;
         }
 
         public void Ceiling()
@@ -100,6 +118,21 @@ namespace DsaPractice.BinarySearch
             }
 
             Console.WriteLine(result); // Will print 4 (nums[4] = 8)
+        }
+
+        public void Test()
+        {
+            /*
+             * left = 0, right = 7
+             * 
+             * 1 -> mid = 3 => left = 0, right = 2
+             * 2 -> mid = 1 => left = 2, right = 2
+             * 3 -> mid = 2 => left = 3, right = 2 => Violates left <= right)
+             * 
+             * */
+            int[] nums = [ 2, 4, 6, 8, 14, 16, 22, 28 ]; 
+            Console.WriteLine(SearchInsertPosition(nums, 7)); // output should be 3
+            Console.WriteLine(SearchInsertPosition(nums, 6)); // output should be 2
         }
     }
 }

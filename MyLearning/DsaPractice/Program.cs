@@ -8,6 +8,7 @@ using System.Net;
 using DsaPractice.Strings.Trie;
 using DsaPractice.MinHeap;
 using DsaPractice.Strings;
+using DsaPractice.LinkedList;
 
 namespace DsaPractice
 {
@@ -17,7 +18,8 @@ namespace DsaPractice
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            new LongestSubstring().Test();
+            new RemoveDuplicates().Test();
+
             Console.ReadKey();
         }
     }
