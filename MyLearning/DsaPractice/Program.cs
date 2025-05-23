@@ -9,6 +9,7 @@ using DsaPractice.Strings.Trie;
 using DsaPractice.MinHeap;
 using DsaPractice.Strings;
 using DsaPractice.LinkedList;
+using DsaPractice.Hashing;
 
 namespace DsaPractice
 {
@@ -18,7 +19,7 @@ namespace DsaPractice
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            new RemoveDuplicates().Test();
+            new DifferenceTwoArrays().Test();
 
             Console.ReadKey();
         }

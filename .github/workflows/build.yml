@@ -8,21 +8,24 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Change to windows-latest if you prefer
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v3
+      - name: Setup .NET 9 SDK (for C# 13)
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '9.0.x'  # Ensure C# 13 is available
+
+      - name: Display .NET version (debug info)
+        run: dotnet --version
 
       - name: Restore dependencies
         run: dotnet restore MyLearning/MyLearningSolution.sln
-        
-      - name: Build
+
+      - name: Build solution with C# 13
         run: dotnet build MyLearning/MyLearningSolution.sln --no-restore --configuration Release
 
       - name: Run tests (if you add any in future)
