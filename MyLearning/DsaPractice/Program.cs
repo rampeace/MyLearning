@@ -19,7 +19,7 @@ namespace DsaPractice
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            new DifferenceTwoArrays().Test();
+            new Graph.DFS().Test();
 
             Console.ReadKey();
         }

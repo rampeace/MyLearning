@@ -10,18 +10,15 @@ namespace DsaPractice.Hashing
     {
         /*
          * Leetcode: 3541  Find Most Frequent Vowel and Consonant
-
-         * 
-         * 
-         * */
+         *
+         */
         public int MaxFreqSum(string s)
         {
             HashSet<char> vowels = "AEIOUaeiou".ToHashSet();
 
             return s
-            .GroupBy(c => vowels.Contains(c) ? "vowels" : "consonants")
-            .Sum(g => g.GroupBy(c => c)
-            .Max(g => g.Count()));
+            .GroupBy(c => vowels.Contains(c))
+            .Sum(g => g.GroupBy(c => c).Max(g => g.Count()));
         }
     }
 }
