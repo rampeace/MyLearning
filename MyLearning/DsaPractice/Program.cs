@@ -19,7 +19,7 @@ namespace DsaPractice
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            new Graph.Islands().Test();
+            new Graph.Enclaves().Test();
 
             Console.ReadKey();
         }
