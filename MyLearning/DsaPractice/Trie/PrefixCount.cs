@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DsaPractice.Strings.Trie
+namespace DsaPractice.Trie
 {
     internal class PrefixCount
     {

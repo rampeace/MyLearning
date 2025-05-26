@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DsaPractice.Strings
+namespace DsaPractice.Arrays
 {
     internal class InterleavingString
     {
