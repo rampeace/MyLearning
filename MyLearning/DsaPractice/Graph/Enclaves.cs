@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace DsaPractice.Graph
              1 0 1 0
              0 1 1 0
              0 0 0 0
+
+    If a problem can be reduced to "things connected in some way", it's a strong sign it's a graph problem.
      * */
     internal class Enclaves
     {
@@ -66,14 +69,15 @@ namespace DsaPractice.Graph
 
         public void Test()
         {
-            int[][] grid = {
-            new int[] { 0, 0, 0, 0 },
-            new int[] { 1, 0, 1, 0 },
-            new int[] { 0, 1, 1, 0 },
-            new int[] { 0, 0, 0, 0 }
-            };
+            int[][] grid = [
+                [0, 0, 0, 0],
+                [1, 0, 1, 0],
+                [0, 1, 1, 0],
+                [0, 0, 0, 0]
+            ];
 
-            int  enclaves = NumEnclaves(grid);
+            //int  enclaves = NumEnclaves(grid);
+            int enclaves = NumEnclavesBFS(grid);
 
             Console.WriteLine(enclaves);
         }
@@ -85,14 +89,20 @@ namespace DsaPractice.Graph
 
             for (int row = 0; row < rows; row++)
             {
-                DFS(grid, row, 0, rows, cols);
-                DFS(grid, row, cols - 1, rows, cols);
+                if (grid[row][0] == 1)
+                    BFS(grid, row, 0, rows, cols);
+
+                if (grid[row][cols - 1] == 1)
+                    BFS(grid, row, cols - 1, rows, cols);
             }
 
             for (int col = 0; col < cols; col++)
             {
-                DFS(grid, 0, col, rows, cols);
-                DFS(grid, rows - 1, col, rows, cols);
+                if (grid[0][col] == 1)
+                    BFS(grid, 0, col, rows, cols);
+
+                if (grid[rows - 1][col] == 1)
+                    BFS(grid, rows - 1, col, rows, cols);
             }
 
             int enclaves = 0;
@@ -108,6 +118,31 @@ namespace DsaPractice.Graph
             return enclaves;
         }
 
-       
+        private void BFS(int[][] grid, int row, int col, int rows, int cols)
+        {
+            Queue<(int row, int col)> queue = new();
+            queue.Enqueue((row, col));
+            grid[row][col] = 0;
+
+            int[] topDown = [-1, 1, 0, 0];
+            int[] leftRight = [0, 0, -1, 1];
+
+            while (queue.Count > 0)
+            {
+                var current = queue.Dequeue();
+
+                for (int i = 0; i < 4; i++)
+                {
+                    int newRow = topDown[i] + current.row;
+                    int newCol = leftRight[i] + current.col;
+
+                    if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && grid[newRow][newCol] == 1)
+                    {
+                        grid[newRow][newCol] = 0;
+                        queue.Enqueue((newRow, newCol));
+                    }
+                }
+            }
+        }
     }
 }
