@@ -26,7 +26,7 @@ namespace DsaPractice.Graph
 
         public int LadderLength(string beginWord, string endWord, IList<string> wordList)
         {
-            HashSet<string> seen = new HashSet<string>(wordList);
+            HashSet<string> seen = [.. wordList];
             
             if (!seen.Contains(endWord)) 
                 return 0;
@@ -60,7 +60,7 @@ namespace DsaPractice.Graph
 
         public int LadderLengthOptimal(string beginWord, string endWord, IList<string> wordList)
         {
-            HashSet<string> seen = new HashSet<string>(wordList);
+            HashSet<string> seen = [..wordList];
 
             if (!seen.Contains(endWord))
                 return 0;

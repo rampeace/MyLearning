@@ -8,6 +8,9 @@ using System.Net;
 using DsaPractice.MinHeap;
 using DsaPractice.LinkedList;
 using DsaPractice.Hashing;
+using DsaPractice.Queue;
+using DsaPractice.Graph;
+using System.Linq.Expressions;
 
 namespace DsaPractice
 {
@@ -15,9 +18,7 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-            new Graph.WordLadder().Test();
+            new Oranges().Test();
 
             Console.ReadKey();
         }
