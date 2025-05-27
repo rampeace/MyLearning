@@ -18,7 +18,7 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            new Cycle().Test();
+            new ReplaceZeros().Test();
 
             Console.ReadKey();
         }
