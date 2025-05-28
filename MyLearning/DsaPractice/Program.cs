@@ -18,7 +18,7 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            new ReplaceZeros().Test();
+            new DistinctIslands().Test();
 
             Console.ReadKey();
         }

@@ -62,7 +62,7 @@ namespace DsaPractice.Graph
                 }
                 if (matrix[rows - 1][col] == 'O')
                 {
-                    DFS(matrix, rows - 1, col, rows, cols,visited);
+                    DFS(matrix, rows - 1, col, rows, cols, visited);
                 }
             }
 
@@ -70,7 +70,7 @@ namespace DsaPractice.Graph
             {
                 for (int col = 0; col < cols; col++)
                 {
-                    if (matrix[row][col] == 'O') 
+                    if (matrix[row][col] == 'O')
                         matrix[row][col] = 'X';
 
                     if (matrix[row][col] == 'A')
@@ -80,7 +80,7 @@ namespace DsaPractice.Graph
             }
         }
 
-        private void DFS(List<List<char>> matrix, int row,  int col, int rows, int cols, HashSet<(int row, int col)> visited)
+        private void DFS(List<List<char>> matrix, int row, int col, int rows, int cols, HashSet<(int row, int col)> visited)
         {
             if (row < 0 || row >= rows || col < 0 || col >= cols || visited.Contains((row, col)) || matrix[row][col] != 'O')
                 return;
@@ -89,21 +89,21 @@ namespace DsaPractice.Graph
 
             visited.Add((row, col));
 
-            int[] topDown = [-1,  1, 0, 0];
+            int[] topDown = [-1, 1, 0, 0];
             int[] leftRight = [0, 0, -1, 1];
 
-            for (int i=0; i< 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 int newRow = row + topDown[i];
                 int newCol = col + leftRight[i];
 
-                DFS(matrix, newRow, newCol, rows, cols, visited);   
+                DFS(matrix, newRow, newCol, rows, cols, visited);
             }
         }
 
         public void Test()
         {
-            List<List<char>> matrix = 
+            List<List<char>> matrix =
                 [['X', 'X', 'X', 'X'],
                 ['X', 'O', 'X', 'X'],
                 ['X', 'O', 'O', 'X'],
