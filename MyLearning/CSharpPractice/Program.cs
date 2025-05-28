@@ -15,6 +15,8 @@ namespace CSharpPractice
 
             List<int> list = [];
 
+            array.ForEach(x => list.Add(x));
+
             Console.ReadKey();
         }
     }

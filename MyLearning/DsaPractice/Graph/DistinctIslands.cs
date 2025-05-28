@@ -33,7 +33,7 @@ namespace DsaPractice.Graph
             int rows = grid.Count;
             int cols = grid[0].Count;
 
-            HashSet<string> shapes = new();
+            HashSet<string> shapes = [];
 
             for (int row = 0; row < rows; row++)
             {
