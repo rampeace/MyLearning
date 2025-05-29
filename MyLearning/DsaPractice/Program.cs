@@ -18,7 +18,7 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            new Bipartite().Test();
+            new SafeStates().Test();
 
             Console.ReadKey();
         }
