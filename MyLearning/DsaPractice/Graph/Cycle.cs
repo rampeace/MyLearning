@@ -86,16 +86,30 @@ namespace DsaPractice.Graph
         public void Test()
         {
             /*
-             *   1 — 2 — 3
-                 \      /
-                   — 4 —
-                                1
-               / \
-              2 - 3
-               \ / 
-                4
-
-            */
+             *      -1-  -2-
+             *       |    | 
+             *   1 — 2 — 3 
+             *    \      /  
+             *      — 4 —
+             *        |  
+             *      -1- -3-    
+             *
+             *      1
+             *     / \
+             *    2   4
+             *     \ /
+             *      3
+             *
+             * BFS:
+             *
+             * Dequeue   Enqueue
+             * -----------------
+             * 0 -> 1, (parent = null)
+             * 1 -> 2, 4 (parent = 1)
+             * 2 -> 1 (visited, but parent), 3 (parent = 2)
+             * 4 -> 1 (visited, but parent), 3 (already visited, not enqueuing again)
+             * 3 -> 2 (visited, but parent), 4 (visited, not a parent) -> cycle 
+             */
             Node one = new Node(1);
             Node two = new Node(2);
             Node three = new Node(3);

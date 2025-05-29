@@ -18,7 +18,7 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            new DistinctIslands().Test();
+            new Bipartite().Test();
 
             Console.ReadKey();
         }
