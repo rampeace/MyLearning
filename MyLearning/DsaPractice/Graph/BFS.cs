@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,7 +51,7 @@ namespace DsaPractice.Graph
                 {
                     if (!visited.Contains(edge.val))
                     {
-                        visited.Add(edge.val);
+                        visited.Add(edge.val);// To prevent other parents to enqueue again
                         queue.Enqueue(edge);
                     }
                 }
