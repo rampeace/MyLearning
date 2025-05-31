@@ -11,7 +11,7 @@ namespace DsaPractice.Graph
 
         /*
          * ──────────────────────────────────────────────────────────────────────────────
-         *   Kahn's Algorithm for Topological Sorting (with Real-World Context)
+         *   Kahn's Algorithm for BFS Topological Sorting (with Real-World Context)
          * ──────────────────────────────────────────────────────────────────────────────
          * 
          * 1. Dependency Representation:

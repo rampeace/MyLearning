@@ -20,7 +20,7 @@ namespace DsaPractice
         static void Main(string[] args)
         {
 
-            new AlienDictionary().Test();
+            new TopologicalSortDFS().Test();
 
             Console.ReadKey();
         }
