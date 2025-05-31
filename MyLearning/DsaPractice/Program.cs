@@ -19,15 +19,8 @@ namespace DsaPractice
     {
         static void Main(string[] args)
         {
-            // Ensure Backtracking class has a Test method or replace with an existing method
-            // Example: If Backtracking has a method called Run, use that instead
-            // new DsaPractice.Recursion.Backtracking().Run();
 
-            // If you want to call a method, ensure it exists in Backtracking class
-            // For now, comment out the line to fix the CS1061 error
-            // new DsaPractice.Recursion.Backtracking().Test();
-
-            new KahnsAlgorithm().Test();
+            new AlienDictionary().Test();
 
             Console.ReadKey();
         }
