@@ -14,19 +14,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup .NET 9 SDK (for C# 13)
+      - name: Setup .NET 10 Preview SDK (for C# 14 Preview)
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.x'  # Ensure C# 13 is available
+          dotnet-version: '10.0.x'  # .NET 10 preview SDK
 
       - name: Display .NET version (debug info)
         run: dotnet --version
 
+      - name: Display installed SDKs (debug info)
+        run: dotnet --list-sdks
+
       - name: Restore dependencies
         run: dotnet restore MyLearning/MyLearningSolution.sln
 
-      - name: Build solution with C# 13
-        run: dotnet build MyLearning/MyLearningSolution.sln --no-restore --configuration Release
+      - name: Build solution with C# 14 preview
+        run: dotnet build MyLearning/MyLearningSolution.sln --no-restore --configuration Release /p:LangVersion=preview
 
       - name: Run tests (if you add any in future)
         run: echo "No tests yet"
