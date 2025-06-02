@@ -11,11 +11,7 @@ namespace CSharpPractice
     {
         static async Task Main(string[] args)
         {
-            int[] array = [1, 2, 3, 5, 4, 5];
-
-            List<int> list = [];
-
-            array.ForEach(x => list.Add(x));
+            new LeftJoin().TryLeftJoin();
 
             Console.ReadKey();
         }

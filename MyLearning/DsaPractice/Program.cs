@@ -17,12 +17,10 @@ namespace DsaPractice
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-
-            new TopologicalSortDFS().Test();
-
-            Console.ReadKey();
+            ShortestPathDAG shortestPathDAG = new ShortestPathDAG();
+            shortestPathDAG.FindShortestPath();
         }
     }
 }
