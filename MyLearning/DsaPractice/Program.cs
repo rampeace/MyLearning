@@ -19,8 +19,8 @@ namespace DsaPractice
     {
         static void Main()
         {
-            ShortestPathDAG shortestPathDAG = new ShortestPathDAG();
-            shortestPathDAG.FindShortestPath();
+            ShortestPathUndirectedGraph shortestPathUndirectedGraph = new ShortestPathUndirectedGraph();
+            shortestPathUndirectedGraph.Test();
         }
     }
 }
