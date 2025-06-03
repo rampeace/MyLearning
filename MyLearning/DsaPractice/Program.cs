@@ -19,8 +19,7 @@ namespace DsaPractice
     {
         static void Main()
         {
-            ShortestPathUndirectedGraph shortestPathUndirectedGraph = new ShortestPathUndirectedGraph();
-            shortestPathUndirectedGraph.Test();
+            new DijkstraAlgorithm().Test();
         }
     }
 }

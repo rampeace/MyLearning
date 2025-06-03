@@ -61,64 +61,6 @@ namespace DsaPractice.Graph
             _adjacencyList[to].Add(reverseEdge);
         }
 
-        public void Dijkstra(Node start, Node end)
-        {
-            var distances = new Dictionary<Node, int>();
-            var previous = new Dictionary<Node, Node>();
-            var priorityQueue = new SortedSet<(int, Node)>(Comparer<(int, Node)>.Create((a, b) =>
-            {
-                int result = a.Item1.CompareTo(b.Item1);
-                if (result == 0)
-                    return a.Item2.Id.CompareTo(b.Item2.Id);
-                return result;
-            }));
-
-            foreach (var node in _adjacencyList.Keys)
-            {
-                distances[node] = int.MaxValue;
-            }
-            distances[start] = 0;
-            priorityQueue.Add((0, start));
-
-            while (priorityQueue.Count > 0)
-            {
-                var min = priorityQueue.Min;
-                int currentDistance = min.Item1;
-                Node currentNode = min.Item2;
-                priorityQueue.Remove(min);
-
-                if (currentNode.Equals(end))
-                    break;
-
-                foreach (var edge in _adjacencyList[currentNode])
-                {
-                    int newDist = currentDistance + edge.Weight;
-                    if (newDist < distances[edge.To])
-                    {
-                        // Remove old entry if it exists
-                        priorityQueue.Remove((distances[edge.To], edge.To));
-                        distances[edge.To] = newDist;
-                        previous[edge.To] = currentNode;
-                        priorityQueue.Add((newDist, edge.To));
-                    }
-                }
-            }
-
-            if (!previous.ContainsKey(end))
-            {
-                Console.WriteLine($"No route from {start} to {end}");
-                return;
-            }
-
-            var path = new Stack<Node>();
-            for (var at = end; at != null; at = previous.GetValueOrDefault(at))
-                path.Push(at);
-
-            Console.WriteLine($"Shortest path from {start} to {end}:");
-            Console.WriteLine(string.Join(" -> ", path));
-            Console.WriteLine($"Total Distance: {distances[end]}");
-        }
-
         public void DFS(Node start)
         {
             var visited = new HashSet<Node>();

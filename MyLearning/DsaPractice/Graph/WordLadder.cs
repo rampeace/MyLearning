@@ -72,9 +72,6 @@ namespace DsaPractice.Graph
             {
                 var (current, steps) = queue.Dequeue(); // Tuple deconstruction
 
-                if (current == endWord) 
-                    return steps;
-
                 for (int i = 0; i < current.Length; i++)
                 {
                     char[] chars = current.ToCharArray();
@@ -90,6 +87,9 @@ namespace DsaPractice.Graph
 
                         if (seen.Contains(wordToTry))
                         {
+                            if (wordToTry == endWord)
+                                return steps + 1;
+
                             queue.Enqueue((wordToTry, steps + 1));
                             seen.Remove(wordToTry); // Mark as visited
                         }

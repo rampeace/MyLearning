@@ -32,9 +32,10 @@ namespace DsaPractice.Graph
         {
             int nodes = adjacencyList.Count;
 
+            // Initialize all levels to -1 (unvisited)
             List<int> levels = [..Enumerable.Repeat(-1, nodes)];
 
-            levels[0] = source;
+            levels[source] = 0;
 
             Queue<int> queue = new();
 

@@ -60,7 +60,7 @@ namespace DsaPractice.Graph
 
         public void FindShortestPath()
         {
-            int nodes = 6;
+            int nodes = 8;
 
             List<List<Edge>> adjacencyList = [..Enumerable.Range(0, nodes).Select(_ => new List<Edge>())];
 
