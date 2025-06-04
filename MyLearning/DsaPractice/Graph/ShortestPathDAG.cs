@@ -46,8 +46,20 @@ namespace DsaPractice.Graph
     Any edge that ends at v3 can only start from S, v1, or v2—not from v3 or any later node.
     
     When I process node u and relax all its outgoing edges (u → v1, u → v2, etc.), 
-    is there a guarantee that the target nodes v1, v2 will appear later in the topological ordering — but not necessarily immediately next?
-    
+    is there a guarantee that the target nodes v1, v2 will appear later in the topological ordering — but not necessarily immediately 
+     In Directed Trees:
+	•	The parent-child relationship is explicit in the graph’s structure.
+	•	E.g., edge direction points from parent to child.
+	•	Every node (except the root) has exactly one incoming edge.
+
+⸻
+
+🔄 In Undirected Trees:
+	•	The parent-child relationship is implicit — there’s no direction in the edges themselves.
+	•	But during traversal (DFS or BFS), we temporarily assign a parent to every node:
+	•	Ensures one parent-child assignment per traversal.
+	•	Enforces single hierarchy, just like in directed trees, but algorithmically.
+
     **/
     internal class ShortestPathDAG
     {
