@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -106,6 +106,9 @@ namespace DsaPractice.Graph
 
                 D and E are not reachable from source
                 But S have no incoming edges too, like D and E, we don't ignore S
+                A -> B -> E
+                  \- C -/
+                All the possible incoming edged of E is known, if there any exist it will come and relax the edge in the subsequent iterations
 
                  */
                 if (shortestPath[node] != int.MaxValue)
