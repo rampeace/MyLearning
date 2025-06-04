@@ -54,7 +54,7 @@ namespace DsaPractice.Graph
             int rows = nodes;
             int cols = grid[0].Count;
 
-            HashSet<(int row, int col)> seen = new();
+            HashSet<(int row, int col)> seen = [];
             Queue<(int row, int col, int level)> queue = new();
 
             queue.Enqueue((source.row, source.col, 0));

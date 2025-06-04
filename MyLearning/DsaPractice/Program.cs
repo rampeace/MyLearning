@@ -19,7 +19,7 @@ namespace DsaPractice
     {
         static void Main()
         {
-            new ShortestDistanceBinaryMaze().Test();
+            new PathWithMinimumEffort().Test();
         }
     }
 }
