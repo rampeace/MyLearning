@@ -5,12 +5,19 @@ using System.Text;
 namespace DsaPractice.Graph
 {
     /*
-     *  In BFS first discovery is the shortest path. We don't enqueue same node again in BFS.
-     *  To find shortest paths, we need to allow re-enqueue and compare the shortest paths, with standard BFS won't allow
-     *  BFS assumes first discovery is the shortest path (valid in unweighted graphs).
+     *  In BFS, the first discovery is the shortest path. We don't enqueue the same node again in BFS.
+     *  To find shortest paths in weighted graphs, we need to allow re-enqueue and compare the shortest paths—standard BFS won't allow this.
+     *  BFS assumes the first discovery is the shortest path (valid in unweighted graphs).
      *  
      *  Dijkstra’s algorithm will re-enqueue the same node if it finds a shorter path — that’s the key difference from classic BFS!
-     * */
+     *  
+     *  How does Dijkstra’s algorithm avoid visited node tracking?
+     *  
+     *  1️ It uses a priority queue (min-heap) to always pick the next unvisited node with the smallest distance.
+     *  2️ When it visits a node, it marks it as “visited” (like crossing it off a to-do list).
+     *  3️ It only processes each node once — even if there’s a cycle in the graph, once a node’s shortest distance is found, 
+     *  the algorithm doesn’t revisit it.
+     */
     internal class DijkstraAlgorithm
     {
         public class Edge(int to, int weight)

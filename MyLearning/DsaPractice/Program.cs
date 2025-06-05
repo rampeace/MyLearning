@@ -1,5 +1,5 @@
 ﻿using DsaPractice.BinarySearch;
-using DsaPractice.Bit_Manipulation;
+using DsaPractice.BitManipulation;
 using DsaPractice.Maths;
 using DsaPractice.Arrays;
 using DsaPractice.Arrays._2D;
@@ -19,7 +19,7 @@ namespace DsaPractice
     {
         static void Main()
         {
-            new PathWithMinimumEffort().Test();
+            new CheapestFlightsWithinKStops().Test();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DsaPractice.Bit_Manipulation
+namespace DsaPractice.BitManipulation
 {
     internal class GetBinary
     {
