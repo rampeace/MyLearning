@@ -19,7 +19,7 @@ namespace DsaPractice
     {
         static void Main()
         {
-            new MinimumMultiplications().Test();
+            new NumberOfWays().Test();
         }
     }
 }
