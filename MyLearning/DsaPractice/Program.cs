@@ -19,7 +19,7 @@ namespace DsaPractice
     {
         static void Main()
         {
-            new CheapestFlightsWithinKStops().Test();
+            new MinimumMultiplications().Test();
         }
     }
 }
