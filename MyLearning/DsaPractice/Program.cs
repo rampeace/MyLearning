@@ -19,7 +19,7 @@ namespace DsaPractice
     {
         static void Main()
         {
-            new NumberOfWays().Test();
+            new BellmanFordAlgorithm().Test();
         }
     }
 }
