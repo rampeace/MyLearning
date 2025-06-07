@@ -1,4 +1,4 @@
-namespace DsaPractice.Arrays
+namespace DsaPractice.SlidingWindow
 {
     internal class LongestConsecutive
     {
