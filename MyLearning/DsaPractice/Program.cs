@@ -19,7 +19,7 @@ namespace DsaPractice
     {
         static void Main()
         {
-            new BellmanFordAlgorithm().Test();
+            new PrimsAlgorithm().Test();
         }
     }
 }
