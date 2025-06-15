@@ -1,17 +1,14 @@
 ﻿// CPlusPlus.cpp : Defines the entry point for the application.
 //
-
-#include "c_plus_plus.h"
+#include "move_demo.h"
 
 using namespace std;
 
 int main()
 {
-	int a = 10;
-	int b = 20;
-	int c = 30;
-
-	//std::cout << d << " ";  
+	move_demo a(10);
+	move_demo b(a);
+	b = a;
 
 	return 0;
 }
