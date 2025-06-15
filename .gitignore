@@ -69,3 +69,46 @@ secrets.json
 coverage/
 *.coverage
 *.coveragexml
+
+# Build directories
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Visual Studio generated files
+*.sln
+*.vcxproj*
+*.user
+*.opensdf
+*.sdf
+*.VC.db
+*.ncb
+*.suo
+*.log
+*.tlog
+*.obj
+*.idb
+*.pdb
+*.ipch
+
+# Compiled binaries
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+*.out
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Backup and temporary files
+*~
+*.bak
+*.swp
+
+# Ninja build system
+.ninja*
