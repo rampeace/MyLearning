@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-	vector_example::to_dictionary();
+	vector_example::distinct();
 
 	std::cin.get();
 

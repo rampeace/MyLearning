@@ -122,12 +122,14 @@ public:
 	{
 		vector<int> nums = { 1, 2, 3, 3, 34, 5, 6, 7, 6, 7, 8, 2, 3, 5 };
 
-		unordered_set<int> seen;
+		unordered_set<int> hashSet = std::ranges::to <unordered_set<int>>(nums);
+
+		/*unordered_set<int> seen;
 
 		for (int num : nums)
-			seen.insert(num);
+			seen.insert(num);*/
 
-		for (int num : seen)
+		for (int num : hashSet)
 			std::cout << num << " ";
 	}
 
