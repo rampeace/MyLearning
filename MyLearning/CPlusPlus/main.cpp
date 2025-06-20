@@ -4,16 +4,17 @@
 #include "simple_unique_ptr.h"
 #include "virtual_destructor.h"
 #include "vector_example.h"
-
+#include "const.h"
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-	vector_example::distinct();
+	EmployeeRepository obj;
+	const std::string& name = obj.GetEmployee().getName();
+	obj.modifyAge(5);
 
-	std::cin.get();
-
+	cout << name << " " << obj.GetEmployee().getAge() << endl;
 	return 0;
 }

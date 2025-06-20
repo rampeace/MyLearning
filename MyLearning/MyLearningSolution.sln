@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System Design", "System Des
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DsaPractice", "DsaPractice\DsaPractice.csproj", "{2793EE92-6F71-C5B9-2571-B6D06074E63E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPracticeApp", "WpfPracticeApp\WpfPracticeApp.csproj", "{4AE1623F-4C88-47B3-B9B5-781E8F6D1B1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{2793EE92-6F71-C5B9-2571-B6D06074E63E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2793EE92-6F71-C5B9-2571-B6D06074E63E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2793EE92-6F71-C5B9-2571-B6D06074E63E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE1623F-4C88-47B3-B9B5-781E8F6D1B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE1623F-4C88-47B3-B9B5-781E8F6D1B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE1623F-4C88-47B3-B9B5-781E8F6D1B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE1623F-4C88-47B3-B9B5-781E8F6D1B1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

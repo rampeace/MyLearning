@@ -4,7 +4,74 @@ using System.Text;
 
 namespace DsaPractice.Graph
 {
-    /*
+/*
+ * ===============================
+ *   Graph Types
+ * ===============================
+ * Directed Graph:
+ *   A → C → B → E
+ *   - A is strictly the parent of C, C is strictly the parent of B, etc.
+ * 
+ * Undirected Graph:
+ *   A — C — B — E
+ *   - Edges are bidirectional; no strict parent-child relationship.
+ * 
+ * ===============================
+ *   Prim’s Algorithm Output
+ * ===============================
+ * - A set of edges forming the MST (Minimum Spanning Tree).
+ * - Optionally, a parent array indicating for each node which node brought it into the tree.
+ * 
+ * Why output the edges?
+ * - The MST is defined by the collection of edges that connect all nodes with minimum total cost.
+ * - Without the edges, the network cannot be visualized or reconstructed.
+ * 
+ * Typical Prim’s MST Output (Edges List):
+ *   (from_node, to_node, weight)
+ *   Example:
+ *     (A, C, 2)
+ *     (A, B, 10)
+ *     (C, E, 12)
+ *   - Shows which edges to build, which nodes are connected, and the weight of each edge.
+ * 
+ * ===============================
+ *   Example: Step-by-Step
+ * ===============================
+ * Step 1️⃣: Build the Graph
+ *   Nodes: A, B, C, E
+ *   Edges:
+ *     A — B (weight 10)
+ *     A — C (weight 2)
+ *     C — E (weight 12)
+ * 
+ * Step 2️⃣: Apply Prim’s Algorithm (Start from A)
+ *   2.1: Start at A
+ *     - Add A to the MST.
+ *     - Edges to pick: A—B (10), A—C (2)
+ *     - Pick A—C (2)
+ *   2.2: Add C to the MST ({A, C})
+ *     - Edges: A—B (10), C—E (12)
+ *     - Pick A—B (10)
+ *   2.3: Add B to the MST ({A, C, B})
+ *     - Edges: C—E (12)
+ *     - Pick C—E (12)
+ *   2.4: Add E to the MST ({A, C, B, E})
+ *     - All nodes included. Done!
+ * 
+ * Step 3️⃣: MST Summary
+ *   Edges selected:
+ *     A—C (2)
+ *     A—B (10)
+ *     C—E (12)
+ *   Total Weight: 2 + 10 + 12 = 24
+ * 
+ * ===============================
+ *   What Matters
+ * ===============================
+ * - You must build all three edges (A—C, A—B, C—E) to form a connected MST.
+ * - The order does not matter (e.g., A—B first, then A—C, then C—E).
+ * - Do NOT skip any recommended edge (network would be disconnected).
+ * - Do NOT add extra edges (could create a cycle and increase total cost).
      *  Directed Graph:
 
 A → C → B → E
@@ -124,7 +191,7 @@ Or A—C first, then C—E, then A—B.
 What you should not do:
 Skip any recommended edge (because then the network is disconnected).
     Add extra edges that aren’t part of the MST (because that could create a cycle and increase total cost).
-     */
+*/
     internal class PrimsAlgorithm
     {
         public (int totalWeight, int[] mst) MinimumSpanningTree(int n, List<(int from, int to, int weight)> edges)
