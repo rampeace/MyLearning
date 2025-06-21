@@ -1,0 +1,128 @@
+﻿
+WPF XAML: Common Design Patterns (Cheat Sheet)
+==============================================
+
+1. Layout Panel Patterns
+------------------------
+
+📌 Grid – Two-dimensional layout
+<Grid>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
+    <TextBox Grid.Row="0" Grid.Column="1"/>
+</Grid>
+
+📌 StackPanel – Vertical or horizontal stack
+<StackPanel Orientation="Vertical">
+    <Button Content="OK"/>
+    <Button Content="Cancel"/>
+</StackPanel>
+
+📌 DockPanel – Edge-based layout
+<DockPanel>
+    <ToolBar DockPanel.Dock="Top"/>
+    <TextBlock DockPanel.Dock="Bottom" Text="Status"/>
+    <StackPanel DockPanel.Dock="Left" Width="200"/>
+    <TextBox/> <!-- This fills the remaining space -->
+</DockPanel>
+
+📌 WrapPanel – Auto-wrapping stack
+<WrapPanel>
+    <Button Content="1"/>
+    <Button Content="2"/>
+    <Button Content="3"/>
+</WrapPanel>
+
+
+2. Style Pattern
+----------------
+<Window.Resources>
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="DodgerBlue"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="10,5"/>
+    </Style>
+</Window.Resources>
+
+<Button Content="Click Me"/> <!-- Auto-applies style -->
+
+
+3. ControlTemplate Pattern
+--------------------------
+<Style TargetType="Button">
+    <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="Button">
+                <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                    <ContentPresenter HorizontalAlignment="Center"/>
+                </Border>
+            </ControlTemplate>
+        </Setter.Value>
+    </Setter>
+</Style>
+
+
+4. DataTemplate Pattern
+------------------------
+<Window.Resources>
+    <DataTemplate x:Key="UserTemplate">
+        <StackPanel>
+            <TextBlock Text="{Binding Name}"/>
+            <TextBlock Text="{Binding Email}"/>
+        </StackPanel>
+    </DataTemplate>
+</Window.Resources>
+
+<ListBox ItemsSource="{Binding Users}" ItemTemplate="{StaticResource UserTemplate}"/>
+
+
+5. Resource Dictionary Pattern
+------------------------------
+<Application.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="Themes/Colors.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+</Application.Resources>
+
+
+6. Binding Pattern
+------------------
+<TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+
+
+7. Attached Property Pattern
+----------------------------
+<Grid>
+    <Button Grid.Row="1" Grid.Column="0" Content="Save"/>
+</Grid>
+
+
+8. Common Naming Patterns
+-------------------------
+| Element               | Typical Use                             |
+|-----------------------|------------------------------------------|
+| Grid.RowDefinitions   | Declares rows in a Grid                  |
+| Style x:Key="..."     | Named style for reuse                   |
+| TemplateBinding       | Bind template parts to outer properties |
+| ContentPresenter      | Placeholder for Content                 |
+| StaticResource        | Resolved at load time                   |
+| DynamicResource       | Resolved at runtime                     |
+
+
+Practical Tips
+--------------
+- Prefer Grid for precision, StackPanel for simple stacking.
+- Put global styles in App.xaml, local styles in Window.Resources.
+- Use ControlTemplate to change structure, Style to change appearance.
+- Organize styles in ResourceDictionary for large apps.
+- Use TemplateBinding in templates — it's like `this.Property` in XAML.

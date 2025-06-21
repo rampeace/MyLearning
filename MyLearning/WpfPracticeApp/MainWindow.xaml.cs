@@ -20,5 +20,23 @@ namespace WpfPracticeApp
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            VSCode vSCode = new VSCode();
+            vSCode.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ProductFeedback productFeedback = new ProductFeedback();
+            productFeedback.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ContactForm o = new();
+            o.Show();
+        }
     }
 }

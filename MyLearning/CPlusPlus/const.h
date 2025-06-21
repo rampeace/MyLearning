@@ -45,3 +45,13 @@ public:
 private:
 	Employee _employee;
 };
+
+class Engine
+{
+
+};
+
+class Car
+{
+	Engine _engine;
+};

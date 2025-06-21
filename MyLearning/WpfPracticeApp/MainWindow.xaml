@@ -6,26 +6,14 @@
         xmlns:local="clr-namespace:WpfPracticeApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-
-        <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
-            <Label.Content>Hello</Label.Content>
-        </Label>
-
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="Sample text"/>
-
-        <Label Grid.Row="1" Grid.Column="0" Content="Age" VerticalAlignment="Center"/>
-
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="textblock"/>
-    </Grid>
-
+    <Grid Background="Black">
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#F5F5F5" Padding="20" CornerRadius="10">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Welcome to WPF" FontSize="21" HorizontalAlignment="Center" Margin="10"/>
+                <Button Content="Open VSCode" VerticalAlignment="Center" Click="Button_Click" Margin="20" Padding="10"/>
+                <Button Content="Open Product Feedback" VerticalAlignment="Center" Click="Button_Click_1" Margin="20" Padding="10"/>
+                <Button Content="Open Contact Form" VerticalAlignment="Center" Click="Button_Click_2" Margin="20" Padding="10"/>
+            </StackPanel>
+        </Border>
+    </Grid>   
 </Window>
