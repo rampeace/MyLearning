@@ -24,10 +24,12 @@
                         <ControlTemplate TargetType="{x:Type local:NumericUpDown}">
                             <Border BorderBrush="DarkGray" BorderThickness="1" Padding="2" CornerRadius="3">
                                 <DockPanel>
-                                    <DockPanel DockPanel.Dock="Right">
+                                    <DockPanel DockPanel.Dock="Right" Width="20">
                                         <RepeatButton x:Name="IncreaseButton" DockPanel.Dock="Top" Content="▲" Height="12"/>
-                                        <RepeatButton x:Name="PART_IncreaseButton" Content="▼" DockPanel.Dock="Top" Height="12"/>
+                                        <RepeatButton x:Name="DecreaseButton" Content="▼" DockPanel.Dock="Bottom" Height="12"/>
                                     </DockPanel>
+                                    <!-- TextBox fills remaining space -->
+                                    <TextBox Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" VerticalContentAlignment="Center" BorderThickness="0" Padding="4" />
                                 </DockPanel>
 
                             </Border>
