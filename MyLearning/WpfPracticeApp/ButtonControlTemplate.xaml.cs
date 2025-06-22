@@ -9,25 +9,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfPracticeApp.ViewModels;
 
 namespace WpfPracticeApp
 {
     /// <summary>
-    /// Interaction logic for ProductFeedback.xaml
+    /// Interaction logic for ButtonControlTemplate.xaml
     /// </summary>
-    public partial class ProductFeedback : Window
+    public partial class ButtonControlTemplate : Window
     {
-        public ProductFeedback()
+        public ButtonControlTemplate()
         {
             InitializeComponent();
-            DataContext = new FeedbackViewModel();
-            ProductTextBox.Focus();
-        }
-
-        private void Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

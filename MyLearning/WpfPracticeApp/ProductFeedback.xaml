@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfPracticeApp"
+        xmlns:local="clr-namespace:WpfPracticeApp" xmlns:viewmodels="clr-namespace:WpfPracticeApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:FeedbackViewModel}"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="ProductFeedback" Width="800"
         SizeToContent="Height">
@@ -30,9 +31,9 @@
 
                 <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Product Feedback" FontSize="21" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Product Name" VerticalAlignment="Center" Margin ="10"/>
-                <TextBox Grid.Row="2" Grid.Column="1" MinWidth="150" Height="25" VerticalAlignment="Center"/>
+                <TextBox x:Name="ProductTextBox" Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" MinWidth="150" Height="25" VerticalAlignment="Center"/>
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="Rating" VerticalAlignment="Center" Margin="10"/>
-                <ComboBox SelectedIndex="0" Grid.Row="3" Grid.Column="1" MinWidth="150" Height="25">
+                <ComboBox SelectedItem="{Binding Rating}" SelectedIndex="0" Grid.Row="3" Grid.Column="1" MinWidth="150" Height="25">
                     <ComboBoxItem IsEnabled="False" Content="Select a Rating"/>
                     <ComboBoxItem Content="0"/>
                     <ComboBoxItem Content="1"/>
@@ -40,11 +41,17 @@
                     <ComboBoxItem Content="3"/>
                 </ComboBox>
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="Feedback" VerticalAlignment="Center" Margin="10"/>
-                <TextBox Grid.Row="4" Grid.Column="1" MinWidth="150" Height="120" MaxWidth="150" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap"/>
+                <TextBox Name="FeedbackTextBox" Text="{Binding Feedback}" Grid.Row="4" Grid.Column="1" MinWidth="150" Height="120" MaxWidth="150" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding TextChangedCommand}" CommandParameter="{Binding ElementName=FeedbackTextBox}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
 
                 <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Grid.Row="6" Grid.Column="0" Width="70" Content="Submit" Margin="10"/>
-                    <Button Grid.Row="6" Grid.Column="1" Width="70" Content="Cancel" Margin="10"/>
+                    <Button Command="{Binding ClickCommand}" Grid.Row="6" Grid.Column="0" Width="70" Content="Submit" Margin="10"/>
+                    <Button Grid.Row="6" Grid.Column="1" Width="70" Content="Cancel" Margin="10" Click="Cancel_Click"/>
                 </StackPanel>
             </Grid>            
         </Border>

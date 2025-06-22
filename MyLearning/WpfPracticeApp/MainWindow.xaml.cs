@@ -38,5 +38,11 @@ namespace WpfPracticeApp
             ContactForm o = new();
             o.Show();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            ButtonControlTemplate buttonControlTemplate = new ButtonControlTemplate();
+            buttonControlTemplate.Show();
+        }
     }
 }

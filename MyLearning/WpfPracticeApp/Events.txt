@@ -1,0 +1,28 @@
+﻿🔹 Only the control itself needs to know	Direct
+🔹 You want parents to respond to child actions (like clicks)	Bubbling
+🔹 You want parents to intercept or cancel things before they reach the child	Tunneling
+
+Tunneling
+
+🧠 Guidelines to Choose Event Strategy
+1. Use Direct if:
+The event is local-only to the control.
+
+No one else should respond unless explicitly hooked to that instance.
+
+🔸 Examples: Loaded, SizeChanged, IsVisibleChanged
+
+2. Use Bubbling if:
+The event originates in a child (your control) but might be handled in a parent (like a container).
+
+You want to allow event aggregation, analytics, or general UI logic at a higher level.
+
+🔸 Examples: Click, MouseDown, TextChanged
+
+3. Use Tunneling if:
+You want containers or parent UI to get first chance at handling the event before the control does.
+
+Great for previewing, validation, interception, or disabling behavior globally.
+
+🔸 Examples: PreviewMouseDown, PreviewKeyDown
+

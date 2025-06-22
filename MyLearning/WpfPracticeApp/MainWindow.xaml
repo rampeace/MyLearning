@@ -13,6 +13,7 @@
                 <Button Content="Open VSCode" VerticalAlignment="Center" Click="Button_Click" Margin="20" Padding="10"/>
                 <Button Content="Open Product Feedback" VerticalAlignment="Center" Click="Button_Click_1" Margin="20" Padding="10"/>
                 <Button Content="Open Contact Form" VerticalAlignment="Center" Click="Button_Click_2" Margin="20" Padding="10"/>
+                <Button Content="Open Button Control Template" VerticalAlignment="Center" Click="Button_Click_3" Margin="20" Padding="10"/>
             </StackPanel>
         </Border>
     </Grid>   
