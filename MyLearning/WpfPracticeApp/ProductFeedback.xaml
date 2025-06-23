@@ -3,11 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfPracticeApp" xmlns:viewmodels="clr-namespace:WpfPracticeApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:FeedbackViewModel}"
+        xmlns:local="clr-namespace:WpfPracticeApp.ViewModels" xmlns:viewmodels="clr-namespace:WpfPracticeApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:FeedbackViewModel}"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="ProductFeedback" Width="800"
         SizeToContent="Height">
+    <Window.DataContext>
+        <local:FeedbackViewModel/>
+    </Window.DataContext>
     
     <Grid>
         <Border Background="#F5F5F5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20" CornerRadius="10">
@@ -31,8 +34,18 @@
 
                 <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Product Feedback" FontSize="21" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Product Name" VerticalAlignment="Center" Margin ="10"/>
-                <TextBox x:Name="ProductTextBox" Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" MinWidth="150" Height="25" VerticalAlignment="Center"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Rating" VerticalAlignment="Center" Margin="10"/>
+                <TextBox x:Name="ProductTextBox" Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" MinWidth="150" Height="25" VerticalAlignment="Center">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="LightCoral"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Rating" VerticalAlignment="Center" Margin="10"/>
                 <ComboBox SelectedItem="{Binding Rating}" SelectedIndex="0" Grid.Row="3" Grid.Column="1" MinWidth="150" Height="25">
                     <ComboBoxItem IsEnabled="False" Content="Select a Rating"/>
                     <ComboBoxItem Content="0"/>
@@ -56,4 +69,5 @@
             </Grid>            
         </Border>
     </Grid>
+    
 </Window>

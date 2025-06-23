@@ -21,7 +21,6 @@ namespace WpfPracticeApp
         public ProductFeedback()
         {
             InitializeComponent();
-            DataContext = new FeedbackViewModel();
             ProductTextBox.Focus();
         }
 
