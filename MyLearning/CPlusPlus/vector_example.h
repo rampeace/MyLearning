@@ -108,7 +108,7 @@ public:
 
 	static void sort()
 	{
-		vector<person> people = { {"Ram", 32}, {"Kavin", 24}};
+		vector<person> people = { {"Ram", 32}, {"Kavin", 24} };
 
 		std::ranges::sort(people, [](const person& p1, const person p2) { return p1.age > p2.age; });
 

@@ -6,15 +6,17 @@
 #include "vector_example.h"
 #include "const.h"
 #include <iostream>
+#include "simple_shared_ptr.h"
 
 using namespace std;
 
 int main()
 {
-	EmployeeRepository obj;
-	const std::string& name = obj.GetEmployee().getName();
-	obj.modifyAge(5);
+	std::unique_ptr<int> ptr(new int);
 
-	cout << name << " " << obj.GetEmployee().getAge() << endl;
+	*ptr = 10;
+
+	std::cout << *ptr << std::endl;
+
 	return 0;
 }
