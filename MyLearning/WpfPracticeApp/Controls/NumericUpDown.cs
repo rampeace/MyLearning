@@ -15,17 +15,6 @@ namespace WpfPracticeApp.Controls
                 new FrameworkPropertyMetadata(typeof(NumericUpDown)));
         }
 
-        //private static bool _isInitialized;
-        //public NumericUpDown()
-        //{
-        //    if (_isInitialized)
-        //        return;
-        //    DefaultStyleKeyProperty.OverrideMetadata(typeof(NumericUpDown),
-        //       new FrameworkPropertyMetadata(typeof(NumericUpDown)));
-
-        //    _isInitialized = true;
-        //}
-
         public static readonly DependencyProperty ValueProperty = 
             DependencyProperty.Register(nameof(Value), typeof(int), typeof(NumericUpDown), 
                 new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
@@ -64,7 +53,24 @@ namespace WpfPracticeApp.Controls
             - It’s called after the template is applied.
             - You use GetTemplateChild("PART_Name") to grab the elements.
             - Then you can attach event handlers, set properties, or initialize state.
+
+        Constructor
+
+            Only the logic object (your control) is created.
+            No visual elements (template parts) exist yet.
+            Generic.xaml is not parsed or applied yet.
+            ❌ You cannot access sub-controls here.
+
+        Added to visual tree / measured for layout
+
+            WPF calls ApplyTemplate() (automatically).
+            This triggers parsing of Generic.xaml, and builds the visual tree.
+
+        OnApplyTemplate() is called
+
+            ✅ Now you can access sub-controls using GetTemplateChild("PART_Name").
         */
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();

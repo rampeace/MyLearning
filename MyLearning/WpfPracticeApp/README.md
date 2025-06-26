@@ -234,3 +234,47 @@ var val = GetValue(MyProperty);
 </Application.Resources>
 ```
 
+# WPF Interview Questions: Inheritance, Class Hierarchy, and Property Inheritance
+
+## 🔹 Class-Based Inheritance in WPF
+
+1. **What is the base class of all WPF controls?**
+2. **How does `FrameworkElement` differ from `UIElement`?**
+3. **What are the key responsibilities of `UIElement` and `FrameworkElement`?**
+4. **What is the difference between `Control` and `ContentControl`?**
+5. **Can you describe the class inheritance hierarchy of a `Button` in WPF?**
+6. **How do `UserControl` and `CustomControl` differ in terms of class structure and purpose?**
+7. **What are the benefits of deriving from `FrameworkElement` versus `Control` or `Decorator`?**
+8. **What is the purpose of `Decorator` in the WPF class hierarchy?**
+9. **Can a control derive directly from `UIElement`? Why or why not?**
+10. **What is the role of `Visual` and `DependencyObject` in the WPF inheritance chain?**
+
+## 🔹 Property Inheritance
+
+1. **What is property value inheritance in WPF?**
+2. **Which types of properties can participate in property value inheritance?**
+3. **How do attached properties participate in value inheritance?**
+4. **What is the difference between logical tree inheritance and visual tree inheritance?**
+5. **How does the `Inherits` flag in `FrameworkPropertyMetadata` affect dependency property behavior?**
+6. **How would you make a custom dependency property participate in property inheritance?**
+7. **Can you provide a code example where a child element inherits a property value from a parent?**
+8. **Why doesn't `Background` property get inherited by default by child elements?**
+9. **What’s the difference between property inheritance and resource lookup in WPF?**
+10. **What are the performance implications of using property inheritance heavily?**
+
+## 🔹 Practical & Advanced Scenarios
+
+1. **When creating a custom control, why should you override metadata for inherited dependency properties?**
+2. **What is `AddOwner()` used for in the context of dependency properties and inheritance?**
+3. **What’s the difference between re-registering a dependency property in a derived class vs. using `AddOwner()`?**
+4. **Can you override the default value of an inherited dependency property in a derived class? How?**
+5. **What are the best practices when designing a base class that defines shared dependency properties in WPF?**
+
+## 🔹 Bonus: Inheritance in Templates & Styles
+
+1. **Do ControlTemplates or DataTemplates support inheritance? Explain.**
+2. **What does the `BasedOn` property do in a Style? Is that inheritance?**
+3. **Can styles or templates defined in base classes be reused in derived controls?**
+
+
+

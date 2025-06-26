@@ -3,6 +3,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="NumericUpDown.xaml"/>
+		<ResourceDictionary Source="CustomButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
