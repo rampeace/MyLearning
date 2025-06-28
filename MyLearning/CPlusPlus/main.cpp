@@ -7,16 +7,16 @@
 #include "const.h"
 #include <iostream>
 #include "simple_shared_ptr.h"
+#include "variadic_templates.h"
+#include "functor.h"
 
 using namespace std;
 
 int main()
 {
-	std::unique_ptr<int> ptr(new int);
-
-	*ptr = 10;
-
-	std::cout << *ptr << std::endl;
+	Functor zip;
+	
+	zip(30);
 
 	return 0;
 }

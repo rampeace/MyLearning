@@ -302,3 +302,31 @@ public:
 		std::cout << result << endl;
 	}
 };
+/*
+| Method Name     | Operation Line                                                                                                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `create`        | *(no views/ranges — just prints vector elements)*                                                                  |
+| `remove`        | `v.erase(v.begin() + index);`<br>`v.erase(it);`                                                                    |
+| `where`         | `auto result = nums \| std::views::filter([](int num) { return num % 2 == 0; });`                                  |
+| `select`        | `auto result = nums \| std::views::filter(...) \| std::views::transform(...);`                                     |
+| `select_many`   | `auto result = nums \| std::views::join;`<br>`auto result2 = sample_data \| std::views::join \| std::views::join;` |
+| `aggregate`     | `auto factorial = std::ranges::fold_left(nums, 1, ...);`<br>`auto concat = std::ranges::fold_left(s, "", ...);`    |
+| `sort`          | `std::ranges::sort(people, [](const person& p1, const person p2) { ... });`                                        |
+| `distinct`      | `unordered_set<int> hashSet = std::ranges::to<unordered_set<int>>(nums);`                                          |
+| `reverse`       | `auto reversed = std::views::reverse(nums);`                                                                       |
+| `take`          | `auto taken = nums \| std::views::take(3);`                                                                        |
+| `take_while`    | `auto taken = nums \| std::views::take_while([](int num) { return num < 20; });`                                   |
+| `skip`          | `auto skipped = nums \| std::views::drop(4);`                                                                      |
+| `skip_while`    | `auto skipped = nums \| std::views::drop_while([](int num) { return num < 10; });`                                 |
+| `first`         | `auto it = std::ranges::find_if(nums, [](int num) { return num % 2 == 0; });`                                      |
+| `count`         | `int count = std::ranges::distance(nums \| std::views::filter(...));`                                              |
+| `range`         | `auto numbers = std::views::iota(5, 10);`                                                                          |
+| `repeat`        | `auto repeated = std::views::repeat(-1, 10);`                                                                      |
+| `zip`           | `auto result = std::views::zip(names, marks);`                                                                     |
+| `max_by`        | `auto max = std::ranges::max_element(people, {}, [](const person& p) { return p.age; });`                          |
+| `min_by`        | `auto it = std::ranges::min_element(people, {}, &person::age);`                                                    |
+| `last`          | `auto it = std::ranges::rbegin(marks);`                                                                            |
+| `to_dictionary` | `std::unordered_map dict(vec.begin(), vec.end());`                                                                 |
+| `all`           | `bool result = std::ranges::all_of(marks, [](int mark) { return mark > 50; });`                                    |
+
+*/

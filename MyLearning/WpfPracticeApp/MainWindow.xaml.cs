@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfPracticeApp.Views;
 
 namespace WpfPracticeApp
 {
@@ -43,6 +44,12 @@ namespace WpfPracticeApp
         {
             ButtonControlTemplate buttonControlTemplate = new ButtonControlTemplate();
             buttonControlTemplate.Show();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Calculator calculator = new Calculator();
+            calculator.Show();
         }
     }
 }
