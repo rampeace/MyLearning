@@ -22,9 +22,9 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBox x:Name="textBox1" IsEnabled="True" Focusable="True" Width="100" Margin="10" Text="{Binding Value1, Mode=TwoWay, TargetNullValue=''}"/>
-                    <TextBox Focusable="True" Width="100" Margin="10" Text="{Binding Value2, Mode=TwoWay, TargetNullValue=''}"/>
-                    <TextBox Focusable="True" Width="100" Margin="10" Text="{Binding Result, Mode=TwoWay, TargetNullValue=''}"/>
+                    <TextBox x:Name="textBox1" IsEnabled="True" Focusable="True" Width="100" Margin="10, 0, 10, 20" Text="{Binding Value1, Mode=TwoWay, TargetNullValue=''}"/>
+                    <TextBox Focusable="True" Width="100" Text="{Binding Value2, Mode=TwoWay, TargetNullValue=''}" Margin="10, 0, 10, 20"/>
+                    <TextBox Focusable="True" Width="100" Text="{Binding Result, Mode=TwoWay, TargetNullValue=''}" Margin="10, 0, 10, 20"/>
                 </StackPanel>
                 <Grid Grid.Row="1" Grid.Column="0">
                     <Grid.RowDefinitions>

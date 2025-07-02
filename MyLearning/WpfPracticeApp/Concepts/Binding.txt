@@ -1,0 +1,77 @@
+﻿+--------------------------+-------------------------------------------------------------+-------------------------------------------------------------+
+| Markup Extension         | Purpose                                                     | Example                                                     |
++--------------------------+-------------------------------------------------------------+-------------------------------------------------------------+
+| {Binding}                | Binds a property to data (DataContext, Source, etc.)        | {Binding Path=Name}                                         |
+| {StaticResource}         | Gets resource at load-time from resource dictionary         | {StaticResource MyBrush}                                    |
+| {DynamicResource}        | Gets resource at runtime (supports theme changes)           | {DynamicResource MyBrush}                                   |
+| {x:Static}               | Refers to a static field, property, or constant             | {x:Static sys:DateTime.Now}                                 |
+| {x:Type}                 | Gets the CLR Type object for a given type                   | {x:Type Button}                                             |
+| {x:Null}                 | Represents null                                             | {x:Null}                                                    |
+| {TemplateBinding}        | Lightweight binding within a ControlTemplate                | {TemplateBinding Background}                                |
+| {RelativeSource}         | Binds to ancestor/self/templated parent                     | {Binding Path=Title, RelativeSource={RelativeSource AncestorType=Window}} |
+| {MultiBinding}           | Combines multiple bindings using a converter                | See multi-line example below                                |
+| {PriorityBinding}        | Uses first valid binding from a list                        | See multi-line example below                                |
+| {x:Array}                | Creates an array in XAML                                    | {x:Array Type=sys:String}                                   |
+| {ComponentResourceKey}   | Resource key used for themes/shared resources               | {ComponentResourceKey TypeInTargetAssembly=..., ResourceId=...} |
++--------------------------+-------------------------------------------------------------+-------------------------------------------------------------+
+
+Binding
+│
+├── DataContext (default source if nothing else is set)
+│   └── Inherited through the logical tree
+│       └── Used in: {Binding Path=Title}
+│
+├── Source (explicit source)
+│   ├── 1. Object from Resource Dictionary
+│   │     └── Example:
+│   │         <Window.Resources>
+│   │             <local:MyViewModel x:Key="VM" />
+│   │         </Window.Resources>
+│   │         <TextBlock Text="{Binding Title, Source={StaticResource VM}}" />
+│   │
+│   ├── 2. Binding to another element in XAML
+│   │     └── Example:
+│   │         <Slider x:Name="mySlider" />
+│   │         <TextBlock Text="{Binding Value, ElementName=mySlider}" />
+│   │
+│   ├── 3. Binding to static property
+│   │     └── Example:
+│   │         <TextBlock Text="{Binding AppName, Source={x:Static local:AppSettings}}" />
+│   │         ⚠️ Does not update UI unless manually implemented via INotifyPropertyChanged
+│   │
+│   └── 4. Binding to values in resource dictionary
+│         └── Example:
+│             <Button Background="{Binding Color, Source={StaticResource MyBrush}}" />
+│
+├── RelativeSource
+│   ├── Mode=Self
+│   │   └── Binds to the current element (self)
+│   │       └── Example:
+│   │           <TextBox Text="{Binding Tag, RelativeSource={RelativeSource Self}}" />
+│   │
+│   ├── Mode=FindAncestor
+│   │   ├── Binds to nearest ancestor of given type
+│   │   ├── Works on visual tree
+│   │   └── Example:
+│   │       <TextBlock Text="{Binding DataContext.Title,
+│   │                         RelativeSource={RelativeSource AncestorType=Window}}" />
+│   │
+│   ├── Mode=TemplatedParent
+│   │   ├── Binds to the control the template is applied to
+│   │   ├── Common inside ControlTemplates
+│   │   └── Example:
+│   │       <Border Background="{Binding Background,
+│   │               RelativeSource={RelativeSource TemplatedParent}}" />
+│   │
+│   └── Mode=PreviousData (rare)
+│       └── Binds to the previous data item in ItemsControl
+│           └── Example: <TextBlock Text="{Binding RelativeSource={RelativeSource PreviousData}}" />
+│
+└── ElementName
+    └── Binds to another named element in XAML namescope
+        └── Example:
+            <TextBlock Text="{Binding Value, ElementName=mySlider}" />
+
+
+
+
