@@ -12,7 +12,7 @@
     </Window.DataContext>
     
     <Grid>
-        <!--<Border Background="#F5F5F5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20" CornerRadius="10">
+        <Border Background="#F5F5F5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20" CornerRadius="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -27,16 +27,14 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Name}" Margin="10"/>
-                                <TextBlock Text="{Binding Age}" Margin="10"/>
+                                <TextBlock Width="60" Text="{Binding Name}" Margin="10"/>
+                                <TextBlock Width="20" Text="{Binding Age}" Margin="10"/>
                                 <TextBlock Text="{Binding BirthDate, StringFormat='{}{0:dd-MM-yyyy}'}" Margin="10"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                </ListBox>
-                
-                <TextBox
+                </ListBox>   
             </Grid>
-        </Border>-->
+        </Border>
     </Grid>
 </Window>

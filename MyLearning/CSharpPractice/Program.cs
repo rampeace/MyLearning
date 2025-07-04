@@ -4,6 +4,7 @@ using CSharpPractice.Linq;
 using CSharpPractice.Multithreading;
 using System.Formats.Asn1;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace CSharpPractice
 {
@@ -11,9 +12,7 @@ namespace CSharpPractice
     {
         static async Task Main(string[] args)
         {
-            new LeftJoin().TryLeftJoin();
-
-            Console.ReadKey();
-        }
+            await new ContinueWith().Run();
+        }       
     }
 }
