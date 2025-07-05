@@ -13,6 +13,5 @@ namespace WpfPracticeApp.Controls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(AnimatedButton), new FrameworkPropertyMetadata(typeof(AnimatedButton)));
 
         }
-
     }
 }

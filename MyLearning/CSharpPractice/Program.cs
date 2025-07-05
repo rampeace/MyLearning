@@ -12,7 +12,11 @@ namespace CSharpPractice
     {
         static async Task Main(string[] args)
         {
-            await new ContinueWith().Run();
-        }       
-    }
+            ActionExercise exercise = new ActionExercise();
+
+            exercise.Example();
+
+            Console.ReadKey();
+        }
+    } 
 }

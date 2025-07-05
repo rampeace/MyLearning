@@ -1,0 +1,35 @@
+﻿System.Object
+└── DispatcherObject
+    └── DependencyObject
+        └── Visual (Low-level drawing support, hit testing)
+            └── UIElement (Supports Layout through Measure Pass, Arrange Pass, Hit testing)
+                └── FrameworkElement (Data binding, resources, styles, data templates not control templates, Resource dictionary, You're not composing existing controls inside (like buttons, textboxes). You don't need a control template, themes, or built-in interaction states)
+                    ├── Control (Fully templatable via ControlTemplate, Supported (IsMouseOver, IsPressed, etc.))
+                    │   ├── ContentControl
+                    │   │   ├── Window
+                    │   │   ├── Page
+                    │   │   ├── Button
+                    │   │   ├── Label
+                    │   │   └── CheckBox
+                    │   ├── ItemsControl
+                    │   │   ├── ListBox
+                    │   │   ├── ComboBox
+                    │   │   ├── TreeView
+                    │   │   └── Menu
+                    │   └── UserControl
+                    ├── Panel
+                    │   ├── StackPanel
+                    │   ├── Grid
+                    │   ├── Canvas
+                    │   └── DockPanel
+                    ├── Decorator
+                    │   ├── Border
+                    │   ├── Viewbox
+                    │   └── ScrollViewer
+                    ├── Shape
+                    │   ├── Ellipse
+                    │   ├── Rectangle
+                    │   └── Polygon
+                    └── Others
+                        ├── Image
+                        └── MediaElement
