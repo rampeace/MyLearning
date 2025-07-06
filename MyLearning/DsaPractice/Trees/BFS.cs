@@ -20,6 +20,17 @@ namespace DsaPractice.Trees
              * 
              */
 
+            TreeNode<string> d = new TreeNode<string>("D");
+            TreeNode<string> e = new TreeNode<string>("E");
+
+            TreeNode<string> f = new TreeNode<string>("F");
+            TreeNode<string> g = new TreeNode<string>("G");
+
+            TreeNode<string> b = new TreeNode<string>("B", d, e);
+            TreeNode<string> c = new TreeNode<string>("B", f, g);
+
+            TreeNode<string> a = new TreeNode<string>("A", b, c);
+
             TreeNode<string> root =
                 new TreeNode<string>("A", 
                 new TreeNode<string>("B",

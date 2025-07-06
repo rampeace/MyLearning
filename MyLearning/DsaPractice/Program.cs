@@ -20,7 +20,22 @@ namespace DsaPractice
     {
         static void Main()
         {
-            new PrimsAlgorithm().Test();
+
+            BackTrack(0);
+
+            Console.ReadKey();
+        }
+
+        private static void BackTrack(int n)
+        {
+            if (n == 10)
+                return;
+
+            n++;
+
+            BackTrack(n);
+
+            Console.WriteLine(n);
         }
     }
 }

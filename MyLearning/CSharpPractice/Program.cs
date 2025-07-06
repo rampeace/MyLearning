@@ -12,9 +12,19 @@ namespace CSharpPractice
     {
         static async Task Main(string[] args)
         {
-            ActionExercise exercise = new ActionExercise();
+            PauseThread pauseThread = new();
 
-            exercise.Example();
+            Task task = pauseThread.RunTask();
+
+            await Task.Delay(3000);
+
+            pauseThread.Pause();
+
+            await Task.Delay(3000);
+
+            pauseThread.Resume();
+
+            await task;
 
             Console.ReadKey();
         }
