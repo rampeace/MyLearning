@@ -1,0 +1,322 @@
+﻿1. How would you bind two or more values (e.g., FirstName and LastName) into a single property in a Label or TextBlock using XAML only?
+
+    ✅ Tests understanding of MultiBinding, StringFormat, or IMultiValueConverter.
+
+
+2. You have a Person object with an IsPremiumCustomer boolean. How would you change the background color of a Border to gold if the person is premium, otherwise keep it white?
+
+    ✅ Tests use of DataTriggers or converters with styles.
+
+    <Border Padding="10" Margin="10">
+    <Border.Style>
+        <Style TargetType="Border">
+            <Setter Property="Background" Value="White" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsPremiumCustomer}" Value="True">
+                    <Setter Property="Background" Value="Gold"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Border.Style>
+
+    <StackPanel>
+        <TextBlock Text="{Binding Name}" FontSize="16"/>
+    </StackPanel>
+</Border>
+
+3. How do you show or hide a section (like a Grid or StackPanel) based on a ViewModel property, say IsVisibleSection (bool)? What are the ways to achieve it?
+
+    ✅ Tests binding to Visibility with BooleanToVisibilityConverter or custom logic.
+
+<Window.Resources>
+    <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+</Window.Resources>
+
+<StackPanel Visibility="{Binding IsVisibleSection, Converter={StaticResource BoolToVis}}">
+    <!-- content here -->
+</StackPanel>
+
+Option 2:
+public class BoolToHiddenConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        bool isVisible = (bool)value;
+        return isVisible ? Visibility.Visible : Visibility.Hidden;
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        return (Visibility)value == Visibility.Visible;
+    }
+}
+
+<local:BoolToHiddenConverter x:Key="BoolToHidden"/>
+<StackPanel Visibility="{Binding IsVisibleSection, Converter={StaticResource BoolToHidden}}"/>
+
+4. You have an Age property. If Age < 18, display text in red. If Age >= 18, display in green. How would you implement this purely in XAML?
+
+    ✅ Tests DataTriggers, ValueConverters, or styles.
+
+public class Person
+{
+    public int Age { get; set; }
+
+    public bool IsMinor => Age < 18;
+}
+
+<TextBlock Text="{Binding Age}">
+    <TextBlock.Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Green"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsMinor}" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </TextBlock.Style>
+</TextBlock>
+
+5. Suppose you have a ListBox showing a list of employees, and you want to show the selected employee's full details in a panel below it. How would you bind that?
+
+    ✅ Tests understanding of SelectedItem binding and using DataTemplates for type-based rendering.
+
+public class Employee
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public string Department { get; set; }
+}
+
+public class EmployeeViewModel
+{
+    public ObservableCollection<Employee> Employees { get; set; }
+    public Employee SelectedEmployee { get; set; }
+
+    public EmployeeViewModel()
+    {
+        Employees = new ObservableCollection<Employee>
+        {
+            new Employee { Name = "John", Age = 30, Department = "HR" },
+            new Employee { Name = "Priya", Age = 25, Department = "Finance" }
+        };
+    }
+}
+
+<Window ...
+        xmlns:local="clr-namespace:YourAppNamespace">
+    <Window.DataContext>
+        <local:EmployeeViewModel/>
+    </Window.DataContext>
+
+    <StackPanel>
+        <!-- List of Employees -->
+        <ListBox ItemsSource="{Binding Employees}"
+                 SelectedItem="{Binding SelectedEmployee, Mode=TwoWay}"
+                 DisplayMemberPath="Name" />
+
+        <!-- Details Panel -->
+        <ContentControl Content="{Binding SelectedEmployee}">
+            <ContentControl.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="10">
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Age}" />
+                        <TextBlock Text="{Binding Department}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
+    </StackPanel>
+</Window>
+
+6. How can you apply a specific Style to a TextBox only when it is focused, and a different one when not focused?
+
+    ✅ Tests Triggers inside Style, and visual states.
+
+    <Window.Resources>
+    <Style TargetType="TextBox" x:Key="FocusAwareTextBoxStyle">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="Background" Value="LightYellow"/>
+                <Setter Property="BorderBrush" Value="DodgerBlue"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</Window.Resources>
+
+<!-- Apply the style -->
+<TextBox Style="{StaticResource FocusAwareTextBoxStyle}" 
+         Width="200" Margin="20"/>
+
+
+7. You want to highlight (bold or change background) the item in a ListBox if its IsManager property is true. How would you implement this?
+
+    ✅ Tests DataTrigger inside ItemContainerStyle or ItemTemplate.
+
+<Window.DataContext>
+    <local:EmployeeViewModel/>
+</Window.DataContext>
+
+<ListBox ItemsSource="{Binding Employees}">
+    <ListBox.ItemContainerStyle>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsManager}" Value="True">
+                    <Setter Property="Background" Value="LightGreen"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </ListBox.ItemContainerStyle>
+
+    <ListBox.ItemTemplate>
+        <DataTemplate>
+            <TextBlock Text="{Binding Name}" Padding="5"/>
+        </DataTemplate>
+    </ListBox.ItemTemplate>
+</ListBox>
+
+8. You want to bind a Slider’s value to a TextBlock and also show a formatted string like "Volume: 70%". How would you do it?
+
+    ✅ Tests simple binding with StringFormat.
+
+<TextBlock Text="{Binding ElementName=volumeSlider, Path=Value, StringFormat='Volume: {0}%'}"/>
+
+9. How do you create a reusable Style that sets a common font and margin for all TextBlocks and apply it across your app?
+
+    ✅ Tests use of ResourceDictionary, BasedOn, StaticResource.
+
+
+XAML Patterns
+├── 1. Layout Patterns
+│   ├── Grid Layout
+│   │   └── Trick: Use "Auto, *, n*" to control sizing intuitively
+│   ├── StackPanel
+│   │   └── Trick: Vertical by default; great for simple linear UI
+│   ├── WrapPanel
+│   │   └── Trick: Items wrap to next line when space is full
+│   ├── DockPanel
+│   │   └── Trick: Dock children left/right/top/bottom; last child fills
+│   └── Canvas
+│       └── Trick: Use only when absolute positioning is necessary
+
+├── 2. Binding Patterns
+│   ├── Simple Binding
+│   │   └── Trick: Set DataContext, then just `{Binding Property}`
+│   ├── ElementName Binding
+│   │   └── Trick: Link controls via `ElementName=...`
+│   ├── RelativeSource Binding
+│   │   └── Trick: Use `Self`, `TemplatedParent`, `FindAncestor`
+│   ├── Binding to Nested Properties
+│   │   └── Trick: `{Binding Person.Address.City}` supports deep binding
+│   ├── FallbackValue / TargetNullValue
+│   │   └── Trick: Use to avoid blank UI when binding fails or is null
+│   └── Binding Group
+│       └── Trick: Validate multiple fields together in forms
+
+├── 3. Trigger Patterns
+│   ├── Property Trigger
+│   │   └── Trick: Use only for DP like `IsMouseOver`, `IsEnabled`
+│   ├── DataTrigger
+│   │   └── Trick: Use `Binding=` for ViewModel or dynamic data
+│   ├── MultiDataTrigger
+│   │   └── Trick: Combine multiple conditions with AND logic
+│   ├── EventTrigger
+│   │   └── Trick: Use for animations on events like `Loaded`, `MouseEnter`
+│   └── Trigger with Animation
+│       └── Trick: Start storyboard via `BeginStoryboard`
+
+├── 4. Value Conversion Patterns
+│   ├── IValueConverter
+│   │   └── Trick: For single-property conversion (e.g., bool to visibility)
+│   └── IMultiValueConverter
+│       └── Trick: For combining multiple bound values
+
+├── 5. Control Patterns
+│   ├── Templated Controls
+│   │   └── Trick: Use `ControlTemplate` to override native look
+│   ├── DataTemplate
+│   │   └── Trick: Controls how each data item is visually represented
+│   ├── HierarchicalDataTemplate
+│   │   └── Trick: Use in `TreeView` for recursive display
+│   ├── ContentTemplateSelector
+│   │   └── Trick: Dynamically choose DataTemplate at runtime
+│   └── ItemsPanelTemplate
+│       └── Trick: Changes layout panel used by items controls
+
+├── 6. Style & Resource Patterns
+│   ├── StaticResource / DynamicResource
+│   │   └── Trick: Static = early binding, Dynamic = late binding
+│   ├── Implicit Style
+│   │   └── Trick: Style without `x:Key` applies to all of type
+│   ├── BasedOn Style
+│   │   └── Trick: Reuse base style with minor overrides
+│   ├── Merged Resource Dictionaries
+│   │   └── Trick: Organize large styles into multiple files
+│   ├── Theme Dictionaries
+│   │   └── Trick: Use `Generic.xaml` for theme fallback
+│   └── Binding in Style Setter
+│       └── Trick: Use `Setters` inside `Style.Triggers` for dynamic behavior
+
+├── 7. Commanding Patterns
+│   ├── Button.Command Binding
+│   │   └── Trick: Use with `ICommand` for MVVM actions
+│   ├── CommandParameter
+│   │   └── Trick: Pass extra context with command (e.g., selected item)
+│   └── InputBindings
+│       └── Trick: Bind keyboard shortcuts to commands
+
+├── 8. MVVM and Control-View Separation
+│   ├── ViewModel Binding
+│   │   └── Trick: Set `Window.DataContext` once in XAML or code-behind
+│   ├── ViewModelLocator
+│   │   └── Trick: Use StaticResource or IOC for VM resolution
+│   └── Model Binding
+│       └── Trick: Bind nested models (e.g., Person.Address.City)
+
+├── 9. UI Feedback & Validation Patterns
+│   ├── ValidationRules
+│   │   └── Trick: Add to `Binding.ValidationRules` for inline validation
+│   ├── IDataErrorInfo / INotifyDataErrorInfo
+│   │   └── Trick: ViewModel-based validation with tooltips
+│   └── Visual Feedback
+│       └── Trick: Use `Validation.HasError` + triggers for red borders, etc.
+
+├── 10. Animation & Visual State Patterns
+│   ├── Storyboard + Triggers
+│   │   └── Trick: Use `EventTrigger` + `BeginStoryboard`
+│   ├── VisualStateManager
+│   │   └── Trick: Define named UI states for adaptive layout or feedback
+│   └── ControlTemplate Animations
+│       └── Trick: Embed `Storyboard` in control style for button presses, etc.
+
+├── 11. Advanced Composition Patterns
+│   ├── Attached Properties
+│   │   └── Trick: Add behavior to existing controls
+│   ├── DependencyProperty.AddOwner
+│   │   └── Trick: Share a DP across types for theme/style reuse
+│   ├── Custom Controls with Templates
+│   │   └── Trick: Create reusable skinnable components
+│   ├── Behaviors (Blend SDK)
+│   │   └── Trick: Add interaction logic declaratively
+│   └── Custom Markup Extensions
+│       └── Trick: Inject dynamic values into XAML at runtime
+
+├── 12. Miscellaneous Patterns
+│   ├── DPI Awareness
+│   │   └── Trick: Use `UseLayoutRounding` and vector-based controls
+│   ├── Localization
+│   │   └── Trick: Use `x:Uid` or `Binding` + resource files
+│   └── Accessibility
+│       └── Trick: Use `AutomationProperties.*` attributes
+

@@ -29,5 +29,11 @@ namespace WpfPracticeApp.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(People)));
             }
         }
+
+        public Person Person
+        {
+            get { return new Person() { Age = 23, BirthDate = new DateTime(1981, 02, 20), Name = "Ram" }; }
+            set { _people[0] = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Person))); }
+        }
     }
 }

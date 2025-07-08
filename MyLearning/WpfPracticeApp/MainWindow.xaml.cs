@@ -51,5 +51,11 @@ namespace WpfPracticeApp
             Calculator calculator = new Calculator();
             calculator.Show();
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            People people = new People();
+            people.Show();
+        }
     }
 }
