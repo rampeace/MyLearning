@@ -5,13 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfPracticeApp.Views"
         xmlns:model="clr-namespace:WpfPracticeApp.Models"
-
         mc:Ignorable="d"
          xmlns:viewmodels="clr-namespace:WpfPracticeApp.ViewModels"
         Title="People" Height="450" Width="800">
+    
     <Window.DataContext>
         <viewmodels:PersonViewModel/>
     </Window.DataContext>
+    
+    <Window.Resources>
+        <DataTemplate x:Key="PersonDataTemplate" DataType="{x:Type model:Person}">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Data template" Margin="5" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Name}" Margin="5"/>
+                <TextBlock Text="{Binding Age}" Margin="5"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type sys:Object}" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+            <TextBlock Background="LightYellow" Text="{Binding}" FontWeight="Bold" />
+        </DataTemplate>
+    </Window.Resources>
     
     <Grid>
         <Border Background="#F5F5F5" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="20" CornerRadius="10">
@@ -37,8 +51,13 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                
-                <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding Person}"/>
+
+                <StackPanel Grid.Row="1" Grid.Column="0">
+                    <ContentControl Content="{Binding Person}" ContentTemplate="{StaticResource PersonDataTemplate}"/>
+
+                    <Button Content="Data template button" ContentTemplate="{StaticResource ButtonTemplate}"/>
+
+                </StackPanel>
 
                 <StackPanel Grid.Row="2" Grid.Column="0">
                     <TextBlock Text="Multibinding" Margin="5" FontWeight="Bold" HorizontalAlignment="Center"/>
@@ -55,14 +74,4 @@
             </Grid>
         </Border>
     </Grid>
-
-    <Window.Resources>
-        <DataTemplate DataType="{x:Type model:Person}">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="Data template" Margin="5" FontWeight="Bold" HorizontalAlignment="Center"/>
-                <TextBlock Text="{Binding Name}" Margin="5"/>
-                <TextBlock Text="{Binding Age}" Margin="5"/>
-            </StackPanel>
-        </DataTemplate>
-    </Window.Resources>
 </Window>

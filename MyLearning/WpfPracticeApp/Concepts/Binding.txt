@@ -74,4 +74,208 @@ Binding
 
 
 
+DataTemplate
 
+├── ContentTemplate
+│   ├── ContentControl (e.g., ContentControl, Button, Label)
+│   ├── ContentPresenter
+│   ├── ToolTip.ContentTemplate
+│   ├── Popup.ContentTemplate
+│   ├── TabControl.ContentTemplate
+│   └── ControlTemplate → via ContentPresenter
+│
+├── ItemTemplate
+│   ├── ItemsControl
+│   │   ├── ListBox
+│   │   ├── ListView
+│   │   ├── ComboBox
+│   │   ├── DataGrid
+│   │   ├── TabControl
+│   │   └── TreeView (see HierarchicalDataTemplate)
+│
+├── CellTemplate
+│   └── GridViewColumn (used inside ListView.View with GridView)
+│
+├── HeaderTemplate
+│   ├── TabControl (for tab headers)
+│   ├── GroupStyle.HeaderTemplate (for grouped ListView)
+│   └── Expander.HeaderTemplate
+│
+├── HierarchicalDataTemplate
+│   └── TreeView.ItemTemplate
+│       └── ItemsSource + nested templates
+│
+├── DataTemplateSelector
+│   ├── ListBox.ItemTemplateSelector
+│   ├── ContentControl.ContentTemplateSelector
+│   ├── ComboBox.ItemTemplateSelector
+│   └── TabControl.ContentTemplateSelector
+│
+├── Style.Setter (with ContentTemplate)
+│   └── Used in dynamic styling scenarios
+│
+├── ToolTip Template
+│   └── Can define how tooltips look using DataTemplate
+│
+├── CommandParameter (rarely, via Content or DataContext templating)
+│
+└── Custom Controls
+    ├── ContentPresenter inside ControlTemplate uses DataTemplate
+    ├── TemplateBinding to trigger use of DataTemplate
+    └── Theming scenarios
+
+
+ControlTemplate
+├── Control.Template
+│   ├── Common Controls
+│   │   ├── Button
+│   │   ├── TextBox
+│   │   ├── CheckBox
+│   │   ├── RadioButton
+│   │   ├── ComboBox
+│   │   ├── ListBox
+│   │   ├── TabControl
+│   │   ├── ScrollBar
+│   │   ├── ProgressBar
+│   │   ├── Slider
+│   │   ├── ToggleButton
+│   │   ├── PasswordBox
+│   │   └── RepeatButton
+│   │
+│   ├── ContentControl
+│   ├── ItemsControl
+│   ├── Decorator
+│   ├── Frame
+│   ├── GroupBox
+│   └── User-defined controls (custom `Control`-derived types)
+│
+├── Style.Setters
+│   └── Setter Property="Template"
+│       ├── Applied via Style for reusability
+│       └── Often placed in ResourceDictionary or Generic.xaml
+│
+├── ControlTemplate.Triggers
+│   └── Visual state triggers (e.g., IsMouseOver, IsPressed, IsFocused)
+│       ├── Used to control visual behavior based on control state
+│       └── Often paired with VisualStateManager or setters
+│
+├── Templated Controls in Control Libraries
+│   ├── Custom Controls (inheriting `Control`, not `UserControl`)
+│   │   └── Default templates defined in `Themes/Generic.xaml`
+│   ├── Third-party controls (e.g., MaterialDesignInXAML, Telerik)
+│   └── Themed template replacements for existing controls
+│
+├── TemplateSelector (rare but possible)
+│   └── For advanced scenarios, like choosing templates dynamically
+│
+└── ControlTemplate in ControlTemplate
+    └── Nested templates for parts (e.g., ScrollViewer inside ListBox template)
+
+
+    Triggers in WPF
+
+├── Style.Triggers
+│   ├── Trigger              → Property-based trigger (DP only)
+│   ├── DataTrigger          → Bind to data context
+│   ├── MultiTrigger         → Combine multiple property conditions
+│   ├── MultiDataTrigger     → Combine multiple data conditions
+│   └── EventTrigger (only for FrameworkElement)
+│
+├── ControlTemplate.Triggers
+│   ├── Trigger              → For templated control states (IsMouseOver, etc.)
+│   └── EventTrigger (limited; does not support RoutedEvents)
+│
+├── DataTemplate.Triggers
+│   ├── DataTrigger
+│   └── MultiDataTrigger
+│   (✔ Only Data-based triggers work here)
+│
+├── ItemsControl.ItemContainerStyle.Triggers
+│   └── Trigger / DataTrigger
+│       (Triggers apply to generated containers like ListBoxItem)
+│
+├── VisualStateManager (alternative to Triggers)
+│   ├── Storyboards
+│   └── VisualState.Setters (Recommended for modern styling)
+│
+├── EventTrigger (Behavioral / animation)
+│   ├── Applied in Style (FrameworkElement only)
+│   └── Used in Blend / Interactivity scenarios
+│       (e.g., BeginStoryboard on Loaded event)
+│
+└── Triggers Collection (Specific Controls)
+    ├── ItemsControl.ItemTemplate.Triggers
+    ├── Control.ContentTemplate.Triggers
+    └── Page / UserControl → Loaded event or animation triggers
+
+
+    Style (WPF)
+
+├── UI Controls (TargetType = Control or derived)
+│   ├── Button
+│   ├── TextBox
+│   ├── ComboBox
+│   ├── CheckBox
+│   ├── RadioButton
+│   ├── Slider
+│   ├── ListBox / ListView / DataGrid
+│   ├── TabControl / TabItem
+│   ├── TreeView / TreeViewItem
+│   ├── Expander
+│   ├── Menu / MenuItem / ContextMenu
+│   ├── ProgressBar / ScrollBar / StatusBar
+│   ├── ToolTip
+│   ├── Window
+│   ├── UserControl
+│   ├── ContentControl
+│   └── Custom Control (any subclass of `Control`)
+│
+├── Panels & Layout Containers
+│   ├── Grid
+│   ├── StackPanel
+│   ├── WrapPanel
+│   ├── DockPanel
+│   ├── Canvas
+│   └── Viewbox
+│
+├── Shapes & Drawing
+│   ├── Rectangle
+│   ├── Ellipse
+│   ├── Line
+│   ├── Path
+│   └── Polygon
+│
+├── Text Elements
+│   ├── TextBlock
+│   ├── Run
+│   ├── Paragraph (in FlowDocument)
+│   └── RichTextBox
+│
+├── Items & Containers
+│   ├── ItemsControl.ItemContainerStyle
+│   ├── ListBox.ItemContainerStyle
+│   ├── ComboBox.ItemContainerStyle
+│   ├── TreeView.ItemContainerStyle
+│   └── TabControl.ItemContainerStyle
+│
+├── Headers & Grouping
+│   ├── GroupStyle
+│   ├── GroupStyle.HeaderTemplateStyle
+│   ├── Expander.Header
+│   └── TabItem.Header
+│
+├── Special Framework Elements
+│   ├── ScrollViewer
+│   ├── Popup
+│   ├── AdornerDecorator
+│   ├── Border
+│   └── Thumb (for drag handles)
+│
+├── Style Applied Using:
+│   ├── Implicit (based on TargetType)
+│   │   └── <Style TargetType="Button"> (no x:Key)
+│   ├── Explicit (by x:Key)
+│   │   └── <Style x:Key="MyStyle" TargetType="TextBox" />
+│   ├── BasedOn (style inheritance)
+│   ├── StaticResource or DynamicResource
+│   └── Application.Resources / Page.Resources / Control.Resources

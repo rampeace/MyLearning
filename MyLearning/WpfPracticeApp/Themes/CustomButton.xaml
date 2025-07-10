@@ -10,9 +10,10 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                        <ContentPresenter HorizontalAlignment="Center"
+						<ContentPresenter HorizontalAlignment="Center"
                                       VerticalAlignment="Center"
-                                      RecognizesAccessKey="True" />
+                                      RecognizesAccessKey="True">							
+						</ContentPresenter>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

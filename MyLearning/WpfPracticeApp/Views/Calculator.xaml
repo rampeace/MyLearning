@@ -52,7 +52,20 @@
                     <Button Grid.Row="2" Grid.Column="2" Content="8" Padding="15" Click="Button_Click" PreviewMouseDown="Button_PreviewMouseDown"/>
 
                     <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                        <Button Command="{Binding AddCommand}"  Content="Add" Padding="10" Width="80" Margin="10"/>
+                        <Button Command="{Binding AddCommand}"  Content="Add" Padding="10" Width="80" Margin="10">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="CornflowerBlue"/>
+
+                                    <Style.Triggers>
+                                        <Trigger Property="Background" Value="CornflowerBlue">
+                                            <Setter Property="Content" Value="Changed"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                                
+                            </Button.Style>
+                        </Button>
                         <Button Command="{Binding SubtractCommand}" Content="Subtract" Padding="10" Width="80" Margin="10"/>
                         <Button Command="{Binding MultiplyCommand}"  Content="Multiply" Padding="10" Width="80" Margin="10"/>
                         <Button Command="{Binding DivideCommand}" Content="Divide" Padding="10" Width="80" Margin="10"/>
