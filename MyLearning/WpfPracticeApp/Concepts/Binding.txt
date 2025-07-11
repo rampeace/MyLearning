@@ -174,39 +174,44 @@ ControlTemplate
 
     Triggers in WPF
 
-├── Style.Triggers
-│   ├── Trigger              → Property-based trigger (DP only)
-│   ├── DataTrigger          → Bind to data context
-│   ├── MultiTrigger         → Combine multiple property conditions
-│   ├── MultiDataTrigger     → Combine multiple data conditions
-│   └── EventTrigger (only for FrameworkElement)
-│
-├── ControlTemplate.Triggers
-│   ├── Trigger              → For templated control states (IsMouseOver, etc.)
-│   └── EventTrigger (limited; does not support RoutedEvents)
-│
-├── DataTemplate.Triggers
-│   ├── DataTrigger
-│   └── MultiDataTrigger
-│   (✔ Only Data-based triggers work here)
-│
-├── ItemsControl.ItemContainerStyle.Triggers
-│   └── Trigger / DataTrigger
-│       (Triggers apply to generated containers like ListBoxItem)
-│
-├── VisualStateManager (alternative to Triggers)
-│   ├── Storyboards
-│   └── VisualState.Setters (Recommended for modern styling)
-│
-├── EventTrigger (Behavioral / animation)
-│   ├── Applied in Style (FrameworkElement only)
-│   └── Used in Blend / Interactivity scenarios
-│       (e.g., BeginStoryboard on Loaded event)
-│
-└── Triggers Collection (Specific Controls)
-    ├── ItemsControl.ItemTemplate.Triggers
-    ├── Control.ContentTemplate.Triggers
-    └── Page / UserControl → Loaded event or animation triggers
+    📦 Style.Triggers
+├── Trigger               → Property-based trigger (only for DPs)
+├── DataTrigger           → Binding to data context
+├── MultiTrigger          → Combine multiple DP conditions
+├── MultiDataTrigger      → Combine multiple data bindings
+└── EventTrigger          → ✅ Only in styles targeting FrameworkElement (not templates)
+
+📦 ControlTemplate.Triggers
+├── Trigger               → Works on templated control properties (e.g., IsMouseOver)
+├── DataTrigger           → Works with binding (usually with ElementName or TemplatedParent)
+├── MultiTrigger          → Multiple DP-based conditions
+├── MultiDataTrigger      → Multiple binding-based conditions
+└── 🚫 EventTrigger        → ❌ Not supported here (ignored silently)
+
+📦 DataTemplate.Triggers
+├── DataTrigger           → Per-item triggers based on data binding
+├── MultiDataTrigger      → Combine multiple data conditions
+└── ⚠️ Only data-based triggers supported (no DP/visual/event triggers)
+
+📦 ItemsControl.ItemContainerStyle.Triggers
+├── Trigger               → For container visuals (e.g., ListBoxItem)
+├── DataTrigger           → Based on bound item data (still works on container DPs)
+
+📦 VisualStateManager (modern alternative to Triggers)
+├── VisualState.Setters   → Preferred for modern styles/templates
+├── Storyboards           → Animate properties per visual state
+└── Used inside ControlTemplate with `<VisualStateManager.VisualStateGroups>`
+
+📦 EventTrigger (Behavioral / animation-based)
+├── In Style (FrameworkElement only) → Can trigger `BeginStoryboard`, etc.
+├── Typically used via Blend behaviors / `System.Windows.Interactivity`
+└── For routed events, use **Attached Behaviors** or **Commands** instead
+
+📦 Template.Triggers Collections
+├── ItemsControl.ItemTemplate.Triggers
+├── ContentControl.ContentTemplate.Triggers
+├── Control.Template.Triggers
+└── Page/UserControl → Must use code-behind or `Loaded` + behaviors for event-based logic
 
 
     Style (WPF)
@@ -279,3 +284,314 @@ ControlTemplate
 │   ├── BasedOn (style inheritance)
 │   ├── StaticResource or DynamicResource
 │   └── Application.Resources / Page.Resources / Control.Resources
+
+WPF Overview
+
+📦 Application Structure
+├── MVVM Pattern
+│   ├── View: XAML with Bindings
+│   ├── ViewModel: INotifyPropertyChanged, Commands
+│   └── Model: Data + Business Logic
+├── Dependency Injection (DI)
+│   ├── Register services in App.xaml.cs
+│   └── Pass ViewModels via constructor injection
+├── Navigation
+│   ├── NavigationService (for Page-based)
+│   └── Custom region-based navigation for MVVM
+
+🎯 Data Binding (Core Skill)
+├── OneWay / TwoWay bindings
+├── Binding Paths (Nested/Collections)
+├── DataContext inheritance
+├── Value Converters
+├── FallbackValue / TargetNullValue
+├── RelativeSource / ElementName binding
+└── MultiBinding (IMultiValueConverter)
+
+🎨 Styling and Theming
+├── Styles
+│   ├── BasedOn inheritance
+│   ├── Global vs local
+│   ├── Implicit vs explicit
+│   └── TargetType, Setters
+├── Control Templates
+│   ├── Redefine visuals of a control
+│   ├── Use TemplateBinding and PART_ names
+│   └── CustomControls override DefaultStyleKey
+├── DataTemplates
+│   ├── Used in ItemsControl, ContentControl
+│   ├── DataTemplateSelector for logic-based templates
+│   └── HierarchicalDataTemplate (for TreeView)
+├── Resource Dictionaries
+│   ├── Merge dictionaries
+│   └── Theme swapping (Dark/Light modes)
+
+🖼️ Layout and UI Design
+├── Panels (Grid, StackPanel, DockPanel, Canvas, etc.)
+├── SharedSizeGroup
+├── ViewBox for DPI scaling
+├── Margin, Padding, Alignment vs Layout rounding
+├── Adorners for decorations/tooltips
+└── Visual Tree vs Logical Tree (very important)
+
+📌 Dependency Properties
+├── Register / RegisterAttached / AddOwner
+├── OverrideMetadata for type-specific behavior
+├── PropertyMetadata / FrameworkPropertyMetadata
+├── Inheritance (like FontSize, IsEnabled)
+└── Use with Binding, Styling, Triggers
+
+🛠️ Custom Controls vs UserControls
+├── UserControls for quick composition
+├── Custom Controls for reusable, themeable controls
+├── Use DefaultStyleKey and generic.xaml
+└── Expose DP/AP for custom control features
+
+🧲 Commands and Events
+├── ICommand (RelayCommand / DelegateCommand)
+├── EventToCommand pattern (via Interactivity or Behaviors)
+├── RoutedEvents
+│   ├── Bubbling / Tunneling / Direct
+│   └── Use for UI interaction across controls
+└── EventTriggers / DataTriggers / MultiTriggers
+
+📡 Data and Persistence
+├── Entity Framework (for data access)
+├── SQLite / SQL Server integration
+├── ObservableCollection<T> for UI updates
+└── IDataErrorInfo / INotifyDataErrorInfo (validation)
+
+📈 Performance and Virtualization
+├── UI Virtualization (ListBox, DataGrid)
+├── Reduce layout passes (Minimize nested panels)
+├── Use Freeze() on Freezable resources (Brushes, Transforms)
+├── Defer loading with `x:DeferLoadStrategy`
+└── Avoid memory leaks (event handler unsubscriptions, DataContext cycles)
+
+🔒 Security and Safety
+├── Avoid exposing raw models directly to Views
+├── Secure connection strings and config
+└── Avoid binding to non-public members
+
+🔧 Tooling and Debugging
+├── Snoop / Live Visual Tree (VS) for debugging bindings
+├── Diagnostic tracing for bindings
+└── Use DataContextChanged for debugging
+
+🎯 UX/UI Patterns
+├── Loading indicators (IsBusy + ProgressRing)
+├── DialogService for message boxes
+├── Notifications / Snackbar / Toasts
+└── Theme-aware visuals (Dark/Light switch)
+
+🧪 Testing and Maintainability
+├── MVVM encourages unit testing ViewModels
+├── Use mocks/stubs for services
+└── Test logic independently from UI
+
+-----------------------------------------------------------------------------------------------------------
+
+🧓 OLD / DISCOURAGED                          ✅ MODERN REPLACEMENT
+──────────────────────────────────────────── ───────────────────────────────────────
+1. Manual INotifyPropertyChanged             → [ObservableProperty] (MVVM Toolkit)
+2. ICommand boilerplate                      → [RelayCommand] / AsyncRelayCommand
+3. EventTrigger + BeginStoryboard            → VisualStateManager with Storyboards
+4. ControlTemplate.Triggers (DP Triggers)    → VisualStateManager in ControlTemplates
+5. DataContext set in code-behind            → Use XAML binding + DI + ViewModelLocator
+6. Value converters for simple formatting    → StringFormat in XAML binding
+7. Value converters for enums/booleans       → x:Bind + source generators / compiled bindings
+8. App-wide static resources only            → Theming with DynamicResource + merged dictionaries
+9. Heavy use of static resources             → DynamicResource for theme responsiveness
+10. Attached behaviors (code-heavy)          → CommunityToolkit.Mvvm Behaviors or Blend Interactivity
+11. Control logic in code-behind             → Strict MVVM separation + ICommand + data binding
+12. Full-blown ViewModel inheritance         → Minimal ViewModel base (ObservableObject)
+13. Style.Setters for animations             → VisualStateManager (Storyboard transitions)
+14. Code-behind ViewModel instantiation      → Constructor injection via DI container (e.g. .NET DI)
+15. Property triggers in templates           → Visual states (PointerOver, Pressed, etc.)
+16. Large UserControls everywhere            → Templated controls or DataTemplates with DataTemplatesSelectors
+17. Manual memory cleanup                    → WeakReferenceMessenger, no static event handlers
+18. Manual navigation (Window.Show)          → MVVM-based NavigationService abstraction
+
+🎯 WPF Style Resolution Flow (Explicit vs Implicit)
+
+[1] Control is being created
+     │
+     ▼
+[2] Is the `Style` property set explicitly?
+     │
+     ├── Yes ─────────► [3] Apply the explicitly set Style
+     │                         (e.g., Style="{StaticResource MyStyle}")
+     │
+     └── No
+          │
+          ▼
+[4] Search for an implicit Style (Style with no x:Key and matching TargetType)
+          │
+          ├── Search order (nearest to farthest):
+          │       1. Control.Resources
+          │       2. Parent.Resources
+          │       3. Window.Resources
+          │       4. App.xaml Resources
+          │       5. Merged ResourceDictionaries
+          │
+          ├── Found a matching implicit Style?
+          │       │
+          │       ├── Yes ──────► [5] Apply the implicit Style
+          │       │
+          │       └── No ───────► [6] Apply the system default style
+          │                           (from the theme dictionary)
+
+
+
+🌲 WPF Beginner vs Expert Practice Tree
+
+├── 🧱 Layout & Visual Tree
+│   ├── Beginner:
+│   │   ├── Uses <Canvas> for layout
+│   │   ├── Hardcodes Width, Height, Margin, etc.
+│   │   ├── Deeply nests panels (StackPanel inside Grids etc.)
+│   │   └── Doesn’t know visual vs logical tree
+│   └── Expert:
+│       ├── Uses Grid, StackPanel, DockPanel appropriately
+│       ├── Leverages Auto/* sizing and layout-aware controls
+│       ├── Flattens panel hierarchies to improve performance
+│       └── Understands and debugs with visual/logical tree awareness
+│
+├── 🎨 Styling and Theming
+│   ├── Beginner:
+│   │   ├── Defines styles inline on controls
+│   │   ├── Repeats colors/fonts across XAML files
+│   │   └── Uses StaticResource everywhere
+│   └── Expert:
+│       ├── Uses implicit styles (`<Style TargetType="...">`) for clean theming
+│       ├── Centralizes brushes, fonts in ResourceDictionary
+│       └── Knows when to use DynamicResource (for theming, runtime updates)
+│
+├── 📦 Data Binding & ViewModels
+│   ├── Beginner:
+│   │   ├── Binds UI to Model or uses code-behind logic
+│   │   ├── Doesn't implement INotifyPropertyChanged
+│   │   └── Sets DataContext in code-behind directly
+│   └── Expert:
+│       ├── Uses MVVM with clean ViewModels and separation
+│       ├── Uses base class or source generators like [ObservableProperty]
+│       └── Applies ViewModelLocator, DI, or Services for DataContext setup
+│
+├── 🧠 MVVM & Architecture
+│   ├── Beginner:
+│   │   ├── Puts logic in code-behind (e.g., Button_Click handlers)
+│   │   ├── Rewrites ICommand boilerplate for every command
+│   │   └── Doesn’t separate UI from logic properly
+│   └── Expert:
+│       ├── Keeps all logic in ViewModel and uses Binding + Commanding
+│       ├── Uses CommunityToolkit.MVVM or Prism for smart command wiring
+│       └── Designs ViewModels for testability and reuse
+│
+├── 🛠️ Resources and Reuse
+│   ├── Beginner:
+│   │   ├── Duplicates colors/styles per view
+│   │   ├── Doesn’t understand scope of resources (local vs app.xaml)
+│   │   └── Uses styles with x:Key everywhere (no implicit styling)
+│   └── Expert:
+│       ├── Uses control-level → view-level → app-level resource organization
+│       ├── Implements reusable ResourceDictionaries (e.g., Colors.xaml)
+│       └── Applies implicit styles for consistency and clean XAML
+│
+├── ⚡ Performance and Productivity
+│   ├── Beginner:
+│   │   ├── Virtualization off or not known (e.g., in ListBox)
+│   │   ├── Renders hidden controls needlessly (e.g., Visibility="Collapsed")
+│   │   └── Doesn’t profile or inspect binding errors
+│   └── Expert:
+│       ├── Enables virtualization (e.g., VirtualizingStackPanel)
+│       ├── Defers UI rendering intelligently
+│       └── Uses Snoop, Visual Tree Explorer, Binding Trace Listener
+│
+├── 🧩 Control Customization
+│   ├── Beginner:
+│   │   ├── Creates UserControl for every reusable UI piece
+│   │   ├── Copies code-behind logic across controls
+│   │   └── Doesn’t override DefaultStyleKey or use ControlTemplates
+│   └── Expert:
+│       ├── Uses DataTemplate and ControlTemplate to separate visuals
+│       ├── Builds custom controls using TemplateParts and Themes
+│       └── Overrides styles using DefaultStyleKey + Themes/Generic.xaml
+│
+├── 🚧 Common Misunderstandings
+│   ├── Beginner:
+│   │   ├── Thinks DataTemplate can be applied to any control
+│   │   ├── Assumes Triggers work everywhere (wrong scopes)
+│   │   ├── Confuses RelativeSource Self vs TemplatedParent
+│   │   └── Thinks property updates always reflect in UI without INotify
+│   └── Expert:
+│       ├── Knows DataTemplate applies only to content-aware controls
+│       ├── Understands trigger usage per scope (Style, ControlTemplate, etc.)
+│       ├── Uses RelativeSource correctly based on binding target
+│       └── Ensures INotifyPropertyChanged is implemented or auto-generated
+│
+├── 📦 Tools Used
+│   ├── Beginner:
+│   │   ├── Uses only XAML and code-behind
+│   │   └── Doesn’t use any runtime visual debugger
+│   └── Expert:
+│       ├── Uses Snoop and Live Visual Tree
+│       ├── Uses Binding Errors output window
+│       ├── Uses PerfView, dotMemory, or Diagnostic Tools
+│       └── Integrates CommunityToolkit.MVVM, Prism, or ReactiveUI
+
+
+
+🎯 WPF Style Scoping & Lookup Diagram
+
+[ App.xaml ]
+└── Application.Resources
+    └── Styles here apply globally to ALL windows, unless overridden
+
+        <Style TargetType="Button">
+            <!-- Applies to all Buttons unless overridden locally -->
+        </Style>
+
+        🔽
+
+[ Window or Page ]
+└── Window.Resources / Page.Resources
+    └── Overrides styles from App.xaml within this window/page
+
+        <Style TargetType="TextBox">
+            <!-- Applies to TextBoxes in this window -->
+        </Style>
+
+        🔽
+
+[ UserControl ]
+└── UserControl.Resources
+    └── Overrides styles for controls within this user control only
+
+        <Style TargetType="ComboBox">
+            <!-- Applies only inside this UserControl -->
+        </Style>
+
+        🔽
+
+[ Control-Level Resources ]
+└── AnyControl.Resources (like Button.Resources, Grid.Resources)
+    └── Used to style child elements within that control only
+
+        <Button>
+            <Button.Resources>
+                <Style TargetType="TextBlock">
+                    <!-- Applies only to TextBlocks inside this Button -->
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        🔽
+
+[ Inline Style Usage ]
+└── Control with explicit Style set
+    └── Overrides ALL implicit styles from any level above
+
+        <Button Style="{StaticResource MySpecialButtonStyle}" />
+
+
+
