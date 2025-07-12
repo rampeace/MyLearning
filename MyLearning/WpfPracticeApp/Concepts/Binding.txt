@@ -188,10 +188,17 @@ ControlTemplate
 ├── MultiDataTrigger      → Multiple binding-based conditions
 └── 🚫 EventTrigger        → ❌ Not supported here (ignored silently)
 
-📦 DataTemplate.Triggers
-├── DataTrigger           → Per-item triggers based on data binding
-├── MultiDataTrigger      → Combine multiple data conditions
-└── ⚠️ Only data-based triggers supported (no DP/visual/event triggers)
+<DataTemplate>
+  <SomeElement>
+    <SomeElement.Triggers>
+      ├── ✅ DataTrigger         → Per-item data binding condition
+      ├── ✅ MultiDataTrigger    → Combine multiple data bindings
+      ├── ✅ Trigger             → Based on dependency properties (e.g. IsMouseOver)
+      ├── ✅ MultiTrigger        → Combine multiple DP values
+      ├── ⚠️ EventTrigger        → Only for RoutedEvents + animations (BeginStoryboard)
+    </SomeElement.Triggers>
+  </SomeElement>
+</DataTemplate>
 
 📦 ItemsControl.ItemContainerStyle.Triggers
 ├── Trigger               → For container visuals (e.g., ListBoxItem)
@@ -592,6 +599,33 @@ WPF Overview
     └── Overrides ALL implicit styles from any level above
 
         <Button Style="{StaticResource MySpecialButtonStyle}" />
+
+
+Object
+ └── DispatcherObject
+      └── DependencyObject
+           ├── FrameworkElement
+           │     └── UIElement
+           │           └── Control
+           │                 └── TextBlock, Button, etc.
+           │
+           │        UIElement.Triggers
+           │        (Collection of TriggerBase)
+           │              └── EventTrigger ✅
+           │              └── ❌ DataTrigger (not supported)
+           │
+           └── FrameworkTemplate  ←─────────────┐
+                 ├── ControlTemplate            │
+                 └── DataTemplate               │
+                                               ▼
+                                 FrameworkTemplate.Triggers
+                                 (Collection of TriggerBase)
+                                       ├── Trigger ✅
+                                       ├── DataTrigger ✅ (For DataTemplate Triggers property is not exposed as public)
+                                       ├── MultiTrigger ✅
+                                       ├── MultiDataTrigger ✅ (For DataTemplate Triggers property is not exposed as public)
+                                       └── EventTrigger ✅
+
 
 
 
