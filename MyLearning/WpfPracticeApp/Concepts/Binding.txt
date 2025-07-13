@@ -72,7 +72,44 @@ Binding
         └── Example:
             <TextBlock Text="{Binding Value, ElementName=mySlider}" />
 
+Command Bindings:
 
+ICommand (interface)
+├── RelayCommand / DelegateCommand
+│   ├─ Plain implementation of ICommand
+│   ├─ Used in MVVM (ViewModel)
+│   ├─ No routing or bubbling
+│   ├─ Bound like:
+│   │   └─ <Button Command="{Binding SaveCommand}" />
+│   ├─ Executed directly:
+│   │   └─ SaveCommand.Execute(parameter)
+│   └─ Cannot use CommandBinding
+│
+└── RoutedCommand
+    ├─ Inherits ICommand + RoutedEvent behavior
+    ├─ Built-in commands: ApplicationCommands.Copy, Paste, Save...
+    ├─ Custom RoutedCommand possible
+    ├─ Routed via visual tree (bubbles up)
+    ├─ Requires CommandBinding:
+    │   └─ <Window.CommandBindings>
+    │        <CommandBinding Command="Copy" ... />
+    │      </Window.CommandBindings>
+    ├─ Can be triggered from:
+    │   ├─ Button.Command
+    │   ├─ MenuItem.Command
+    │   ├─ KeyBinding.Command
+    │   └─ CommandTarget (optional)
+    └─ WPF internally routes via:
+        └─ RoutedCommand.Execute(parameter, target)
+
+
+
+<Button Content="Copy" Command="ApplicationCommands.Copy" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"/>
+
+                CommandBindings.Add(new CommandBinding(
+        ApplicationCommands.Copy,
+        ExecuteCopy,
+        CanExecuteCopy));
 
 DataTemplate
 
