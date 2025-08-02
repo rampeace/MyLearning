@@ -57,5 +57,17 @@ namespace WpfPracticeApp
             People people = new People();
             people.Show();
         }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+           UserControlHostWindow userControlHostWindow = new UserControlHostWindow();
+            userControlHostWindow.Show();
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            CounterWindow counterWindow = new();
+            counterWindow.Show();
+        }
     }
 }

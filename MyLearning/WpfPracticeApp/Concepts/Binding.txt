@@ -105,7 +105,6 @@ ICommand (interface)
 
 
 <Button Content="Copy" Command="ApplicationCommands.Copy" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"/>
-
                 CommandBindings.Add(new CommandBinding(
         ApplicationCommands.Copy,
         ExecuteCopy,

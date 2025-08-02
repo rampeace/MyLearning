@@ -1,0 +1,15 @@
+﻿<Window x:Class="WpfPracticeApp.UserControlHostWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfPracticeApp"
+        xmlns:controls ="clr-namespace:WpfPracticeApp.Controls"
+        mc:Ignorable="d"
+        Title="UserControlHostWindow" Height="450" Width="800">
+    <Grid>
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center">
+            <controls:Feedback/>
+        </Border>
+    </Grid>
+</Window>

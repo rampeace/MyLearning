@@ -36,19 +36,19 @@ namespace CSharpPractice.Linq
 
         public void TryLeftJoin()
         {
-            var result = customers
-                .LeftJoin(orders, c => c.CustomerId, o => o.CustomerId, (c, o) => new
-                {
-                    c.CustomerId,
-                    c.Name,
-                    OrderId = o?.OrderId ?? 0,
-                    Product = o?.Product ?? "No Order"
-                });
+            //var result = customers
+            //    .LeftJoin(orders, c => c.CustomerId, o => o.CustomerId, (c, o) => new
+            //    {
+            //        c.CustomerId,
+            //        c.Name,
+            //        OrderId = o?.OrderId ?? 0,
+            //        Product = o?.Product ?? "No Order"
+            //    });
 
-            foreach (var item in result)
-            {
-                Console.WriteLine($"{item.Name} -> {item.OrderId}");
-            }
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.Name} -> {item.OrderId}");
+            //}
         }
 
         public void LeftJoinOldWay()

@@ -16,6 +16,9 @@
                 <Button Content="Open Button Control Template" VerticalAlignment="Center" Click="Button_Click_3" Margin="20" Padding="10"/>
                 <Button Content="Open Calculator" VerticalAlignment ="Center" Click="Button_Click_4" Margin="20" Padding="10"/>
                 <Button Content="Open Person" VerticalAlignment ="Center" Click="Button_Click_5" Margin="20" Padding="10"/>
+                <Button Content="Open Custom Control" VerticalAlignment ="Center" Click="Button_Click_6" Margin="20" Padding="10"/>
+                <Button Content="Community Toolkit MVVM" VerticalAlignment ="Center" Click="Button_Click_7" Margin="20" Padding="10"/>
+
             </StackPanel>
         </Border>
     </Grid>   
