@@ -1,0 +1,317 @@
+[
+  {
+    "source_file": "DsaPractice/Arrays/ArrayRotation.cs",
+    "source_method": "RotateArrayUsingReverse",
+    "algorithm": "Array Rotation by Reversal",
+    "python_file": "dsa_practice/arrays/array_rotation.py",
+    "python_function": "rotate_array_using_reverse",
+    "confidence": "high",
+    "notes": "Returns a rotated list using in-place reversals on a local copy."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/ArrayRotation.cs",
+    "source_method": "Reverse",
+    "algorithm": "In-place Array Reverse (Two Pointers)",
+    "python_file": "dsa_practice/arrays/array_rotation.py",
+    "python_function": "_reverse",
+    "confidence": "high",
+    "notes": "Private helper; mutates the list segment in place."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/ContiguousSubsequence.cs",
+    "source_method": "LongestContigousIncreasingSubsequence",
+    "algorithm": "Sliding Window - Longest Contiguous Increasing Subsequence",
+    "python_file": "dsa_practice/arrays/contiguous_subsequence.py",
+    "python_function": "longest_contiguous_increasing_subsequence",
+    "confidence": "high",
+    "notes": "Keeps the first max-length window when ties occur."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/ContiguousSubsequence.cs",
+    "source_method": "LengthLongestContigousIncreasingSubsequence",
+    "algorithm": "Single Pass Count - Longest Contiguous Increasing Subsequence Length",
+    "python_file": "dsa_practice/arrays/contiguous_subsequence.py",
+    "python_function": "length_longest_contiguous_increasing_subsequence",
+    "confidence": "high",
+    "notes": "Returns 0 for empty input."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/CreateAllSubArrays.cs",
+    "source_method": "CreateAllSubArrayss",
+    "algorithm": "Generate All Contiguous Subarrays (Nested Loops)",
+    "python_file": "dsa_practice/arrays/create_all_sub_arrays.py",
+    "python_function": "create_all_sub_arrayss",
+    "confidence": "high",
+    "notes": "Returns list of subarrays in discovery order."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/DNF.cs",
+    "source_method": "DutchNationalFlag",
+    "algorithm": "Dutch National Flag (Three Pointers)",
+    "python_file": "dsa_practice/arrays/dnf.py",
+    "python_function": "dutch_national_flag",
+    "confidence": "high",
+    "notes": "Assumes values are 0/1/2; other values treated as 2."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/Leader.cs",
+    "source_method": "FindLeader",
+    "algorithm": "Array Leaders (Right-to-Left Max)",
+    "python_file": "dsa_practice/arrays/leader.py",
+    "python_function": "find_leader",
+    "confidence": "high",
+    "notes": "Uses strict greater-than; last element always included."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/MajorityElement.cs",
+    "source_method": "GetMajorityElement",
+    "algorithm": "Majority Element by Frequency Count",
+    "python_file": "dsa_practice/arrays/majority_element.py",
+    "python_function": "get_majority_element",
+    "confidence": "high",
+    "notes": "Returns (value, count) if > n/2 else None."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/MajorityElement.cs",
+    "source_method": "MoorsVotingAlgorithm",
+    "algorithm": "Boyer-Moore Majority Vote",
+    "python_file": "dsa_practice/arrays/majority_element.py",
+    "python_function": "moors_voting_algorithm",
+    "confidence": "high",
+    "notes": "Validates the candidate by counting occurrences."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/MaxConsecutiveOnes.cs",
+    "source_method": "GetMaxConsecutiveOnes",
+    "algorithm": "Max Consecutive Ones (Single Pass)",
+    "python_file": "dsa_practice/arrays/max_consecutive_ones.py",
+    "python_function": "get_max_consecutive_ones",
+    "confidence": "high",
+    "notes": "Empty input returns INT_MIN to match C# default."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/MissingNumbers.cs",
+    "source_method": "FindMissingNumbers",
+    "algorithm": "Missing Numbers Between Sorted Neighbors",
+    "python_file": "dsa_practice/arrays/missing_numbers.py",
+    "python_function": "find_missing_numbers",
+    "confidence": "high",
+    "notes": "Sorts a local copy and fills gaps."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/MissingNumbers.cs",
+    "source_method": "FindMissingNumbersOptimalInplace",
+    "algorithm": "Missing Numbers 1..n via In-place Negative Marking",
+    "python_file": "dsa_practice/arrays/missing_numbers.py",
+    "python_function": "find_missing_numbers_optimal_inplace",
+    "confidence": "high",
+    "notes": "Mutates input list; expects values in 1..n."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/ReArrangeBySign.cs",
+    "source_method": "ReArrangeBySignEqualNumbersOfPositiveAndNegative",
+    "algorithm": "Rearrange by Sign (Alternating Pos/Neg)",
+    "python_file": "dsa_practice/arrays/re_arrange_by_sign.py",
+    "python_function": "re_arrange_by_sign_equal_numbers_of_positive_and_negative",
+    "confidence": "high",
+    "notes": "Assumes equal counts of positive and non-positive values."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/ReverseVowels.cs",
+    "source_method": "ReverseVowelsOfAString",
+    "algorithm": "Reverse Vowels (Two Pointers)",
+    "python_file": "dsa_practice/arrays/reverse_vowels.py",
+    "python_function": "reverse_vowels_of_a_string",
+    "confidence": "high",
+    "notes": "Returns None if input is None."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/ReverseVowels.cs",
+    "source_method": "Test",
+    "algorithm": "Sample Invocation - Reverse Vowels",
+    "python_file": "dsa_practice/arrays/reverse_vowels.py",
+    "python_function": "reverse_vowels_test",
+    "confidence": "medium",
+    "notes": "Demo method; returns result for the hardcoded input."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/SecondLargestThirdLargest.cs",
+    "source_method": "FindSecondLargest",
+    "algorithm": "Second Largest Distinct (Single Pass)",
+    "python_file": "dsa_practice/arrays/second_largest_third_largest.py",
+    "python_function": "find_second_largest",
+    "confidence": "high",
+    "notes": "Returns INT_MIN if no second distinct element."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/SecondLargestThirdLargest.cs",
+    "source_method": "FindThirdLargest",
+    "algorithm": "Third Largest Distinct (Single Pass)",
+    "python_file": "dsa_practice/arrays/second_largest_third_largest.py",
+    "python_function": "find_third_largest",
+    "confidence": "high",
+    "notes": "Returns None when missing."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/SecondLargestThirdLargest.cs",
+    "source_method": "SecondSmallestElement",
+    "algorithm": "Second Smallest Distinct (Single Pass)",
+    "python_file": "dsa_practice/arrays/second_largest_third_largest.py",
+    "python_function": "second_smallest_element",
+    "confidence": "high",
+    "notes": "Returns None when missing."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/SecondLargestThirdLargest.cs",
+    "source_method": "FindThirdSmallest",
+    "algorithm": "Third Smallest Distinct (Single Pass)",
+    "python_file": "dsa_practice/arrays/second_largest_third_largest.py",
+    "python_function": "find_third_smallest",
+    "confidence": "high",
+    "notes": "Returns None when missing."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/SortedSquares.cs",
+    "source_method": "FindSortedSquares",
+    "algorithm": "Squares of Sorted Array (Two Pointers)",
+    "python_file": "dsa_practice/arrays/sorted_squares.py",
+    "python_function": "find_sorted_squares",
+    "confidence": "high",
+    "notes": "Returns a new list of sorted squares."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/SortZeosOnes.cs",
+    "source_method": "SortZeosOness",
+    "algorithm": "Sort 0s and 1s by Counting",
+    "python_file": "dsa_practice/arrays/sort_zeos_ones.py",
+    "python_function": "sort_zeos_oness",
+    "confidence": "high",
+    "notes": "Overwrites all elements with 0/1 counts."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/StockBuySell.cs",
+    "source_method": "FindStockMaxProfit",
+    "algorithm": "Best Time to Buy/Sell Stock (Single Pass Min/Max)",
+    "python_file": "dsa_practice/arrays/stock_buy_sell.py",
+    "python_function": "find_stock_max_profit",
+    "confidence": "high",
+    "notes": "Returns (buy_price, sell_price, profit) if profit > 0 else None."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/SubStringPresent.cs",
+    "source_method": "IsSubStringPresent(string, string)",
+    "algorithm": "Substring Search (Stub / Incomplete)",
+    "python_file": "dsa_practice/arrays/sub_string_present.py",
+    "python_function": "is_sub_string_present",
+    "confidence": "low",
+    "notes": "C# implementation is incomplete and always returns false."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/SubStringPresent.cs",
+    "source_method": "IsSubStringPresent()",
+    "algorithm": "Sample Invocation - Substring Search Stub",
+    "python_file": "dsa_practice/arrays/sub_string_present.py",
+    "python_function": "is_sub_string_present_demo",
+    "confidence": "low",
+    "notes": "Demo method; returns false from the stub implementation."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/TwoSum.cs",
+    "source_method": "FindTwoSum",
+    "algorithm": "Two Sum with HashSet (Unique Pairs)",
+    "python_file": "dsa_practice/arrays/two_sum.py",
+    "python_function": "find_two_sum",
+    "confidence": "high",
+    "notes": "Avoids duplicate unordered pairs."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/TwoSum.cs",
+    "source_method": "TwoSumOpimal",
+    "algorithm": "Two Sum with Sorting + Two Pointers",
+    "python_file": "dsa_practice/arrays/two_sum.py",
+    "python_function": "two_sum_opimal",
+    "confidence": "high",
+    "notes": "Returns pairs from sorted array; duplicates possible."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/Union.cs",
+    "source_method": "FindUnion",
+    "algorithm": "Union of Two Sorted Arrays (Two Pointers)",
+    "python_file": "dsa_practice/arrays/union.py",
+    "python_function": "find_union",
+    "confidence": "high",
+    "notes": "Deduplicates consecutive equals."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/2D/Convert2DTo1D.cs",
+    "source_method": "Convert2DArrayTo1D",
+    "algorithm": "Flatten 2D Array (Row-major)",
+    "python_file": "dsa_practice/arrays/convert2d_to1d.py",
+    "python_function": "convert2d_array_to1d",
+    "confidence": "high",
+    "notes": "Returns a flat list in row-major order."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/2D/Convert2DTo1D.cs",
+    "source_method": "Convert1DArrayTo2D",
+    "algorithm": "Reshape 1D Array to 2D (Row-major)",
+    "python_file": "dsa_practice/arrays/convert2d_to1d.py",
+    "python_function": "convert1d_array_to2d",
+    "confidence": "high",
+    "notes": "Raises IndexError if flat list is too short."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/2D/Convert2DToJagged.cs",
+    "source_method": "ConvertToJagged",
+    "algorithm": "Convert 2D Array to Jagged",
+    "python_file": "dsa_practice/arrays/convert2d_to_jagged.py",
+    "python_function": "convert_to_jagged",
+    "confidence": "high",
+    "notes": "Returns row copies to avoid aliasing."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/2D/MatrixZeros.cs",
+    "source_method": "SetMatrixZerosBetterSolution",
+    "algorithm": "Set Matrix Zeroes (Row/Col Marking)",
+    "python_file": "dsa_practice/arrays/matrix_zeros.py",
+    "python_function": "set_matrix_zeros_better_solution",
+    "confidence": "high",
+    "notes": "Uses extra row/col marker arrays."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/2D/MatrixZeros.cs",
+    "source_method": "SetMatrixZerosOptimal",
+    "algorithm": "Set Matrix Zeroes (In-place Marker)",
+    "python_file": "dsa_practice/arrays/matrix_zeros.py",
+    "python_function": "set_matrix_zeros_optimal",
+    "confidence": "high",
+    "notes": "Uses first row/col as markers; in-place."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/2D/RotateMatrix.cs",
+    "source_method": "Rotate90DegreesBruteForce",
+    "algorithm": "Rotate Matrix 90 Degrees (Brute Force)",
+    "python_file": "dsa_practice/arrays/rotate_matrix.py",
+    "python_function": "rotate_90_degrees_brute_force",
+    "confidence": "high",
+    "notes": "Returns new rotated matrix."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/2D/RotateMatrix.cs",
+    "source_method": "Rotate90DegreesOpimal",
+    "algorithm": "Rotate Matrix 90 Degrees (Transpose + Reverse)",
+    "python_file": "dsa_practice/arrays/rotate_matrix.py",
+    "python_function": "rotate_90_degrees_opimal",
+    "confidence": "high",
+    "notes": "Assumes square matrix; mutates in place."
+  },
+  {
+    "source_file": "DsaPractice/Arrays/2D/SpiralMatrix.cs",
+    "source_method": "PrintSpiralMatrix",
+    "algorithm": "Spiral Order Traversal",
+    "python_file": "dsa_practice/arrays/spiral_matrix.py",
+    "python_function": "print_spiral_matrix",
+    "confidence": "high",
+    "notes": "Returns spiral order list."
+  }
+]
