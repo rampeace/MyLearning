@@ -20,7 +20,7 @@ def reverse_vowels_of_a_string(s):
 
     while left < right:
         if chars[left] not in vowels:
-            left += 1
+            left += 1   
         elif chars[right] not in vowels:
             right -= 1
         else:
