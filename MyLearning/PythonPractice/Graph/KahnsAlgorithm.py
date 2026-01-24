@@ -1,3 +1,19 @@
+"""Question:
+Return a topological ordering of courses given prerequisites (or empty if impossible).
+"""
+
+"""Notes:
+- prerequisites is a 2D list: [[course, prereq], ...].
+- in_degree counts prerequisites per course.
+- Example prerequisites:
+  [
+    [1, 0],
+    [2, 0],
+    [3, 1],
+    [3, 2]
+  ]
+"""
+
 from collections import deque
 from typing import List
 

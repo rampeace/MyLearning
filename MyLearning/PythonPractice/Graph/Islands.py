@@ -1,3 +1,18 @@
+"""Question:
+Count the number of islands in a binary grid (connected 1s).
+"""
+
+"""Notes:
+- grid is a 2D list of "1" and "0" strings.
+- BFS/DFS marks visited land by converting to "0".
+- Example grid:
+  [
+    ["1", "1", "0"],
+    ["1", "0", "0"],
+    ["0", "0", "1"]
+  ]
+"""
+
 from collections import deque
 from typing import List, Tuple
 

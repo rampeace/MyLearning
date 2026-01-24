@@ -1,3 +1,18 @@
+"""Question:
+Find shortest path in a binary grid from source to destination moving in 4 directions.
+"""
+
+"""Notes:
+- grid is a 2D list of 0/1.
+- Move in 4 directions; 1 means passable.
+- Example grid:
+  [
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1]
+  ]
+"""
+
 from collections import deque
 from typing import List, Set, Tuple
 

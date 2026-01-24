@@ -1,3 +1,18 @@
+"""Question:
+Count the number of provinces (connected components) in an adjacency matrix of cities.
+"""
+
+"""Notes:
+- is_connected is a 2D adjacency matrix.
+- is_connected[i][j] == 1 means i and j are directly connected.
+- Example matrix:
+  [
+    [1, 1, 0],
+    [1, 1, 0],
+    [0, 0, 1]
+  ]
+"""
+
 from collections import deque
 from typing import List
 

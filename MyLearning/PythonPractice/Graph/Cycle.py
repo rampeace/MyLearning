@@ -1,3 +1,13 @@
+"""Question:
+Detect whether an undirected graph contains a cycle.
+"""
+
+"""Notes:
+- Graph uses Node objects with a 1D neighbors list.
+- For undirected graphs, track parent to detect back edges.
+- Example adjacency: [[1, 2], [0, 2], [0, 1]].
+"""
+
 from collections import deque
 from dataclasses import dataclass, field
 from typing import List, Optional, Set, Tuple

@@ -1,3 +1,13 @@
+"""Question:
+Implement a weighted undirected graph with BFS/DFS traversal and structure printing.
+"""
+
+"""Notes:
+- Nodes have id and name; edges have weights.
+- add_edge builds an undirected edge in adjacency list.
+- Example edges (1D list): [(0, 1, 2), (0, 2, 4), (1, 3, 7)].
+"""
+
 from collections import deque
 from dataclasses import dataclass
 from typing import Deque, Dict, List, Set

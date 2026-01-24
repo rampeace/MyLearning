@@ -1,3 +1,22 @@
+"""Question:
+Return all eventual safe nodes in a directed graph.
+"""
+
+"""Notes:
+- graph is a 2D adjacency list.
+- Reverse graph and process nodes with outdegree 0.
+- Example graph:
+  [
+    [1, 2],
+    [2, 3],
+    [5],
+    [0],
+    [5],
+    [],
+    []
+  ]
+"""
+
 from collections import deque
 from typing import List
 

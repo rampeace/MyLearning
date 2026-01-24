@@ -1,3 +1,13 @@
+"""Question:
+Perform a depth-first traversal of a graph starting from a given node.
+"""
+
+"""Notes:
+- Graph uses Node objects with a 1D neighbors list.
+- DFS explores as deep as possible before backtracking.
+- Example adjacency (1D list of lists): [[1, 2], [0, 3], [0, 3], [1, 2]].
+"""
+
 from dataclasses import dataclass, field
 from typing import List, Optional, Set
 

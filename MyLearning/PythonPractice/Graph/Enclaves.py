@@ -1,3 +1,19 @@
+"""Question:
+Count land cells in a grid that cannot reach the boundary (number of enclaves).
+"""
+
+"""Notes:
+- grid is a 2D list of 0/1.
+- Remove all land connected to boundary, then count remaining 1s.
+- Example grid:
+  [
+    [0, 0, 0, 0],
+    [1, 0, 1, 0],
+    [0, 1, 1, 0],
+    [0, 0, 0, 0]
+  ]
+"""
+
 from collections import deque
 from typing import List, Tuple
 

@@ -1,3 +1,18 @@
+"""Question:
+Reverse the direction of all edges in a directed graph.
+"""
+
+"""Notes:
+- graph is a 2D adjacency list.
+- reversed_graph[to] includes from for each original edge.
+- Example graph:
+  [
+    [1, 2],
+    [2],
+    [0]
+  ]
+"""
+
 from typing import List
 
 

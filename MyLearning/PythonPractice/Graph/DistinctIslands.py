@@ -1,3 +1,19 @@
+"""Question:
+Count the number of distinct island shapes in a binary grid (no rotations or reflections).
+"""
+
+"""Notes:
+- grid is a 2D list of 0/1.
+- Store shape as relative coordinates to the first cell.
+- Example grid:
+  [
+    [1, 1, 0, 0],
+    [1, 1, 0, 0],
+    [0, 0, 1, 1],
+    [0, 0, 1, 1]
+  ]
+"""
+
 from typing import List, Set, Tuple
 
 

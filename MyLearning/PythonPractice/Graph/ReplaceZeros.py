@@ -1,3 +1,18 @@
+"""Question:
+Replace all 'O' regions fully surrounded by 'X' with 'X' in a matrix.
+"""
+
+"""Notes:
+- matrix is a 2D list of 'X' and 'O'.
+- Mark boundary-connected 'O' as safe, flip the rest.
+- Example matrix:
+  [
+    ['X', 'X', 'X'],
+    ['X', 'O', 'X'],
+    ['X', 'X', 'X']
+  ]
+"""
+
 from typing import List
 
 

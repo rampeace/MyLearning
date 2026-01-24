@@ -1,3 +1,18 @@
+"""Question:
+For each cell in a binary grid, compute distance to the nearest cell containing 1.
+"""
+
+"""Notes:
+- grid is a 2D list of 0/1.
+- Multi-source BFS starts from all cells with 1.
+- Example grid:
+  [
+    [0, 1, 1, 0],
+    [1, 1, 0, 0],
+    [0, 0, 1, 1]
+  ]
+"""
+
 from collections import deque
 from typing import List, Tuple
 

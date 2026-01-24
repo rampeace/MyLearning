@@ -1,3 +1,12 @@
+"""Question:
+Find shortest paths from a source in a non-negative weighted graph.
+"""
+
+"""Notes:
+- adjacency is a 1D list of lists of (to, weight).
+- Example adjacency: [[(1, 2), (2, 4)], [(2, 1), (3, 7)], [(4, 3)], [(4, 1)], []].
+"""
+
 import heapq
 from typing import List, Tuple
 

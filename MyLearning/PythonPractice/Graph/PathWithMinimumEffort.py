@@ -1,3 +1,18 @@
+"""Question:
+Find a path minimizing the maximum height difference between consecutive cells.
+"""
+
+"""Notes:
+- heights is a 2D list of ints.
+- Path effort is max abs diff between adjacent cells.
+- Example heights:
+  [
+    [1, 2, 2],
+    [3, 8, 2],
+    [5, 3, 5]
+  ]
+"""
+
 import heapq
 from typing import List, Tuple
 

@@ -1,3 +1,13 @@
+"""Question:
+Find the length of the shortest transformation sequence between two words.
+"""
+
+"""Notes:
+- word_list is a 1D list of strings.
+- Each step changes one character.
+- Example: begin="hit", end="cog", word_list=["hot", "dot", "dog", "lot", "log", "cog"].
+"""
+
 from collections import deque
 from typing import List
 

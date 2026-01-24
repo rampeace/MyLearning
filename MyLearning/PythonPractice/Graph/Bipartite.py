@@ -1,3 +1,19 @@
+"""Question:
+Check whether an undirected graph is bipartite (2-colorable).
+"""
+
+"""Notes:
+- Graph is a 2D adjacency list: graph[i] = [neighbors of i].
+- Colors use 1 and -1 to represent two sets.
+- Example graph:
+  [
+    [1, 3],
+    [0, 2],
+    [1, 3],
+    [0, 2]
+  ]
+"""
+
 from collections import deque
 from typing import List
 

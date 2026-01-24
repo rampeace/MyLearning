@@ -1,3 +1,18 @@
+"""Question:
+Compute the minimum minutes to rot all oranges, or -1 if impossible.
+"""
+
+"""Notes:
+- grid is a 2D list with values 0, 1, 2.
+- BFS spreads from initial rotten oranges (2).
+- Example grid:
+  [
+    [2, 1, 1],
+    [1, 1, 0],
+    [0, 1, 1]
+  ]
+"""
+
 from collections import deque
 from typing import List, Tuple
 

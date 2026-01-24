@@ -1,3 +1,13 @@
+"""Question:
+Compute the number of BFS levels (max distance) from a starting node.
+"""
+
+"""Notes:
+- Graph uses Node objects with a 1D neighbors list.
+- BFS level is the number of edges from the start node.
+- Example adjacency: [[1, 2], [0, 3], [0, 3], [1, 2]].
+"""
+
 from collections import deque
 from dataclasses import dataclass, field
 from typing import List, Optional, Set, Tuple

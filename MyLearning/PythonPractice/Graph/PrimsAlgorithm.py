@@ -1,3 +1,13 @@
+"""Question:
+Compute the minimum spanning tree total weight and parent array using Prim's algorithm.
+"""
+
+"""Notes:
+- edges is a 1D list of (from, to, weight).
+- Build adjacency list for an undirected graph.
+- Example edges: [(0, 1, 2), (0, 3, 6), (1, 2, 3)].
+"""
+
 import heapq
 from typing import List, Tuple
 

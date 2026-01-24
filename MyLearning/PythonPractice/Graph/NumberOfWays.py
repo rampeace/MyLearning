@@ -1,3 +1,18 @@
+"""Question:
+Count the number of shortest paths from 0 to n-1 in a weighted graph, modulo 1e9+7.
+"""
+
+"""Notes:
+- roads is a 2D list: [[u, v, time], ...], undirected.
+- Use Dijkstra to compute shortest time and count paths.
+- Example roads:
+  [
+    [0, 1, 2],
+    [1, 2, 3],
+    [0, 2, 4]
+  ]
+"""
+
 import heapq
 from typing import List, Tuple
 

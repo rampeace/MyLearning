@@ -1,3 +1,13 @@
+"""Question:
+Find the minimum multiplications to reach an end value using given factors modulo 100000.
+"""
+
+"""Notes:
+- arr is a 1D list of multipliers.
+- State space is 0..99999 after modulo 100000.
+- Example: arr=[2, 5, 7], start=3, end=30.
+"""
+
 from collections import deque
 from typing import List
 

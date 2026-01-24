@@ -1,3 +1,18 @@
+"""Question:
+Find shortest paths from a source in a weighted DAG; unreachable nodes are -1.
+"""
+
+"""Notes:
+- edges is a 2D list: [[from, to, weight], ...].
+- Topological order ensures each edge is relaxed once.
+- Example edges:
+  [
+    [0, 1, 2],
+    [0, 2, 1],
+    [1, 3, 3]
+  ]
+"""
+
 from typing import List, Tuple
 
 

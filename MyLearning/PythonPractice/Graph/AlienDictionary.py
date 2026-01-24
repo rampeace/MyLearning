@@ -1,3 +1,14 @@
+"""Question:
+Determine a valid order of letters in an alien dictionary given sorted words; return empty string if inconsistent.
+"""
+
+"""Notes:
+- Input is a 1D list of strings (words).
+- The first differing character between adjacent words forms a directed edge.
+- Example words: ["baa", "abcd", "abca", "cab", "cad"]
+- Output is any valid topological order of characters.
+"""
+
 from collections import deque
 from typing import Dict, List, Set
 

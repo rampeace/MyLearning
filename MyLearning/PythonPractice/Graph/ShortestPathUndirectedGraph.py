@@ -1,3 +1,20 @@
+"""Question:
+Find shortest path distances from a source in an unweighted undirected graph.
+"""
+
+"""Notes:
+- adjacency is a 2D list: adj[i] = neighbors of i.
+- BFS on an unweighted graph gives shortest path length.
+- Example adjacency:
+  [
+    [1, 3],
+    [0, 2],
+    [1, 4],
+    [0],
+    [2]
+  ]
+"""
+
 from collections import deque
 from typing import List
 

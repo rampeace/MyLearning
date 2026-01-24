@@ -1,3 +1,20 @@
+"""Question:
+Find shortest paths from a source in a weighted directed graph with possible negative edges; return empty if a negative cycle exists.
+"""
+
+"""Notes:
+- Input edges as a 2D list: [[from, to, weight], ...].
+- dist[i] stores shortest distance from src to i.
+- Example edges:
+  [
+    [1, 3, 2],
+    [4, 3, -1],
+    [2, 4, 1],
+    [1, 2, 1],
+    [0, 1, 5]
+  ]
+"""
+
 from typing import Iterable, List, Tuple
 
 

@@ -1,3 +1,19 @@
+"""Question:
+Find the cheapest flight price from src to dst with at most k stops.
+"""
+
+"""Notes:
+- Flights is a 2D list: [[from, to, price], ...].
+- Stops count edges, not cities.
+- Example flights:
+  [
+    [0, 1, 100],
+    [1, 2, 100],
+    [1, 3, 600],
+    [2, 3, 200]
+  ]
+"""
+
 import heapq
 from typing import Dict, List, Tuple
 

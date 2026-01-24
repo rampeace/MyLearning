@@ -1,3 +1,21 @@
+"""Question:
+Return a topological ordering of a DAG using DFS.
+"""
+
+"""Notes:
+- edges is a 2D list: [[from, to], ...].
+- DFS finishes nodes, then reverse finish order.
+- Example edges:
+  [
+    [2, 3],
+    [3, 1],
+    [4, 0],
+    [4, 1],
+    [5, 0],
+    [5, 2]
+  ]
+"""
+
 from typing import List
 
 
