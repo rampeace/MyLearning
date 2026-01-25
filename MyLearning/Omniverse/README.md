@@ -13,6 +13,7 @@ explore the tools, APIs, and workflows.
 - Notes and summaries from docs, videos, or courses.
 - Small demo projects or scripts.
 - Configuration snippets and troubleshooting tips.
+- Sandbox scene copies stored locally (ignored by git).
 
 ## What does not go here
 - Large binary assets (store elsewhere and link if needed).
@@ -33,3 +34,7 @@ explore the tools, APIs, and workflows.
 - Fix options (optional) like auto-rename, apply default material, relink textures, normalize units.
 - UX surface (menu action; optional UI panel with Run + filters).
 - Test data (sample stages that include each failure case).
+
+## Sample content
+- Download: https://docs.omniverse.nvidia.com/usd/latest/usd_content_samples/sample_content.html
+- Local sandbox copy: `sandbox/` (ignored by git).
