@@ -24,3 +24,12 @@ explore the tools, APIs, and workflows.
 - Scene setup automation (standard lighting, cameras, layouts, templates).
 - UI panels for artist workflows (one-click fixes, presets, review tools).
 - Integration hooks (auto-export to DCCs, sync metadata, publish assets).
+
+## First project: asset validation (task breakdown)
+- Define validation rules (naming, allowed prim types, unit scale, required metadata, material bindings).
+- Build a scanner to walk the stage and collect prims/materials/textures/references.
+- Detect issues (invalid names, missing material bindings, missing or invalid texture paths, unit mismatch).
+- Report output (console summary + JSON/CSV with prim paths and issue codes).
+- Fix options (optional) like auto-rename, apply default material, relink textures, normalize units.
+- UX surface (menu action; optional UI panel with Run + filters).
+- Test data (sample stages that include each failure case).
