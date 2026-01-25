@@ -3,20 +3,20 @@
 version = "1.0.0"
 
 # Lists people or organizations that are considered the "authors" of the package.
-authors = ["NVIDIA"]
+authors = ["Ram Kumar R"]
 
 # The title and description fields are primarily for displaying extension info in UI
-title = "omniverse_learning tools"
-description="A simple python extension example to use as a starting point for your extensions."
+title = "Python Runner"
+description="Run project Python scripts from the Run menu."
 
 # URL of the extension source repository.
 repository = ""
 
 # One of categories for UI.
-category = "Example"
+category = "Tools"
 
 # Keywords for the extension
-keywords = ["kit", "example"]
+keywords = ["kit", "scripts", "runner"]
 
 # Use omni.ui to build simple UI
 [dependencies]

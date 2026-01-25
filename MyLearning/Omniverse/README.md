@@ -17,3 +17,10 @@ explore the tools, APIs, and workflows.
 ## What does not go here
 - Large binary assets (store elsewhere and link if needed).
 - Work-in-progress items unrelated to Omniverse.
+
+## Roadmap (planned extensions and automation)
+- Asset validation tools (naming, units, materials, missing textures).
+- Batch processing pipelines (convert, optimize, publish USD files).
+- Scene setup automation (standard lighting, cameras, layouts, templates).
+- UI panels for artist workflows (one-click fixes, presets, review tools).
+- Integration hooks (auto-export to DCCs, sync metadata, publish assets).

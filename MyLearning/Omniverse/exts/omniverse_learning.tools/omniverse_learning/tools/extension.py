@@ -1,5 +1,6 @@
 import os
 import runpy
+from typing import Optional
 
 import carb
 import omni.ext
@@ -20,6 +21,10 @@ def some_public_function(x: int):
 class Omniverse_learningToolsExtension(omni.ext.IExt):
     # ext_id is current extension id. It can be used with extension manager to query additional information, like where
     # this extension is located on filesystem.
+    def __init__(self):
+        self._ext_id: Optional[str] = None
+        self._menu_items: list[menu_utils.MenuItemDescription] = []
+
     def on_startup(self, ext_id):
         self._ext_id = ext_id
         print("[omniverse_learning.tools] omniverse_learning tools startup")
@@ -67,6 +72,8 @@ class Omniverse_learningToolsExtension(omni.ext.IExt):
             self._run_script(path)
 
     def _scripts_dir(self):
+        if self._ext_id is None:
+            raise RuntimeError("Extension id not set before scripts lookup.")
         manager = omni.kit.app.get_app().get_extension_manager()
         ext_path = manager.get_extension_path(self._ext_id)
         return os.path.join(ext_path, "scripts")
