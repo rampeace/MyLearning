@@ -22,6 +22,7 @@ class Omniverse_learningToolsExtension(omni.ext.IExt):
     # ext_id is current extension id. It can be used with extension manager to query additional information, like where
     # this extension is located on filesystem.
     def __init__(self):
+        super().__init__()
         self._ext_id: Optional[str] = None
         self._menu_items: list[menu_utils.MenuItemDescription] = []
 
