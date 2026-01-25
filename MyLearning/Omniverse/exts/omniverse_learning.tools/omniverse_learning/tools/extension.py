@@ -7,6 +7,7 @@ import omni.ext
 import omni.kit.app
 import omni.kit.menu.utils as menu_utils
 import omni.kit.notification_manager as notification_manager
+import omni.ui as ui
 import omni.usd
 
 WORLD_LOBBY_PATH = (
@@ -31,6 +32,7 @@ class Omniverse_learningToolsExtension(omni.ext.IExt):
         super().__init__()
         self._ext_id: Optional[str] = None
         self._menu_items: list[menu_utils.MenuItemDescription] = []
+        self._validation_window: Optional[ui.Window] = None
 
     def on_startup(self, ext_id):
         self._ext_id = ext_id
@@ -41,6 +43,15 @@ class Omniverse_learningToolsExtension(omni.ext.IExt):
     def _register_run_menu_items(self):
         self._menu_items = [
             menu_utils.MenuItemDescription(
+                name="Validator",
+                sub_menu=[
+                    menu_utils.MenuItemDescription(
+                        name="Open Validator",
+                        onclick_fn=self._open_validation_window,
+                    )
+                ],
+            ),
+            menu_utils.MenuItemDescription(
                 name="Load World Lobby",
                 onclick_fn=self._load_world_lobby,
             ),
@@ -50,6 +61,40 @@ class Omniverse_learningToolsExtension(omni.ext.IExt):
             )
         ]
         menu_utils.add_menu_items(self._menu_items, "Run")
+
+    def _open_validation_window(self):
+        if self._validation_window is None:
+            self._validation_window = ui.Window(
+                "Asset Validation",
+                width=360,
+                height=240,
+                visible=True,
+                dock_preference=ui.DockPreference.LEFT,
+            )
+            with self._validation_window.frame:
+                with ui.VStack(spacing=8):
+                    ui.Label("Scene Validator", height=24)
+                    ui.Label(
+                        "Run checks for naming, units, materials, and textures.",
+                        word_wrap=True,
+                    )
+                    ui.Separator()
+                    with ui.HStack(spacing=8):
+                        ui.Button("Run Validation", clicked_fn=self._run_validation)
+                        ui.Button("Close", clicked_fn=self._close_validation_window)
+        else:
+            self._validation_window.visible = True
+
+    def _run_validation(self):
+        notification_manager.post_notification(
+            "Validation is not implemented yet.",
+            duration=3,
+            status=notification_manager.NotificationStatus.INFO,
+        )
+
+    def _close_validation_window(self):
+        if self._validation_window is not None:
+            self._validation_window.visible = False
 
     def _run_all_scripts(self):
         scripts_dir = self._scripts_dir()
