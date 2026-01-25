@@ -27,57 +27,44 @@ class Omniverse_learningToolsExtension(omni.ext.IExt):
         self._register_run_menu_items()
 
     def _register_run_menu_items(self):
-        script_items = self._build_script_menu_items()
-        script_items.insert(
-            0,
-            menu_utils.MenuItemDescription(
-                name="Ping Python Scripts",
-                onclick_fn=self._ping_scripts_menu,
-            ),
-        )
-        if not script_items:
-            script_items = [
-                menu_utils.MenuItemDescription(
-                    name="No scripts found",
-                    enabled=False,
-                )
-            ]
-
         self._menu_items = [
             menu_utils.MenuItemDescription(
                 name="Python Scripts",
-                sub_menu=script_items,
+                onclick_fn=self._run_all_scripts,
             )
         ]
         menu_utils.add_menu_items(self._menu_items, "Run")
 
-    def _ping_scripts_menu(self):
-        message = "Python Scripts menu pinged."
-        carb.log_warn(f"[omniverse_learning.tools] {message}")
+    def _run_all_scripts(self):
+        scripts_dir = self._scripts_dir()
+        if not os.path.isdir(scripts_dir):
+            notification_manager.post_notification(
+                "No scripts folder found.",
+                duration=3,
+                status=notification_manager.NotificationStatus.WARNING,
+            )
+            return
+
+        script_paths = [
+            os.path.join(scripts_dir, name)
+            for name in sorted(os.listdir(scripts_dir))
+            if name.endswith(".py")
+        ]
+        if not script_paths:
+            notification_manager.post_notification(
+                "No Python scripts found.",
+                duration=3,
+                status=notification_manager.NotificationStatus.WARNING,
+            )
+            return
+
         notification_manager.post_notification(
-            message,
+            f"Running {len(script_paths)} scripts...",
             duration=3,
             status=notification_manager.NotificationStatus.INFO,
         )
-
-    def _build_script_menu_items(self):
-        items = []
-        scripts_dir = self._scripts_dir()
-        if not os.path.isdir(scripts_dir):
-            return items
-
-        for name in sorted(os.listdir(scripts_dir)):
-            if not name.endswith(".py"):
-                continue
-            path = os.path.join(scripts_dir, name)
-            label = os.path.splitext(name)[0].replace("_", " ").title()
-            items.append(
-                menu_utils.MenuItemDescription(
-                    name=label,
-                    onclick_fn=lambda p=path: self._run_script(p),
-                )
-            )
-        return items
+        for path in script_paths:
+            self._run_script(path)
 
     def _scripts_dir(self):
         manager = omni.kit.app.get_app().get_extension_manager()
