@@ -7,6 +7,12 @@ import omni.ext
 import omni.kit.app
 import omni.kit.menu.utils as menu_utils
 import omni.kit.notification_manager as notification_manager
+import omni.usd
+
+WORLD_LOBBY_PATH = (
+    r"C:\Users\ramk\source\repos\MyLearning\MyLearning\Omniverse\sandbox"
+    r"\Collected_World_Lobby\World_Lobby.usd"
+)
 
 
 # Functions and vars are available to other extension as usual in python: `example.python_ext.some_public_function(x)`
@@ -34,6 +40,10 @@ class Omniverse_learningToolsExtension(omni.ext.IExt):
 
     def _register_run_menu_items(self):
         self._menu_items = [
+            menu_utils.MenuItemDescription(
+                name="Load World Lobby",
+                onclick_fn=self._load_world_lobby,
+            ),
             menu_utils.MenuItemDescription(
                 name="Python Scripts",
                 onclick_fn=self._run_all_scripts,
@@ -71,6 +81,22 @@ class Omniverse_learningToolsExtension(omni.ext.IExt):
         )
         for path in script_paths:
             self._run_script(path)
+
+    def _load_world_lobby(self):
+        if not os.path.isfile(WORLD_LOBBY_PATH):
+            notification_manager.post_notification(
+                f"World Lobby not found: {WORLD_LOBBY_PATH}",
+                duration=5,
+                status=notification_manager.NotificationStatus.WARNING,
+            )
+            return
+
+        omni.usd.get_context().open_stage(WORLD_LOBBY_PATH)
+        notification_manager.post_notification(
+            "Loading World Lobby...",
+            duration=3,
+            status=notification_manager.NotificationStatus.INFO,
+        )
 
     def _scripts_dir(self):
         if self._ext_id is None:
