@@ -37,4 +37,4 @@ def is_valid_all_brackets(s: str):
     
     return not stack
 
-print("Valid" if is_valid("(((()))") else "InValid")
+print("Valid" if is_valid("[{({[]})}]") else "InValid")

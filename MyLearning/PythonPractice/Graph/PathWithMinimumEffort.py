@@ -22,6 +22,7 @@ def minimum_effort_path(heights: List[List[int]]) -> int:
     effort = [[float("inf")] * cols for _ in range(rows)]
     effort[0][0] = 0
     heap: List[Tuple[int, int, int]] = [(0, 0, 0)]
+    
     while heap:
         current, r, c = heapq.heappop(heap)
         if (r, c) == (rows - 1, cols - 1):
