@@ -9,7 +9,7 @@ from pathlib import Path
 from pxr import Sdf, Usd, UsdGeom
 
 
-def main() -> int:
+def create_world() -> int:
     phase_dir = Path(__file__).resolve().parent
     root_layer_path = phase_dir / "phase2_stage.usda"
     overrides_layer_path = phase_dir / "overrides.usda"
@@ -41,4 +41,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(create_world())

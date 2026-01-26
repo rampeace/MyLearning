@@ -37,3 +37,18 @@ import omni.usd
 
 from pxr import Usd
 ```
+
+## APIs used in `exts/omniverse_learning.tools/omniverse_learning/tools/extension.py`
+- `omni.ext.IExt`: `on_startup(ext_id)`, `on_shutdown()`.
+- `omni.kit.menu.utils.MenuItemDescription` for menu models.
+- `omni.kit.menu.utils.add_menu_items(items, "Run")`.
+- `omni.kit.menu.utils.remove_menu_items(items, "Run")`.
+- `omni.kit.app.get_app().get_extension_manager()` -> `get_extension_path(ext_id)`.
+- `omni.kit.notification_manager.post_notification(message, duration, status)`.
+- `omni.kit.notification_manager.NotificationStatus.INFO/WARNING/ERROR`.
+- `omni.ui.Window(title, width, height, visible, dock_preference)`.
+- `omni.ui.DockPreference.LEFT`.
+- `omni.ui.VStack`, `omni.ui.HStack`, `omni.ui.Label`, `omni.ui.Separator`, `omni.ui.Button`.
+- `omni.usd.get_context().open_stage(path)`.
+- `carb.log_info`, `carb.log_warn`, `carb.log_error`.
+- `runpy.run_path(path, run_name="__main__")`.

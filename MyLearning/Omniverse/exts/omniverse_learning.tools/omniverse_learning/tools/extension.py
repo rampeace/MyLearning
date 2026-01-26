@@ -1,5 +1,6 @@
 import os
 import runpy
+import sys
 from typing import Optional
 
 import carb
@@ -54,6 +55,15 @@ class Omniverse_learningToolsExtension(omni.ext.IExt):
             menu_utils.MenuItemDescription(
                 name="Load World Lobby",
                 onclick_fn=self._load_world_lobby,
+            ),
+            menu_utils.MenuItemDescription(
+                name="USD",
+                sub_menu=[
+                    menu_utils.MenuItemDescription(
+                        name="Create New World",
+                        onclick_fn=self._create_new_world,
+                    )
+                ],
             ),
             menu_utils.MenuItemDescription(
                 name="Python Scripts",
@@ -143,12 +153,56 @@ class Omniverse_learningToolsExtension(omni.ext.IExt):
             status=notification_manager.NotificationStatus.INFO,
         )
 
+    def _create_new_world(self):
+        if self._ext_id is None:
+            raise RuntimeError("Extension id not set before world creation.")
+        repo_root = self._repo_root()
+        phase2_dir = os.path.join(repo_root, "phase2")
+        if not os.path.isdir(phase2_dir):
+            notification_manager.post_notification(
+                f"Phase 2 folder not found: {phase2_dir}",
+                duration=5,
+                status=notification_manager.NotificationStatus.WARNING,
+            )
+            return
+
+        if repo_root not in sys.path:
+            sys.path.append(repo_root)
+
+        try:
+            from phase2.main import create_world
+            result = create_world()
+        except Exception:
+            carb.log_error("[omniverse_learning.tools] Create New World failed.")
+            notification_manager.post_notification(
+                "Create New World failed. Check logs for details.",
+                duration=5,
+                status=notification_manager.NotificationStatus.ERROR,
+            )
+            return
+
+        status = (
+            notification_manager.NotificationStatus.INFO
+            if result == 0
+            else notification_manager.NotificationStatus.WARNING
+        )
+        notification_manager.post_notification(
+            "Create New World completed.",
+            duration=3,
+            status=status,
+        )
+
     def _scripts_dir(self):
         if self._ext_id is None:
             raise RuntimeError("Extension id not set before scripts lookup.")
         manager = omni.kit.app.get_app().get_extension_manager()
         ext_path = manager.get_extension_path(self._ext_id)
         return os.path.join(ext_path, "scripts")
+
+    def _repo_root(self):
+        manager = omni.kit.app.get_app().get_extension_manager()
+        ext_path = manager.get_extension_path(self._ext_id)
+        return os.path.dirname(os.path.dirname(ext_path))
 
     def _run_script(self, path):
         if not os.path.isfile(path):
