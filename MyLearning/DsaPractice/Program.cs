@@ -21,9 +21,7 @@ namespace DsaPractice
         static void Main()
         {
 
-            BackTrack(0);
-
-            Console.ReadKey();
+            Console.WriteLine("Hello");
         }
 
         private static void BackTrack(int n)

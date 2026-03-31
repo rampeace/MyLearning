@@ -14,7 +14,12 @@ def show(title: str, value) -> None:
 
 
 def example_count() -> None:
-    # Infinite counter; take the first 5 values.
+    # Super-simple: pull a few values with next().
+    counter = it.count(1)
+    first_three = [next(counter), next(counter), next(counter)]
+    show("count(1) via next()", first_three)
+
+    # Slightly more advanced: take the first 5 values.
     first_five = list(it.islice(it.count(start=10, step=2), 5))
     show("count(start=10, step=2)", first_five)
 
