@@ -54,26 +54,28 @@
             <Setter Property="Width" Value="34"/>
             <Setter Property="Height" Value="34"/>
             <Setter Property="Foreground" Value="#FFF1F1F1"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="#12000000"/>
+            <Setter Property="BorderBrush" Value="#1FFFFFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="13"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="CommandBorder"
                                 Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="17">
                             <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="CommandBorder" Property="Background" Value="#18FFFFFF"/>
+                                <Setter TargetName="CommandBorder" Property="Background" Value="#22FFFFFF"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="CommandBorder" Property="Background" Value="#28FFFFFF"/>
+                                <Setter TargetName="CommandBorder" Property="Background" Value="#32000000"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -82,7 +84,26 @@
         </Style>
     </Window.Resources>
 
-    <Grid Background="Transparent">
+    <Grid Background="#66406B56"
+          MouseLeftButtonDown="TitleBar_OnMouseLeftButtonDown">
+        <StackPanel HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal"
+                    Margin="0,14,18,0"
+                    Panel.ZIndex="2">
+            <Button Style="{StaticResource WindowCommandButtonStyle}"
+                    Content="-"
+                    Click="MinimizeButton_Click"/>
+            <Button Style="{StaticResource WindowCommandButtonStyle}"
+                    Margin="8,0,0,0"
+                    Content="[]"
+                    Click="MaximizeButton_Click"/>
+            <Button Style="{StaticResource WindowCommandButtonStyle}"
+                    Margin="8,0,0,0"
+                    Content="X"
+                    Click="CloseButton_Click"/>
+        </StackPanel>
+
         <Border Margin="24"
                 CornerRadius="28"
                 BorderBrush="#1FFFFFFF"
@@ -107,12 +128,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Grid MouseLeftButtonDown="TitleBar_OnMouseLeftButtonDown">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
+                <Grid>
                     <StackPanel>
                         <TextBlock Text="WPF Practice"
                                    FontSize="28"
@@ -122,20 +138,6 @@
                                    Margin="0,6,0,0"
                                    FontSize="14"
                                    Foreground="#B8FFFFFF"/>
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="1" Orientation="Horizontal">
-                        <Button Style="{StaticResource WindowCommandButtonStyle}"
-                                Content="−"
-                                Click="MinimizeButton_Click"/>
-                        <Button Style="{StaticResource WindowCommandButtonStyle}"
-                                Margin="8,0,0,0"
-                                Content="□"
-                                Click="MaximizeButton_Click"/>
-                        <Button Style="{StaticResource WindowCommandButtonStyle}"
-                                Margin="8,0,0,0"
-                                Content="✕"
-                                Click="CloseButton_Click"/>
                     </StackPanel>
                 </Grid>
 
