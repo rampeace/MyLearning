@@ -3,6 +3,7 @@ using CSharpPractice.DesignPatterns;
 using CSharpPractice.Linq;
 using CSharpPractice.Multithreading;
 using System.Formats.Asn1;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
@@ -12,21 +13,33 @@ namespace CSharpPractice
     {
         static async Task Main(string[] args)
         {
-            PauseThread pauseThread = new();
+            Func<int, int, int> add = (x, y) => x + y;
 
-            Task task = pauseThread.RunTask();
+            int result = add(2, 4);
 
-            await Task.Delay(3000);
 
-            pauseThread.Pause();
+            //PauseThread pauseThread = new();
 
-            await Task.Delay(3000);
+            //Task task = pauseThread.RunTask();
 
-            pauseThread.Resume();
+            //await Task.Delay(3000);
 
-            await task;
+            //pauseThread.Pause();
+
+            //await Task.Delay(3000);
+
+            //pauseThread.Resume();
+
+            //await task;
 
             Console.ReadKey();
         }
-    } 
+
+        public delegate TResult Add<TOne, TTwo, TResult>(TOne a, TTwo b);
+
+        public class MyClass
+        {
+
+        }
+    }
 }

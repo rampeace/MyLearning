@@ -21,6 +21,11 @@ namespace DsaPractice.BinarySearch
         Return the minimum integer k such that she can eat all the bananas within h hours.
       * */
 
+        /*
+         * Monotonic predicate (True/False) over a range
+         * 
+         */
+
         public int BruteForce(int[] piles, int hours)
         {
             return Enumerable.Range(1, piles.Max())

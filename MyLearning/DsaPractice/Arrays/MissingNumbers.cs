@@ -12,7 +12,7 @@
             List<int> result = new List<int>();
 
             for (int i = 1; i < input.Length; i++)
-            {
+            {   
                 int curr = input[i];
                 int previous = input[i - 1];
 

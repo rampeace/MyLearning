@@ -10,7 +10,7 @@ namespace CSharpPractice.SOLID
     {
         /*
          * The Interface Segregation Principle (ISP) states that clients should not be forced to depend on interfaces they do not use.
-
+         *
          * */
 
         // Problem

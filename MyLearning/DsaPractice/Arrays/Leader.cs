@@ -4,24 +4,21 @@
     {
         public void FindLeader()
         {
-            // This is based on the idea current element < max of right elements
             int[] input = { 10, 22, 12, 3, 0, 6 };
-            int max = int.MinValue;
-            LinkedList<int> result = new LinkedList<int>();
 
-            for (int i = input.Length - 1; i >= 0; i--)
+            int max = input.Last();
+
+            LinkedList<int> result = new();
+
+            for (int i = input.Length - 2; i >= 0; i--)
             {
-                if (i == input.Length - 1)
-                {
-                    result.AddFirst(input[i]); // Add in the same order not reverse 
-                }
-                else if (input[i] > max)
-                {
-                    result.AddFirst(input[i]);
-                }
-                max = Math.Max(max, input[i]);
+                int curr = input[i];
+
+                if (curr > max)
+                    result.AddFirst(curr);
+
+                max = Math.Max(curr, max);
             }
-            Console.WriteLine(string.Join(", ", result));
         }
     }
 }

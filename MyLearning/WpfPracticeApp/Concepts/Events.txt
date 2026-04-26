@@ -26,3 +26,24 @@ Great for previewing, validation, interception, or disabling behavior globally.
 
 🔸 Examples: PreviewMouseDown, PreviewKeyDown
 
+public class MyControl : Control
+{
+    public static readonly RoutedEvent SomethingHappenedEvent =
+        EventManager.RegisterRoutedEvent(
+            "SomethingHappened",
+            RoutingStrategy.Bubble,   // Bubble / Tunnel / Direct
+            typeof(RoutedEventHandler),
+            typeof(MyControl));
+
+    public event RoutedEventHandler SomethingHappened
+    {
+        add { AddHandler(SomethingHappenedEvent, value); }
+        remove { RemoveHandler(SomethingHappenedEvent, value); }
+    }
+
+    protected void RaiseSomethingHappened()
+    {
+        var args = new RoutedEventArgs(SomethingHappenedEvent, this);
+        RaiseEvent(args);
+    }
+}
