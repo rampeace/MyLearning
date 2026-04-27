@@ -1,0 +1,205 @@
+🧠 ✅ WPF INTERVIEW QUESTION BANK (REFINED)
+
+🔹 SECTION 1: CORE ARCHITECTURE (THEORY)
+Explain the WPF architecture hierarchy
+(DependencyObject → Visual → UIElement → FrameworkElement → Control)
+What does each layer add?
+What is the WPF Property Engine?
+DependencyProperty
+Value precedence
+Property metadata
+What is a DependencyProperty?
+Why is it needed over CLR properties?
+Explain value precedence in WPF with examples.
+What is DataContext?
+How does it flow in the visual tree?
+What are logical tree vs visual tree?
+What is hit testing?
+What are Measure pass and Arrange pass?
+What is a ContentControl?
+How is it different from ItemsControl?
+difference between propertymetadata vs frameworkpropertymetadata
+FrameworkPropertyMetadataOptions.Inherits, FrameworkPropertyMetadataOptions.AffectsMeasure, FrameworkPropertyMetadataOptions.AffectsRender,
+BindsTwoWayByDefault 
+
+PropertyMetadata → generic property behavior
+FrameworkPropertyMetadata → UI behavior hooks
+
+
+🔹 SECTION 2: MVVM & BINDING (THEORY + PRACTICAL)
+Explain MVVM pattern in WPF.
+Write a simple MVVM example (View + ViewModel + Binding).
+What is the Binding Engine? How does it work internally?
+What are the different Binding Modes?
+OneWay
+TwoWay
+OneTime
+OneWayToSource
+What is UpdateSourceTrigger?
+Explain PropertyChanged, LostFocus, Explicit.
+How do you manually trigger binding update in code?
+(GetBindingExpression, UpdateSource, UpdateTarget)
+What is INotifyPropertyChanged and why is it needed?
+What is IDataErrorInfo / INotifyDataErrorInfo?
+🔹 SECTION 3: BINDING (HANDS-ON)
+Write XAML examples for:
+Basic Binding
+TwoWay Binding
+Binding with Converter
+Binding with StringFormat
+Show different ways to define Binding:
+{Binding Name}
+{Binding Path=Name}
+{Binding Name, Mode=TwoWay}
+Show binding in code-behind using Binding class.
+🔹 SECTION 4: MARKUP EXTENSIONS
+What are Markup Extensions?
+List and explain commonly used ones:
+{Binding}
+{StaticResource}
+{DynamicResource}
+{x:Static}
+{RelativeSource}
+Write a custom MarkupExtension
+🔹 SECTION 5: RELATIVESOURCE (VERY IMPORTANT)
+Explain RelativeSource modes:
+Self
+FindAncestor
+TemplatedParent
+PreviousData
+Write examples for:
+Binding to self
+Binding to parent Window
+Binding inside ControlTemplate
+Binding previous item
+🔹 SECTION 6: DATATEMPLATE & CONTROLTEMPLATE
+What is a DataTemplate?
+When is it used?
+Write a DataTemplate example for a list of objects
+What is HierarchicalDataTemplate?
+What is a ControlTemplate?
+Difference between:
+DataTemplate
+ControlTemplate
+What is TemplateBinding?
+🔹 SECTION 7: TRIGGERS
+What are Triggers in WPF?
+Write example for:
+Trigger
+DataTrigger
+MultiTrigger
+MultiDataTrigger
+Difference between:
+Trigger vs DataTrigger
+MultiTrigger vs MultiDataTrigger
+🔹 SECTION 8: USER CONTROL & CUSTOM CONTROL
+What is a UserControl?
+Difference between:
+UserControl vs Custom Control
+Create a UserControl with DependencyProperty
+Show how to bind inside UserControl using RelativeSource
+How do you use UserControl in another view?
+🔹 SECTION 9: ROUTED EVENTS
+What are Routed Events?
+Difference between:
+Bubbling
+Tunneling
+Direct
+How to create a custom RoutedEvent?
+Bubble example
+Tunnel (Preview) example
+What is Handled = true?
+🔹 SECTION 10: ADVANCED BINDING & RESOURCES
+What is the difference between:
+StaticResource vs DynamicResource
+What are different ways to set DataContext?
+Code-behind
+XAML
+Element binding
+RelativeSource
+Explain resource dictionaries
+🔹 SECTION 11: LAYOUT & CONTROLS
+Difference between:
+Grid vs StackPanel vs Canvas
+What is ItemsControl?
+What is ContentPresenter?
+What is Visual Tree traversal?
+🔹 SECTION 12: HANDS-ON CODING EXERCISES (VERY IMPORTANT)
+
+👉 These are high-value interview tasks
+
+🧩 Exercise 1
+
+Create:
+
+ViewModel with Name property
+Bind it to TextBox
+Show live update
+🧩 Exercise 2
+
+Create:
+
+Validation using IDataErrorInfo
+Show error in UI
+🧩 Exercise 3
+
+Create:
+
+ListBox with DataTemplate
+Display Name + Age
+🧩 Exercise 4
+
+Create:
+
+Button with Trigger
+Change color on IsMouseOver
+🧩 Exercise 5
+
+Create:
+
+MultiDataTrigger
+Enable button only if 2 fields filled
+🧩 Exercise 6
+
+Create:
+
+UserControl with DependencyProperty
+Bind inside control
+🧩 Exercise 7
+
+Create:
+
+Custom RoutedEvent
+Raise it and handle it
+🧩 Exercise 8
+
+Create:
+
+Custom Panel
+Override Measure & Arrange
+🔥 BONUS (VERY IMPORTANT QUESTIONS)
+
+These are frequently asked in senior interviews:
+
+⭐ Why binding fails? How to debug?
+⭐ Why DataContext not flowing?
+⭐ Why Button click not firing? (Hit testing / Handled)
+⭐ Difference:
+TemplateBinding vs RelativeSource
+⭐ Why DependencyProperty is static?
+⭐ What happens internally when binding is evaluated?
+When a binding is evaluated, WPF creates a BindingExpression, resolves the source and path, transfers the value, subscribes to change notifications, and keeps source and target synchronized based on binding mode.
+
+WPF                             USD / Omniverse
+--------------------------------------------------------
+Visual Tree                     Stage (Prim hierarchy)
+UIElement                       Prim
+DependencyProperty              Attribute
+Binding                         Data flow / updates
+Transform                       XformOps
+Layout                          Spatial transform (simplified)
+Rendering (DirectX)             Hydra / RTX
+Dirty invalidation              Dirty prim sync
+Templates                       Composition
+
+“Many modern systems, including WPF, browsers, USD, and even reactive frameworks, follow a common pattern of maintaining a retained graph of state, tracking changes, and propagating updates efficiently through dependencies.”

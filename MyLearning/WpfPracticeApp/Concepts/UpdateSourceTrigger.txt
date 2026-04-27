@@ -1,0 +1,212 @@
+UPDATE SOURCE TRIGGER (WPF)
+
+Definition:
+UpdateSourceTrigger controls WHEN the value from the UI (target) is pushed back to the ViewModel (source).
+
+Used mainly with:
+- Mode=TwoWay bindings
+
+--------------------------------------------------
+
+1. PropertyChanged
+
+Meaning:
+Updates source immediately on every change.
+
+Example:
+<TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+Behavior:
+User types → ViewModel updated instantly (every keystroke)
+
+Use cases:
+- Live validation
+- Search-as-you-type
+- Real-time updates
+
+--------------------------------------------------
+
+2. LostFocus (Default for TextBox)
+
+Meaning:
+Updates source only when control loses focus.
+
+Example:
+<TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+
+Behavior:
+User types → no update yet
+User clicks outside → ViewModel updated
+
+Use cases:
+- Forms
+- Avoid frequent updates
+- Better performance
+
+--------------------------------------------------
+
+3. Explicit
+
+Meaning:
+Updates source ONLY when manually triggered.
+
+Example:
+<TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+
+Manual update:
+var be = textBox.GetBindingExpression(TextBox.TextProperty);
+be.UpdateSource();
+
+Behavior:
+No automatic updates
+
+Use cases:
+- Submit button scenarios
+- Wizard forms
+- Batch validation
+
+--------------------------------------------------
+
+DEFAULT BEHAVIOR
+
+TextBox.Text:
+- Default = LostFocus
+
+Most other properties:
+- Default = PropertyChanged
+
+--------------------------------------------------
+
+SUMMARY
+
+PropertyChanged → Immediate update
+LostFocus       → Update on focus loss
+Explicit        → Manual update only
+
+--------------------------------------------------
+
+MENTAL MODEL
+
+UI change → (when?) → ViewModel update
+           ↑
+   Controlled by UpdateSourceTrigger
+
+--------------------------------------------------
+
+INTERVIEW ONE-LINER
+
+UpdateSourceTrigger defines when a TwoWay binding updates the source from the target.
+
+GETBINDINGEXPRESSION (WPF)
+
+Definition:
+GetBindingExpression retrieves the runtime binding object (BindingExpression) associated with a dependency property.
+
+--------------------------------------------------
+
+WHY IT IS NEEDED
+
+Normally, bindings are automatic:
+<TextBox Text="{Binding Name}" />
+
+But sometimes we need manual control:
+- Force update ViewModel
+- Force refresh UI
+- Debug binding issues
+
+--------------------------------------------------
+
+BASIC USAGE
+
+var be = textBox.GetBindingExpression(TextBox.TextProperty);
+
+be = BindingExpression (runtime binding object)
+
+--------------------------------------------------
+
+MAIN OPERATIONS
+
+1. UpdateSource()
+
+be.UpdateSource();
+
+Meaning:
+Push value from UI → ViewModel
+
+Use case:
+- Explicit binding
+- Save button scenarios
+
+--------------------------------------------------
+
+2. UpdateTarget()
+
+be.UpdateTarget();
+
+Meaning:
+Pull value from ViewModel → UI
+
+Use case:
+- Refresh UI manually
+- Force re-evaluation
+
+--------------------------------------------------
+
+3. Check Status
+
+be.Status
+
+Meaning:
+Check binding state (Active, Error, etc.)
+
+Use case:
+- Debugging bindings
+
+--------------------------------------------------
+
+FULL EXAMPLE
+
+XAML:
+<TextBox x:Name="txtName"
+         Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+
+<Button Content="Save" Click="OnSave"/>
+
+Code-behind:
+private void OnSave(object sender, RoutedEventArgs e)
+{
+    var be = txtName.GetBindingExpression(TextBox.TextProperty);
+    be.UpdateSource();
+}
+
+--------------------------------------------------
+
+IMPORTANT DETAIL
+
+You must pass the DependencyProperty:
+
+TextBox.TextProperty
+
+Because binding is tied to DependencyProperty, not normal properties.
+
+--------------------------------------------------
+
+WHEN TO USE
+
+- Submit button forms
+- Manual validation flows
+- Performance optimization
+- Debugging binding issues
+
+--------------------------------------------------
+
+MENTAL MODEL
+
+Binding = pipe
+GetBindingExpression = handle to the pipe
+
+--------------------------------------------------
+
+INTERVIEW ONE-LINER
+
+GetBindingExpression retrieves the runtime binding object for a dependency property, allowing manual control like updating source or target.
