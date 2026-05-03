@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace CSharpPractice.DesignPatterns
 {
+    /*
+     * Factory → creates one object
+       Abstract Factory → creates a family of objects
+     * 
+     */
+
     // =========================
     // 1. Abstract Products
     // =========================
