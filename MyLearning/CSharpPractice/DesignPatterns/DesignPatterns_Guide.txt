@@ -1,0 +1,222 @@
+/*
+==========================================================
+DESIGN PATTERNS – PRACTICAL THINKING GUIDE (INTERVIEW READY)
+==========================================================
+
+CORE IDEA
+---------
+Design patterns are NOT code templates.
+They are ways to think about recurring problems.
+
+Wrong:
+    "Does my code match Strategy pattern diagram?"
+
+Right:
+    "Do I have interchangeable behavior? → Strategy idea"
+
+
+----------------------------------------------------------
+UNIVERSAL PATTERN LENS (HOW TO THINK)
+----------------------------------------------------------
+
+Ask these questions:
+
+1. Is behavior changing dynamically?
+   → Strategy
+
+2. Do I need to notify multiple listeners?
+   → Observer
+
+3. Do two components not match?
+   → Adapter
+
+4. Do I want to add behavior without modifying class?
+   → Decorator
+
+5. Do I want to represent actions as objects?
+   → Command
+
+6. Is object creation complex or variable?
+   → Factory
+
+7. Do I want fixed flow with customizable steps?
+   → Template Method
+
+
+----------------------------------------------------------
+PATTERN CHEAT SHEET (REAL-WORLD VIEW)
+----------------------------------------------------------
+
+Strategy
+--------
+Intent:
+    Encapsulate interchangeable behavior
+
+Use when:
+    - Many if-else conditions
+    - Behavior changes based on type/config
+
+Avoid when:
+    - Only 1–2 simple conditions
+
+Example:
+    Payment methods, sorting logic
+
+
+Observer
+--------
+Intent:
+    One-to-many notification
+
+Use when:
+    - UI updates automatically
+    - Event-driven systems
+
+Avoid when:
+    - Simple direct calls suffice
+
+.NET Example:
+    events, INotifyPropertyChanged
+
+
+Adapter
+-------
+Intent:
+    Convert one interface into another
+
+Use when:
+    - Integrating legacy code
+    - Type mismatch between layers
+
+Avoid when:
+    - Interfaces already match
+
+Example:
+    IValueConverter (WPF)
+    COM → .NET wrappers
+
+
+Decorator
+---------
+Intent:
+    Add behavior dynamically without modifying class
+
+Use when:
+    - Need combinations of features
+    - Avoid subclass explosion
+
+Avoid when:
+    - Behavior is static
+
+Example:
+    Stream wrappers
+
+
+Command
+-------
+Intent:
+    Encapsulate actions as objects
+
+Use when:
+    - Undo/Redo
+    - Queues / workflows
+    - Logging actions
+
+Avoid when:
+    - Simple direct method call
+
+WPF Note:
+    ICommand used mainly for UI decoupling (not history)
+
+
+Factory
+-------
+Intent:
+    Control object creation
+
+Use when:
+    - Creation logic varies
+    - Want to hide concrete types
+
+Avoid when:
+    - Simple "new" is enough
+
+Example:
+    File.OpenRead()
+
+
+Template Method
+---------------
+Intent:
+    Define algorithm skeleton, allow customization
+
+Use when:
+    - Same flow, different steps
+
+Avoid when:
+    - No shared flow
+
+Example:
+    Framework lifecycle methods
+
+
+----------------------------------------------------------
+DOs (IMPORTANT)
+----------------------------------------------------------
+
+1. Think in problems, not patterns
+2. Use patterns only when needed
+3. Prefer simple code first
+4. Recognize patterns in frameworks
+5. Combine patterns naturally
+
+
+----------------------------------------------------------
+DON’Ts (VERY IMPORTANT)
+----------------------------------------------------------
+
+1. Don’t force patterns
+2. Don’t memorize UML diagrams
+3. Don’t say pattern names blindly
+4. Don’t ignore trade-offs
+5. Don’t separate patterns from real-world usage
+
+
+----------------------------------------------------------
+REAL-WORLD MAPPING (WPF EXAMPLE)
+----------------------------------------------------------
+
+WPF MVVM uses multiple patterns:
+
+- ICommand → Command
+- INotifyPropertyChanged → Observer
+- IValueConverter → Adapter
+- Control lifecycle → Template Method
+
+→ This is how patterns actually appear in systems
+
+
+----------------------------------------------------------
+SENIOR-LEVEL INTERVIEW STATEMENT
+----------------------------------------------------------
+
+"I don’t try to match code to textbook patterns.
+Instead, I identify the underlying problem—
+whether it involves varying behavior, decoupling, 
+or interface mismatch—and apply the simplest 
+solution inspired by the pattern."
+
+
+
+----------------------------------------------------------
+FINAL TAKEAWAY
+----------------------------------------------------------
+
+Do NOT write code to fit a pattern.
+
+Write code to solve a problem.
+
+Patterns will naturally emerge.
+
+==========================================================
+*/
