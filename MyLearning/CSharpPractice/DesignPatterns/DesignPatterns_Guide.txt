@@ -2,6 +2,10 @@
 ==========================================================
 DESIGN PATTERNS – PRACTICAL THINKING GUIDE (INTERVIEW READY)
 ==========================================================
+A design pattern is defined by intent, not by syntax — so it can be implemented without classes/interfaces, as long as the intent is preserved.
+
+Identify the problem → recognize the pattern intent → implement the simplest code that satisfies that intent.
+You don’t need to follow textbook class diagrams, but you do need to preserve the pattern’s core guarantees.
 
 CORE IDEA
 ---------
@@ -21,7 +25,7 @@ UNIVERSAL PATTERN LENS (HOW TO THINK)
 
 Ask these questions:
 
-1. Is behavior changing dynamically?
+1. Is behavior changing dynamically - Is decision made between multiple strategies?
    → Strategy
 
 2. Do I need to notify multiple listeners?
