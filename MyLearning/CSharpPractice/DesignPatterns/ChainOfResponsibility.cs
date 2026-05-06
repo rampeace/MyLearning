@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSharpPractice.DesignPatterns
 {
+   // The chain itself is dynamic. The chain itself is dynamic. The pipeline can change at runtime. To support that flexibility, every node must expose a common operation.
    // Example 1: 
-       public class RegistrationRequest
+    public class RegistrationRequest
     {
         public string Username { get; set; }
         public string Password { get; set; }
