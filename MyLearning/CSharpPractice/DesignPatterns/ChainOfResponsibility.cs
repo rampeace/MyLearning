@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSharpPractice.DesignPatterns
 {
+   // The chain itself is dynamic. The pipeline can change at runtime. To support that flexibility, every node must expose a common operation.
    // Example 1: 
-       public class RegistrationRequest
+    public class RegistrationRequest
     {
         public string Username { get; set; }
         public string Password { get; set; }
@@ -139,7 +140,7 @@ namespace CSharpPractice.DesignPatterns
 
     public class ChainOfResponsibilityTest
     {
-        public static void Main()
+        public static void Test()
         {
             var level1 = new Level1Support();
             var level2 = new Level2Support();
