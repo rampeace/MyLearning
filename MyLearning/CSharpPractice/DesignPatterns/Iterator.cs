@@ -6,6 +6,17 @@ using System.Threading.Tasks;
 
 namespace CSharpPractice.DesignPatterns
 {
+/*   
+    Move beyond:
+    
+    “iterator = loop helper”
+    
+    into the deeper systems-level understanding:
+    
+    “iterator = traversal projection abstraction”
+    
+    That’s the real power.
+*/
   public class BookCollection : IEnumerable
   {
       private string[] _books =
