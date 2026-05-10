@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,7 +64,7 @@ namespace CSharpPractice.DesignPatterns
   }
 
 // Modern C# Version
-public class BookCollection
+public class BookCollectionModern
 {
     private List<string> _books = new()
     {

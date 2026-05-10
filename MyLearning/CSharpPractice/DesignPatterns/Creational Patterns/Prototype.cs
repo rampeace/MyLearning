@@ -15,7 +15,7 @@ namespace CSharpPractice.DesignPatterns
     {
         public string Author { get; set; }
     }
-    public class Document : IPrototype<Document>
+    public class PrototypeDocument : IPrototype<PrototypeDocument>
     {
         public string Title { get; set; }
         public string Content { get; set; }
@@ -23,10 +23,10 @@ namespace CSharpPractice.DesignPatterns
         // Nested object (to show deep copy)
         public Metadata Meta { get; set; }
 
-        public Document Clone()
+        public PrototypeDocument Clone()
         {
             // Deep copy
-            return new Document
+            return new PrototypeDocument
             {
                 Title = this.Title,
                 Content = this.Content,
@@ -51,7 +51,7 @@ namespace CSharpPractice.DesignPatterns
         public static void Test()
         {
             // Create a template (prototype)
-            var template = new Document
+            var template = new PrototypeDocument
             {
                 Title = "Template",
                 Content = "Default content...",
