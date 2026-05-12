@@ -1,0 +1,47 @@
+int x = 10;
+
+int* p = &x;
+
+int** pp = &p;
+
+
+x ----> 10
+p ----> address of x
+*p ---> 10 
+pp ---> address of p
+*pp --> address of x
+**pp--> 10
+
+p   = memory address value of one * left
+*p  = actual value one one * left
+
+___________________________________________________________
+
+int x = 5;
+
+int* p = &x;
+
+int** pp = &p;
+
+**pp = 20;
+
+cout << x << endl;
+
+Ans: 20
+___________________________________________________________
+
+int a = 10;
+int b = 50;
+
+int* p = &a;
+
+*p = 100;
+
+p = &b;
+
+*p = 200;
+
+cout << a << endl;
+cout << b << endl;
+
+___________________________________________________________

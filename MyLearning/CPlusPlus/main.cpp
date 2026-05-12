@@ -9,14 +9,15 @@
 #include "simple_shared_ptr.h"
 #include "variadic_templates.h"
 #include "functor.h"
+#include "Pointers/pointers.h"
 
 using namespace std;
 
 int main()
 {
-	Functor zip;
-	
-	zip(30);
+	int arr[5] = { 10, 20, 30, 40, 50 };
+
+	cout << Max(arr, 5);
 
 	return 0;
 }
