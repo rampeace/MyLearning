@@ -1,0 +1,63 @@
+Possible values:
+
+Unsigned:
+
+0 → 1 → 2 → ... → 255
+
+Signed reinterpretation:
+
+0 → 1 → ... → 127 → -128 → -127 → ... → -1
+__________________________________________________________
+Roll over
+255 + 1 → 0
+-1 + 1
+ 
+__________________________________________________________
+Actual Bits weights evaluation:
+ 
+ Unsigned:
+ 
+ 11111111 
+ 
+  1 1 1 1 1 1 1 1
+ 128 64 32 16 8 4 2 1
+ 
+ Total: 255
+ 
+ Signed
+ 11111111
+ -128 64 32 16 8 4 2 1
+ 
+ Total: -1
+Slightly modified formula: -2^7 + 2^6 + 2^5 + ... + 2^0 
+__________________________________________________________
+
+Traditional decimal intuition:
+583
+5×10² + 8×10¹ + 3×10⁰
+
+This feels “natural.”
+
+But actually:
+
+those weights are chosen conventions
+
+based on interpretation system.
+__________________________________________________________
+Signed interpretation says:
+
+-128 64 32 16 8 4 2 1
+
+Now suddenly: 11111111 means: −1 not: 255
+
+This proves:
+
+Bit positions do NOT inherently possess fixed weights.
+
+Weights are assigned by:
+
+interpretation systems
+encoding rules
+mathematical models
+ 
+ 
