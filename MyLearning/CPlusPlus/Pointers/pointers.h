@@ -144,3 +144,22 @@ void ReverseUsingPointers(char* s)
 		--end;
 	}
 }
+
+void* MyMemcpy(void* dest, const void* src, size_t size)
+{
+    const unsigned char* s = (const unsigned char*)src;
+    unsigned char* d = (unsigned char*)dest;
+
+    const unsigned char* start = s;
+    const unsigned char* end = s + size;
+
+    while (start < end)
+    {
+        *d = *start;
+
+        ++start;
+        ++d;
+    }
+
+    return dest;
+}
