@@ -74,6 +74,11 @@ void Copy(int* src, int* dest, int size)
 	}
 }
 
+void SwapUsingPointers(int* left, int* right)
+{
+	// Exercise: swap the two integer values by dereferencing left and right.
+}
+
 int MyStrLen(const char* str)
 {
 	const char* p = str;
@@ -163,3 +168,17 @@ void* MyMemcpy(void* dest, const void* src, size_t size)
 
     return dest;
 }
+
+/*
+*   memset
+	strcpy
+	strcmp
+	strcat
+	memcmp
+	strchr
+	atoi
+	strstr
+	memmove
+*/
+
+
