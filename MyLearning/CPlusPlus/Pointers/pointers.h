@@ -169,6 +169,25 @@ void* MyMemcpy(void* dest, const void* src, size_t size)
     return dest;
 }
 
+void* memset(void* dest, int value, size_t size)
+{
+	unsigned char* d = (unsigned char*)dest;
+
+	unsigned char* start = d;
+	unsigned char* end = d + size;
+
+	unsigned char byte = (unsigned char)value;
+
+	while (start < end)
+	{
+		*start = byte;
+
+		++start;
+	}
+
+	return d;
+}
+
 /*
 *   memset
 	strcpy
