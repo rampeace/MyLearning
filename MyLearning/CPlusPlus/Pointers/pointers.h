@@ -188,6 +188,23 @@ void* memset(void* dest, int value, size_t size)
 	return d;
 }
 
+char* strcpy(char* dest, const char* src)
+{
+	const char* from = src;
+	char* to = dest;
+
+	while (*from != '\0')
+	{
+		*to = *from;
+
+		++to;
+		++from;
+	}
+
+	*to = '\0';
+
+	return to;
+}
 /*
 *   memset
 	strcpy
