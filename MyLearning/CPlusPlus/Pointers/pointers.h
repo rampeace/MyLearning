@@ -205,6 +205,31 @@ char* strcpy(char* dest, const char* src)
 
 	return to;
 }
+
+char* MyStrcat(char* dest, const char* src)
+{
+	char* to = dest;
+
+	while (*to != '\0')
+	{
+		++to;
+	}
+
+	const char* from = src;
+
+	while (*from != '\0')
+	{
+		*to = *from;
+
+		++to;
+		++from;
+	}
+
+	*to = '\0';
+
+	return dest;
+}
+
 /*
 *   memset
 	strcpy
