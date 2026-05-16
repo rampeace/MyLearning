@@ -13,11 +13,18 @@
 
 using namespace std;
 
+void ChangeName(string* name)
+{
+	*name = "Changed";
+}
+
 int main()
 {
-	int arr[5] = { 10, 20, 30, 40, 50 };
+	string s = "original";
 
-	cout << Max(arr, 5);
+	ChangeName(&s);
+
+	cout << s << endl;
 
 	return 0;
 }

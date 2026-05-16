@@ -1,0 +1,312 @@
+Modern C++ Ownership & Lifetime Discipline (Rust-Inspired)
+
+======================================================================
+CORE PHILOSOPHY
+======================================================================
+
+1. Prefer stack allocation whenever possible.
+
+    Customer c;
+
+instead of:
+
+    Customer* c = new Customer();
+
+---------------------------------------------------------------------
+
+2. Let objects own and clean up their internal resources automatically (RAII).
+
+    class Customer
+    {
+        std::string name;
+        std::vector<int> orders;
+    };
+
+Objects should internally use:
+- std::string
+- std::vector
+- std::unique_ptr
+- other RAII-enabled types
+
+instead of raw resources.
+
+---------------------------------------------------------------------
+
+3. Heap allocation only when truly necessary.
+
+Use heap mainly for:
+- polymorphism
+- shared lifetime
+- long-lived objects
+- large/dynamic structures
+
+---------------------------------------------------------------------
+
+4. If heap allocation is needed, use smart pointers.
+
+    auto c = std::make_unique<Customer>();
+
+Avoid:
+
+    Customer* c = new Customer();
+    delete c;
+
+---------------------------------------------------------------------
+
+5. Avoid raw owning pointers.
+
+Raw pointers should usually mean:
+- borrowed access
+- observer
+- nullable reference
+
+NOT ownership.
+
+======================================================================
+RULE OF ZERO
+======================================================================
+
+Design classes so you do NOT manually write:
+- destructor
+- copy constructor
+- copy assignment
+- move constructor
+- move assignment
+
+Instead compose ownership-aware members.
+
+    class Customer
+    {
+        std::string name;
+        std::vector<int> orders;
+        std::unique_ptr<Address> address;
+    };
+
+======================================================================
+COPY & MOVE DISCIPLINE
+======================================================================
+
+For resource-owning classes:
+
+If resource cannot be safely duplicated:
+
+    class ResourceOwner
+    {
+    public:
+        ResourceOwner(const ResourceOwner&) = delete;
+        ResourceOwner& operator=(const ResourceOwner&) = delete;
+
+        ResourceOwner(ResourceOwner&&) noexcept = default;
+        ResourceOwner& operator=(ResourceOwner&&) noexcept = default;
+    };
+
+Meaning:
+- no copying
+- move allowed
+
+Very Rust-like ownership transfer.
+
+---------------------------------------------------------------------
+
+For normal value classes:
+
+Copying is fine.
+
+    class Customer
+    {
+    public:
+        std::string name;
+        int age;
+    };
+
+Because:
+- std::string safely manages its own heap memory.
+
+======================================================================
+MUTATION DISCIPLINE (RUST-INSPIRED)
+======================================================================
+
+Core Rule:
+
+    At any moment:
+    either many readers
+    OR one writer
+
+---------------------------------------------------------------------
+
+Sequential mutation is okay.
+
+    update_by_ram(&mut customer);
+    update_by_raj(&mut customer);
+
+because:
+- first mutable borrow ends
+- second one starts afterward
+
+---------------------------------------------------------------------
+
+Overlapping mutable access is dangerous.
+
+Rust blocks:
+
+    let a = &mut customer;
+    let b = &mut customer; // not allowed
+
+because:
+- multiple active writers create aliasing/mutation problems.
+
+---------------------------------------------------------------------
+
+Reader + writer overlap is also dangerous.
+
+Rust blocks:
+- immutable + mutable borrow together
+
+because mutation may:
+- invalidate memory
+- reallocate internal buffers
+- create dangling references
+
+======================================================================
+C++ DISCIPLINE EQUIVALENT
+======================================================================
+
+1. Prefer const everywhere for read-only access.
+
+    void Print(const Customer& c);
+
+If a function does not modify:
+- make parameter const.
+
+---------------------------------------------------------------------
+
+2. Use non-const reference only for intentional mutation.
+
+    void Update(Customer& c);
+
+This clearly communicates:
+- mutation intended.
+
+---------------------------------------------------------------------
+
+3. Keep mutable access short-lived.
+
+Prefer:
+- small mutation scopes
+- centralized updates
+- controlled APIs
+
+---------------------------------------------------------------------
+
+4. Centralize mutation.
+
+Good:
+
+    customer.Deposit(100);
+    customer.Withdraw(50);
+
+instead of exposing mutable state everywhere.
+
+======================================================================
+LIFETIME DISCIPLINE
+======================================================================
+
+Never return reference/pointer to local variable.
+
+Bad:
+
+    const Customer& Get()
+    {
+        Customer c;
+        return c; // dangling
+    }
+
+because:
+- local object dies after function exits.
+
+---------------------------------------------------------------------
+
+Borrow must not outlive owner.
+
+Dangerous:
+
+    const Customer& ref;
+
+    {
+        Customer c;
+        ref = c; // ref outlives owner
+    }
+
+Rust prevents this at compile time.
+
+C++ requires discipline.
+
+======================================================================
+MODERN C++ SAFETY TOOLING
+======================================================================
+
+Free and highly recommended:
+
+- clang-tidy
+    ownership/style/lifetime analysis
+
+- AddressSanitizer (ASan)
+    detects use-after-free, corruption
+
+- UndefinedBehaviorSanitizer
+    UB detection
+
+- LeakSanitizer
+    memory leak detection
+
+- clang static analyzer
+    advanced static analysis
+
+- GSL
+    ownership annotations
+
+- Visual Studio Community
+    integrated analysis/debugging
+
+---------------------------------------------------------------------
+
+Powerful setup:
+
+1. clang-tidy
+2. AddressSanitizer
+3. GSL
+4. Visual Studio Community
+
+This already provides near professional-grade modern C++ safety tooling.
+
+======================================================================
+FINAL MENTAL MODEL
+======================================================================
+
+BAD:
+
+    Raw resources directly managed everywhere
+
+Requires:
+- manual delete
+- manual move/copy logic
+- manual lifetime tracking
+
+Very error-prone.
+
+---------------------------------------------------------------------
+
+GOOD:
+
+    Resources encapsulated inside ownership-aware RAII objects
+
+Then:
+- cleanup automatic
+- move semantics safer
+- copy semantics clearer
+- ownership compositional
+- lifetime easier to reason about
+
+This is essentially:
+
+    "Rust-style ownership discipline inside modern C++."
