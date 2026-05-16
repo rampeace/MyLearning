@@ -209,3 +209,26 @@ This document covers a **comprehensive list of C++ STL (Standard Template Librar
 ---
 
 > Feel free to fork this list or contribute additional questions or answers!
+
+---
+
+## C++ Tooling
+
+This project is set up with:
+
+- `clang-tidy` through the `x64-debug-tidy` CMake preset.
+- AddressSanitizer through the `x64-debug-asan` CMake preset.
+- Microsoft GSL through `vcpkg.json`.
+
+Run these from an x64 Visual Studio Developer Command Prompt:
+
+```powershell
+cmake --fresh --preset x64-debug
+cmake --build --preset x64-debug
+
+cmake --fresh --preset x64-debug-asan
+cmake --build --preset x64-debug-asan
+
+cmake --fresh --preset x64-debug-tidy
+cmake --build --preset x64-debug-tidy
+```
