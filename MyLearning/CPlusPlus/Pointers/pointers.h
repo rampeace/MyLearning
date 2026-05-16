@@ -169,6 +169,67 @@ void* MyMemcpy(void* dest, const void* src, size_t size)
     return dest;
 }
 
+void* memset(void* dest, int value, size_t size)
+{
+	unsigned char* d = (unsigned char*)dest;
+
+	unsigned char* start = d;
+	unsigned char* end = d + size;
+
+	unsigned char byte = (unsigned char)value;
+
+	while (start < end)
+	{
+		*start = byte;
+
+		++start;
+	}
+
+	return d;
+}
+
+char* strcpy(char* dest, const char* src)
+{
+	const char* from = src;
+	char* to = dest;
+
+	while (*from != '\0')
+	{
+		*to = *from;
+
+		++to;
+		++from;
+	}
+
+	*to = '\0';
+
+	return to;
+}
+
+char* MyStrcat(char* dest, const char* src)
+{
+	char* to = dest;
+
+	while (*to != '\0')
+	{
+		++to;
+	}
+
+	const char* from = src;
+
+	while (*from != '\0')
+	{
+		*to = *from;
+
+		++to;
+		++from;
+	}
+
+	*to = '\0';
+
+	return dest;
+}
+
 /*
 *   memset
 	strcpy
