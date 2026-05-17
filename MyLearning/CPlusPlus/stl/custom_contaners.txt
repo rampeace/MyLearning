@@ -225,3 +225,74 @@ But externally STL sees only:
     it != end
 
 This abstraction allows STL algorithms to work generically across completely different data structures.
+
+C++ Template Instantiation and Code Generation
+==============================================
+
+Goal
+----
+Understand how C++ templates work internally through:
+- type substitution
+- template instantiation
+- compile-time code generation
+
+
+The Big Idea
+------------
+A C++ template is not real executable code yet.
+
+It is more like:
+    a blueprint
+    a recipe
+    a generic code pattern
+
+Actual code is generated only when concrete types are used.
+
+
+===========================================================
+1. Basic Template Example
+===========================================================
+
+Template:
+
+template<typename T>
+void Print(T value)
+{
+    std::cout << value << std::endl;
+}
+
+Usage:
+
+Print(10);
+Print(3.14);
+Print("hello");
+
+
+===========================================================
+2. What the Compiler Conceptually Does
+===========================================================
+
+The compiler performs:
+    type substitution
+
+and generates concrete versions.
+
+Conceptually:
+
+void Print(int value)
+{
+    std::cout << value << std::endl;
+}
+
+void Print(double value)
+{
+    std::cout << value << std::endl;
+}
+
+void Print(const char* value)
+{
+    std::cout << value << std::endl;
+}
+
+This process is called:
+    template instantiation
