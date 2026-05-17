@@ -1,4 +1,5 @@
 #include <iostream>
+#include <gsl/pointers>
 
 using namespace std;
 
@@ -94,17 +95,17 @@ int MyStrLen(const char* str)
 	return length;
 }
 
-void CreateNumber(int** p)
+void CreateNumber(gsl::owner<int*>* p)
 {
 	*p = new int;
 }
 
-void CreateArray(int** arr, int size)
+void CreateArray(gsl::owner<int*>* arr, int size)
 {
 	*arr = new int[size];
 }
 
-void CreateNames(string** names, int* size)
+void CreateNames(gsl::owner<string*>* names, int* size)
 {
 	*size = 3;
 
@@ -116,9 +117,9 @@ void CreateNames(string** names, int* size)
 	};
 }
 
-void ResizeArray(int** arr, int oldSize, int newSize)
+void ResizeArray(gsl::owner<int*>* arr, int oldSize, int newSize)
 {
-	int* newArr = new int[newSize];
+	gsl::owner<int*> newArr = new int[newSize];
 
 	int copySize = oldSize < newSize ? oldSize : newSize;
 
@@ -127,7 +128,8 @@ void ResizeArray(int** arr, int oldSize, int newSize)
 		newArr[i] = (*arr)[i];
 	}
 
-	delete[] * arr;
+	gsl::owner<int*> oldArr = *arr;
+	delete[] oldArr;
 
 	*arr = newArr;
 }

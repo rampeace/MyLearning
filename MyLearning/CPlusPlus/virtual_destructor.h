@@ -1,8 +1,15 @@
 #include <iostream>
+#include <memory>
 
 class vehicle
 {
 public:
+	vehicle() = default;
+	vehicle(const vehicle&) = default;
+	vehicle& operator=(const vehicle&) = default;
+	vehicle(vehicle&&) noexcept = default;
+	vehicle& operator=(vehicle&&) noexcept = default;
+
 	virtual void Move() = 0;
 
 	virtual ~vehicle() = default;
@@ -51,20 +58,18 @@ public:
 		//	p.get()->Move();
 
 	    std::string input = "";
-		vehicle* base = nullptr;
+		std::unique_ptr<vehicle> base = nullptr;
 
 		std::cout << "Please enter a vehicle type: ";
 		std::cin >> input;
 
 		if (input == "car")
 		{
-			car c;
-			base = &c;
+			base = std::make_unique<car>();
 		}
 		else if (input == "bike")
 		{
-			bike b;
-			base = &b;
+			base = std::make_unique<bike>();
 		}
 
 		if (base != nullptr)

@@ -1,4 +1,5 @@
-#include <algorithm>
+﻿#include <algorithm>
+#include <gsl/pointers>
 
 class move_demo
 {
@@ -8,7 +9,7 @@ public:
 	move_demo(size_t s) : size(s), array(new int[s]) {}
 
 	// copy constructor move_demo(other)
-	move_demo(const move_demo& other) : size(other.size), array(new int[size])
+	move_demo(const move_demo& other) : size(other.size), array(new int[other.size])
 	{
 		
 		// 1		2		3
@@ -44,7 +45,7 @@ public:
 
 		takeValue(MyClass()); // OK
 		MyClass a;
-		takeValue(a);         // Error � a is an lvalue
+		takeValue(a);         // Error — a is an lvalue
 
 		template<typename T>
 			T&& move(T& arg) {
@@ -100,7 +101,8 @@ public:
 	}
 
 private:
-	int* array;
 	size_t size;
+	gsl::owner<int*> array;
 };
+
 

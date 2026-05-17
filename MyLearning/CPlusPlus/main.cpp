@@ -10,6 +10,7 @@
 #include "variadic_templates.h"
 #include "functor.h"
 #include "Pointers/pointers.h"
+#include <memory>
 
 using namespace std;
 
@@ -21,17 +22,9 @@ void ChangeName(string* name)
 class Test
 {
 public:
-	Test()
-	{
-		p = new string();
-	}
-
-	~Test()
-	{
-		delete p;
-	}
+	Test() : p(std::make_unique<string>()) {}
 private:
-	string* p;
+	std::unique_ptr<string> p;
 };
 
 int main()
