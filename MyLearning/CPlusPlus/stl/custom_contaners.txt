@@ -1,0 +1,227 @@
+Custom STL-Style Iterator Intuition
+===================================
+
+Goal
+----
+Understand how custom containers support STL-style iteration.
+
+Key Idea
+--------
+STL algorithms do not care about container internals.
+
+They only care whether the container exposes valid iterators.
+
+Iterators usually support:
+    ++it      // move next
+    *it       // access current value
+    it != end // compare
+
+Different containers implement traversal differently internally.
+
+
+===========================================================
+1. MyVector
+===========================================================
+
+Vector stores elements contiguously in memory.
+
+Memory:
+    1000 -> 10
+    1004 -> 20
+    1008 -> 30
+
+Iterator can simply be:
+    int*
+
+because raw pointers already naturally support:
+    ++p
+    *p
+    p != end
+
+Example:
+
+class MyVector
+{
+private:
+    int* data;
+    int size;
+
+public:
+    MyVector(int s)
+    {
+        size = s;
+        data = new int[size];
+    }
+
+    ~MyVector()
+    {
+        delete[] data;
+    }
+
+    int& operator[](int index)
+    {
+        return data[index];
+    }
+
+    int* begin()
+    {
+        return data;
+    }
+
+    int* end()
+    {
+        return data + size;
+    }
+};
+
+#include <iostream>
+#include <algorithm>
+
+int main()
+{
+    MyVector nums(4);
+
+    nums[0] = 40;
+    nums[1] = 10;
+    nums[2] = 30;
+    nums[3] = 20;
+
+    std::sort(nums.begin(), nums.end());
+
+    for (int n : nums)
+    {
+        std::cout << n << std::endl;
+    }
+}
+
+Key Insight:
+-------------
+For contiguous containers, raw pointers themselves are valid iterators.
+
+
+===========================================================
+2. MyList
+===========================================================
+
+Linked list nodes are NOT contiguous.
+
+Memory may look like:
+
+    5000 -> Node(10)
+    9000 -> Node(20)
+    2000 -> Node(30)
+
+Iterator can no longer use raw pointer arithmetic.
+
+Instead, iterator internally stores:
+    Node* current
+
+and overloads:
+    operator++
+    operator*
+    operator!=
+
+Example:
+
+struct Node
+{
+    int value;
+    Node* next;
+};
+
+class Iterator
+{
+private:
+    Node* current;
+
+public:
+    Iterator(Node* node)
+    {
+        current = node;
+    }
+
+    int& operator*()
+    {
+        return current->value;
+    }
+
+    Iterator& operator++()
+    {
+        current = current->next;
+        return *this;
+    }
+
+    bool operator!=(const Iterator& other)
+    {
+        return current != other.current;
+    }
+};
+
+class MyList
+{
+private:
+    Node* head;
+
+public:
+    Iterator begin()
+    {
+        return Iterator(head);
+    }
+
+    Iterator end()
+    {
+        return Iterator(nullptr);
+    }
+};
+
+Traversal:
+
+for (auto it = list.begin(); it != list.end(); ++it)
+{
+    cout << *it << endl;
+}
+
+Key Insight:
+-------------
+For linked lists, iterator movement becomes:
+    current = current->next
+
+instead of pointer arithmetic.
+
+template<typename Iterator>
+void Algo(Iterator begin, Iterator end)
+{
+    Iterator it = begin;
+
+    while (it != end)
+    {
+        cout << *it << endl;
+
+        ++it;
+    }
+}
+
+===========================================================
+Final Mental Model
+===========================================================
+
+Each data structure chooses its own natural traversal strategy.
+
+Vector:
+    pointer arithmetic
+
+List:
+    next-node traversal
+
+Tree:
+    tree navigation
+
+Hash table:
+    bucket traversal
+
+But externally STL sees only:
+    ++it
+    *it
+    it != end
+
+This abstraction allows STL algorithms to work generically across completely different data structures.

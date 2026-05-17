@@ -78,6 +78,10 @@ void Copy(int* src, int* dest, int size)
 void SwapUsingPointers(int* left, int* right)
 {
 	// Exercise: swap the two integer values by dereferencing left and right.
+
+	string s = "hello";
+
+
 }
 
 int MyStrLen(const char* str)

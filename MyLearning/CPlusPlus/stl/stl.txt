@@ -1,0 +1,183 @@
+STL Iterators — Intuition and Mental Model
+
+The Big Idea
+------------
+STL algorithms should work on many different data structures without rewriting the algorithm again and again.
+
+Iterator = A generalized way to move through elements.
+
+Instead of algorithms directly understanding:
+- arrays
+- vectors
+- linked lists
+- trees
+- hash tables
+
+they only understand iterators.
+
+
+Core Architecture
+-----------------
+Container  ---> exposes iterators
+Algorithm  ---> consumes iterators
+
+Examples:
+    sort(begin, end);
+    find(begin, end, value);
+    count(begin, end, value);
+
+Algorithms never care about container internals.
+
+
+Iterator Mental Model
+---------------------
+An iterator behaves like a pointer:
+
+    ++it     // move
+    *it      // access current element
+    it != end
+
+But internally, every container may implement iterator movement differently.
+
+
+Key Insight
+-----------
+Each data structure chooses its own natural traversal strategy.
+
+The iterator encapsulates that traversal logic.
+
+
+Vector Iterator
+---------------
+Vector stores elements contiguously.
+
+Memory:
+    1000 -> 10
+    1004 -> 20
+    1008 -> 30
+
+Iterator internally is almost like:
+    int* it;
+
+So:
+    ++it
+
+simply performs pointer arithmetic.
+
+
+Linked List Iterator
+--------------------
+List nodes are scattered in memory.
+
+Memory:
+    5000 -> Node(10)
+    9000 -> Node(20)
+    2000 -> Node(30)
+
+Iterator internally may contain:
+    Node* current;
+
+So:
+    ++it
+
+means:
+    current = current->next;
+
+Traversal happens through node links, not contiguous memory.
+
+
+Tree Iterator (map/set)
+-----------------------
+Tree-based containers naturally traverse using tree navigation.
+
+Iterator internally may:
+- move left/right
+- move upward to parent
+- locate next ordered node
+
+Yet externally:
+    ++it
+
+still looks identical.
+
+
+Hash Table Iterator (unordered_map)
+-----------------------------------
+Iterator may internally:
+- walk bucket arrays
+- traverse collision chains
+- jump across buckets
+
+Again:
+    ++it
+
+same interface.
+
+
+Why This Is Powerful
+--------------------
+Algorithms like:
+    find(begin, end, value);
+
+do not care:
+- how memory is arranged
+- whether storage is contiguous
+- whether traversal uses nodes or trees
+
+They only trust:
+    "Iterator knows how to move correctly."
+
+
+Iterator Categories
+-------------------
+Different iterators support different capabilities.
+
+Forward Iterator
+    Move forward
+
+Bidirectional Iterator
+    Move forward/backward
+
+Random Access Iterator
+    Jump anywhere
+
+
+Example:
+    vector supports random access:
+        it + 5
+
+    list does not:
+        it + 5   // invalid
+
+because linked lists cannot jump efficiently.
+
+
+Beautiful Separation of Responsibilities
+----------------------------------------
+Container
+    Stores data
+
+Iterator
+    Navigates data
+
+Algorithm
+    Processes data
+
+
+Connection with C# LINQ
+-----------------------
+This is conceptually similar to IEnumerable<T> in C#.
+
+Once a collection supports enumeration:
+- LINQ starts working automatically.
+
+Similarly in STL:
+- once a container exposes iterators,
+- STL algorithms start working automatically.
+
+
+One-Line Mental Summary
+-----------------------
+Iterators abstract traversal,
+allowing algorithms to work generically
+across completely different data structures.

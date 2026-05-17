@@ -29,7 +29,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(Microsoft.GSL CONFIG REQUIRED)
 
-add_executable(CPlusPlus "main.cpp" "move_demo.h" "simple_unique_ptr.h" "virtual_destructor.h" "diamond_problem.h" "shared_ptr_example.h" "weak_ptr_example.h" "vector_example.h" "const.h" "exercises.h" "simple_shared_ptr.h" "variadic_templates.h" "functor.h" "Pointers/pointers.h")
+add_executable(CPlusPlus "main.cpp" "move_demo.h" "simple_unique_ptr.h" "virtual_destructor.h" "diamond_problem.h" "shared_ptr_example.h" "weak_ptr_example.h" "vector_example.h" "const.h" "exercises.h" "simple_shared_ptr.h" "variadic_templates.h" "functor.h" "Pointers/pointers.h" "stl/stl.h")
 
 message(STATUS "C++ Standard is set to: ${CMAKE_CXX_STANDARD}")
 
