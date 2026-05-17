@@ -18,6 +18,22 @@ void ChangeName(string* name)
 	*name = "Changed";
 }
 
+class Test
+{
+public:
+	Test()
+	{
+		p = new string();
+	}
+
+	~Test()
+	{
+		delete p;
+	}
+private:
+	string* p;
+};
+
 int main()
 {
 	string s = "original";

@@ -1,13 +1,15 @@
 Checks: >
-  clang-analyzer-*,
+  clang-analyzer-core.*,
+  clang-analyzer-cplusplus.NewDelete*,
   bugprone-*,
-  cppcoreguidelines-*,
-  modernize-*,
+  cppcoreguidelines-owning-memory,
+  cppcoreguidelines-special-member-functions,
   performance-*,
-  readability-*,
-  -cppcoreguidelines-avoid-magic-numbers,
-  -readability-magic-numbers,
-  -readability-identifier-length
-WarningsAsErrors: ''
+  -bugprone-easily-swappable-parameters,
+  -performance-avoid-endl
+WarningsAsErrors: >
+  cppcoreguidelines-owning-memory,
+  cppcoreguidelines-special-member-functions,
+  clang-analyzer-cplusplus.NewDelete
 HeaderFilterRegex: '.*'
 FormatStyle: file
