@@ -388,3 +388,9 @@ If these operations compile:
 
 If not:
     compilation fails
+
+
+LINQ tries to make most algorithms work everywhere.
+
+STL allows algorithms only when the iterator
+naturally supports the required traversal behavior.

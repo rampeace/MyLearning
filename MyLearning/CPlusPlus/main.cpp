@@ -14,26 +14,18 @@
 
 using namespace std;
 
-void ChangeName(string* name)
-{
-	*name = "Changed";
-}
-
-class Test
-{
-public:
-	Test() : p(std::make_unique<string>()) {}
-private:
-	std::unique_ptr<string> p;
-};
-
 int main()
 {
-	string s = "original";
+	vector<int> v = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-	ChangeName(&s);
+	auto it = v.begin();
 
-	cout << s << endl;
+	while (it < v.end())
+	{
+		cout << *it << endl;
+
+		++it;
+	}
 
 	return 0;
 }
