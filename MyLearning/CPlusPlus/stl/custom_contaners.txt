@@ -296,3 +296,95 @@ void Print(const char* value)
 
 This process is called:
     template instantiation
+
+    Duck Typing — Intuition and Mental Model
+========================================
+
+Goal
+----
+Understand the idea of duck typing and how it relates to:
+- C++ templates
+- STL iterators
+- generic programming
+
+
+The Big Idea
+------------
+Duck typing means:
+
+    "If something behaves correctly,
+     we don't care about its actual type."
+
+The name comes from the famous phrase:
+
+    "If it walks like a duck
+     and quacks like a duck,
+     it is a duck."
+
+
+===========================================================
+1. Behavior Matters More Than Type
+===========================================================
+
+Traditional type systems often ask:
+
+    "What class does this object belong to?"
+
+Duck typing instead asks:
+
+    "Can this object perform the required operations?"
+
+
+===========================================================
+2. Real-World Analogy
+===========================================================
+
+Suppose we need something that:
+- walks
+- quacks
+
+Duck typing philosophy says:
+
+    We don't care whether it is:
+    - a real duck
+    - a robot duck
+    - a cartoon duck
+
+If it behaves like a duck,
+we can use it.
+
+
+===========================================================
+3. C++ Template Example
+===========================================================
+
+Generic STL-style algorithm:
+
+template<typename Iterator>
+void Algo(Iterator begin, Iterator end)
+{
+    Iterator it = begin;
+
+    while (it != end)
+    {
+        cout << *it << endl;
+
+        ++it;
+    }
+}
+
+The template does NOT ask:
+
+    "Is Iterator derived from some base class?"
+
+Instead it simply tries:
+
+    ++it
+    *it
+    it != end
+
+If these operations compile:
+    algorithm works
+
+If not:
+    compilation fails
